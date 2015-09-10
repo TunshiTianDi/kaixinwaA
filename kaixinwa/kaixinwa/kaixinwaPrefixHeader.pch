@@ -1,0 +1,90 @@
+//
+//  kaixinwaPrefixHeader.pch
+//  kaixinwa
+//
+//  Created by 郭庆宇 on 15/6/28.
+//  Copyright (c) 2015年 郭庆宇. All rights reserved.
+//
+
+#ifndef kaixinwa_kaixinwaPrefixHeader_pch
+#define kaixinwa_kaixinwaPrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+    #import "UIView+Extension.h"
+    #import "UIImage+Extension.h"
+    #import "NSDate+MJ.h"
+    #import "UIBarButtonItem+Extension.h"
+
+#ifdef DEBUG
+#define DCLog(...) NSLog(__VA_ARGS__)
+#else
+#define DCLog(...)
+#endif
+// 系统版本
+#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue]>= 7.0)
+
+// 颜色
+#define QKColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+// 全局背景色
+#define QKGlobalBg QKColor(234, 234, 234)
+//Cell间距
+#define QKCellMargin 10
+//屏幕宽度
+#define QKScreenWidth [UIScreen mainScreen].bounds.size.width
+
+//注册参数
+#define UUID [NSUUID UUID].UUIDString
+#define MiYao @"U2FsdGVkX1+zY61T/9h6KxyTBWVwbNR9Z01QjZN5EmT5BzDIEROXMFb9it8VgTrWYippi/B79Y0u+ZXJMwSLXGo8imoz9OTrB3k0uhvjIEyi4pF27xCm/Cg0pW0T3SoS9oCORpIFF/600rCAvhDsMOADCKCBtvLhpL4YpLKHQ3/jqQFsjWF8YUVMc0x9LtPa3eeGQIFsdRDr2nSWMlnGQExvNvyKnfLWUrH+YkJDIJlYzXihdv32yMw+vCf/DDa2Oq4CU2BkzLqff4IjGmA/9+FP2SS19kDMzdf5e1DO132QBhHDrLy1ffrSIabFRHVfSVDsy1qZSsC7Ea24RdmQBQ=="
+#define MobAppKey @"870a53fd6800"
+#define MobAppSecret @"5da79d2a4f7f1b6874ae01ff2eed7e34"
+#pragma mark interface
+//登录接口
+#define LoginInterface @"http://101.200.173.163/qkhl_api/index.php/kxwapi/User/login"
+//注册接口
+#define RegisteInterface @"http://101.200.173.163/qkhl_api/index.php/kxwapi/User/regist"
+//短信验证码
+#define SendSMSInterface @"http://101.200.173.163/qkhl_api/index.php/kxwapi/Sms/sendSMS"
+
+//每日签到接口
+#define SignEverydayInterface @"http://101.200.173.163/qkhl_api/index.php/kxwapi/Sign/doSign"
+//修改信息接口
+#define UpdataUserInfoInterface @"http://101.200.173.163/qkhl_api/index.php/kxwapi/User/updateInfo"
+
+//获取开心豆接口
+#define GetHappyPeaInterface @"http://101.200.173.163/qkhl_api/index.php/kxwapi/Beancount/getcount"
+
+#define QKUserDefaults [NSUserDefaults standardUserDefaults]
+
+//判断手机型号
+#define FourInch ([UIScreen mainScreen].bounds.size.height == 568.0)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
+
+//阿里云密匙
+#define ALBB_OSS_AccessKey @"EHYIkXpXsuBqP2Gq"
+#define ALBB_OSS_SecretKey @"oDudtCM3kxDgayHSsC8WZfM1I6FZJ5"
+#define ALBB_OSS_HostID @"oss-cn-beijing.aliyuncs.com"
+#define ALBB_OSS_Bucket @"kaixinwaavatar"
+//改变头像通知key
+#define ChangAvatarKey @"changeAvatar"
+//改变头像通知
+#define ChangeAvatarNote @"ChangeAvatarNote"
+//改变昵称的通知
+#define ChangeUserName @"userNameChange"
+//改变个性签名的通知
+#define ChangeSignature @"signatureChange"
+//改变学校的通知
+#define ChangeSchool @"schoolChange"
+//改变开心豆
+#define ChangePeaCount @"changePeaCount"
+//u盟appKey
+#define UmengAppKey @"55b58b3367e58ea9200010f9"
+#endif

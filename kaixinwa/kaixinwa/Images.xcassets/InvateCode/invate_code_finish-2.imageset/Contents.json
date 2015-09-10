@@ -1,0 +1,35 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "fill",
+          "width" : 656,
+          "height" : 65
+        },
+        "capInsets" : {
+          "bottom" : 13,
+          "top" : 14,
+          "right" : 12,
+          "left" : 13
+        }
+      },
+      "idiom" : "universal",
+      "filename" : "finish-2@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

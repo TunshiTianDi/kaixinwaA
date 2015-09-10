@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QKPutinInvateCodeVC">
+            <connections>
+                <outlet property="textField" destination="7Wl-Ey-qDO" id="i7i-03-eyU"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QDb-vU-mYL">
+                    <rect key="frame" x="0.0" y="64" width="600" height="150"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="input-invite-code" translatesAutoresizingMaskIntoConstraints="NO" id="A5Y-PI-fmI">
+                            <rect key="frame" x="20" y="15" width="560" height="43"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="43" id="5j9-YG-Ej4"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0XP-Xh-vEi">
+                            <rect key="frame" x="20" y="75" width="560" height="43"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="43" id="lR0-hO-fFc"/>
+                            </constraints>
+                            <state key="normal" title="完成" backgroundImage="invate_code_finish">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" title="完成" backgroundImage="invate_code_finish-2"/>
+                            <connections>
+                                <action selector="finishButton:" destination="-1" eventType="touchUpInside" id="LFA-u4-Itt"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入邀请码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Wl-Ey-qDO">
+                            <rect key="frame" x="31" y="17" width="539" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="YCA-Rq-E5w"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="0XP-Xh-vEi" firstAttribute="top" secondItem="A5Y-PI-fmI" secondAttribute="bottom" constant="17" id="3b8-eT-hu5"/>
+                        <constraint firstItem="7Wl-Ey-qDO" firstAttribute="centerX" secondItem="0XP-Xh-vEi" secondAttribute="centerX" id="905-hy-Jy7"/>
+                        <constraint firstAttribute="trailing" secondItem="0XP-Xh-vEi" secondAttribute="trailing" constant="20" id="Bpy-Vf-aab"/>
+                        <constraint firstItem="A5Y-PI-fmI" firstAttribute="leading" secondItem="QDb-vU-mYL" secondAttribute="leading" constant="20" id="FYW-l3-YRe"/>
+                        <constraint firstItem="7Wl-Ey-qDO" firstAttribute="leading" secondItem="QDb-vU-mYL" secondAttribute="leading" constant="31" id="Laz-yS-1pe"/>
+                        <constraint firstItem="0XP-Xh-vEi" firstAttribute="top" secondItem="7Wl-Ey-qDO" secondAttribute="bottom" constant="18" id="RJw-j1-GYa"/>
+                        <constraint firstAttribute="height" constant="150" id="ecA-Mi-2Pt"/>
+                        <constraint firstItem="A5Y-PI-fmI" firstAttribute="top" secondItem="QDb-vU-mYL" secondAttribute="top" constant="15" id="n5C-oc-RML"/>
+                        <constraint firstAttribute="trailing" secondItem="A5Y-PI-fmI" secondAttribute="trailing" constant="20" id="tgk-Vg-goo"/>
+                        <constraint firstItem="7Wl-Ey-qDO" firstAttribute="top" secondItem="QDb-vU-mYL" secondAttribute="top" constant="17" id="uOh-Rd-bG0"/>
+                        <constraint firstItem="7Wl-Ey-qDO" firstAttribute="centerX" secondItem="A5Y-PI-fmI" secondAttribute="centerX" id="uvy-2R-t7q"/>
+                        <constraint firstItem="0XP-Xh-vEi" firstAttribute="leading" secondItem="QDb-vU-mYL" secondAttribute="leading" constant="20" id="vkg-4h-yjb"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="QDb-vU-mYL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="D0f-SW-CHz"/>
+                <constraint firstAttribute="trailing" secondItem="QDb-vU-mYL" secondAttribute="trailing" id="XVL-9W-B8b"/>
+                <constraint firstItem="QDb-vU-mYL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="z4r-aa-6Qx"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="input-invite-code" width="339" height="46"/>
+        <image name="invate_code_finish" width="340" height="46"/>
+        <image name="invate_code_finish-2" width="340" height="46"/>
+    </resources>
+</document>
