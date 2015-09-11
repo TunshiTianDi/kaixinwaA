@@ -14,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QR-code" translatesAutoresizingMaskIntoConstraints="NO" id="JOx-hS-xjh">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QR_Code" translatesAutoresizingMaskIntoConstraints="NO" id="JOx-hS-xjh">
                     <rect key="frame" x="240" y="90" width="120" height="120"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="120" id="4m4-jj-GQm"/>
@@ -66,6 +66,6 @@
         </view>
     </objects>
     <resources>
-        <image name="QR-code" width="96" height="96"/>
+        <image name="QR_Code" width="700" height="700"/>
     </resources>
 </document>

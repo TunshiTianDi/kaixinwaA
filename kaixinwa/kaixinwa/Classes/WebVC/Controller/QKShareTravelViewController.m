@@ -62,10 +62,10 @@
 }
 
 
--(void)changeFont
-{
-    
-}
+//-(void)changeFont
+//{
+//    
+//}
 
 -(void)shareToWeixin
 {
