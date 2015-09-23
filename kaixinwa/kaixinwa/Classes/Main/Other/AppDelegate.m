@@ -109,7 +109,7 @@
 
 
 //为webview播放视频准备的
--(NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+-(UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
 {
     if (_isFull) {
         return UIInterfaceOrientationMaskAll;
