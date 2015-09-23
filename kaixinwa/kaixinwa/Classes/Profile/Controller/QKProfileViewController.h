@@ -11,5 +11,5 @@
 #import "QKBalanceView.h"
 #import "QKProfileView.h"
 @interface QKProfileViewController : HMCommonViewController<QKBalanceViewDelegate,QKProfileDelegate>
-
+//未添加属性
 @end
