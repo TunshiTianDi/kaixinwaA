@@ -146,6 +146,8 @@
 		D98CA44E1BE9952100732958 /* QKRadioDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98CA44D1BE9952100732958 /* QKRadioDetailView.m */; };
 		D98CA4521BE9CC4100732958 /* QKAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98CA4511BE9CC4100732958 /* QKAnimationView.m */; };
 		D98CA4551BE9CE6D00732958 /* QKBottomAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98CA4541BE9CE6D00732958 /* QKBottomAnimationView.m */; };
+		D98CA4581BE9D93B00732958 /* QKImageTextMiddleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98CA4571BE9D93B00732958 /* QKImageTextMiddleView.m */; };
+		D98CA45B1BE9ED6300732958 /* QKMoreButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D98CA45A1BE9ED6300732958 /* QKMoreButton.m */; };
 		D98E15801B8EF65900E4F1C5 /* QKBackgroudTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D98E157F1B8EF65900E4F1C5 /* QKBackgroudTool.m */; };
 		D98ED4511B86C3AA00F090BA /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = D98ED4471B86C3AA00F090BA /* FMDatabase.m */; };
 		D98ED4521B86C3AA00F090BA /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D98ED4491B86C3AA00F090BA /* FMDatabaseAdditions.m */; };
@@ -485,6 +487,10 @@
 		D98CA4511BE9CC4100732958 /* QKAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKAnimationView.m; sourceTree = "<group>"; };
 		D98CA4531BE9CE6D00732958 /* QKBottomAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKBottomAnimationView.h; sourceTree = "<group>"; };
 		D98CA4541BE9CE6D00732958 /* QKBottomAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKBottomAnimationView.m; sourceTree = "<group>"; };
+		D98CA4561BE9D93B00732958 /* QKImageTextMiddleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKImageTextMiddleView.h; sourceTree = "<group>"; };
+		D98CA4571BE9D93B00732958 /* QKImageTextMiddleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKImageTextMiddleView.m; sourceTree = "<group>"; };
+		D98CA4591BE9ED6300732958 /* QKMoreButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKMoreButton.h; sourceTree = "<group>"; };
+		D98CA45A1BE9ED6300732958 /* QKMoreButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKMoreButton.m; sourceTree = "<group>"; };
 		D98E157E1B8EF65900E4F1C5 /* QKBackgroudTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKBackgroudTool.h; sourceTree = "<group>"; };
 		D98E157F1B8EF65900E4F1C5 /* QKBackgroudTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKBackgroudTool.m; sourceTree = "<group>"; };
 		D98ED4461B86C3AA00F090BA /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -890,11 +896,11 @@
 				D90BD44C1BE892A10018B118 /* ImagePlayerView.m */,
 				D9A226371B9D8560001EE8D9 /* QKQRScanView.h */,
 				D9A226381B9D8560001EE8D9 /* QKQRScanView.m */,
-				D90BD4511BE89DB80018B118 /* QKImageTextView.h */,
-				D90BD4521BE89DB80018B118 /* QKImageTextView.m */,
 				D98CA4471BE98F9600732958 /* GoodsAndGamesView */,
 				D98CA44F1BE9CBC700732958 /* HappyAnimation */,
 				D98CA4481BE98FE300732958 /* HappyRadio */,
+				D98CA4591BE9ED6300732958 /* QKMoreButton.h */,
+				D98CA45A1BE9ED6300732958 /* QKMoreButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1299,6 +1305,8 @@
 		D98CA4471BE98F9600732958 /* GoodsAndGamesView */ = {
 			isa = PBXGroup;
 			children = (
+				D90BD4511BE89DB80018B118 /* QKImageTextView.h */,
+				D90BD4521BE89DB80018B118 /* QKImageTextView.m */,
 				D90BD44E1BE898770018B118 /* QKGridView.h */,
 				D90BD44F1BE898770018B118 /* QKGridView.m */,
 				D90BD4541BE8A20A0018B118 /* QKBottomView.h */,
@@ -1325,6 +1333,8 @@
 				D98CA4511BE9CC4100732958 /* QKAnimationView.m */,
 				D98CA4531BE9CE6D00732958 /* QKBottomAnimationView.h */,
 				D98CA4541BE9CE6D00732958 /* QKBottomAnimationView.m */,
+				D98CA4561BE9D93B00732958 /* QKImageTextMiddleView.h */,
+				D98CA4571BE9D93B00732958 /* QKImageTextMiddleView.m */,
 			);
 			name = HappyAnimation;
 			sourceTree = "<group>";
@@ -1810,6 +1820,7 @@
 				D98CA4521BE9CC4100732958 /* QKAnimationView.m in Sources */,
 				7B7D85E41B3FD51C007504B8 /* UIView+Extension.m in Sources */,
 				D93497A61B5360BB0089B67A /* HMCommonCheckItem.m in Sources */,
+				D98CA45B1BE9ED6300732958 /* QKMoreButton.m in Sources */,
 				D9C7C6581B72E90300DC93BA /* QKWebViewController.m in Sources */,
 				D901E8F71B817A7D00857060 /* QKAnswerViewController.m in Sources */,
 				D95D785E1B4E2551007F58E8 /* SDWebImagePrefetcher.m in Sources */,
@@ -1935,6 +1946,7 @@
 				D90BD4501BE898770018B118 /* QKGridView.m in Sources */,
 				D9FD7C6D1B69B26B00A517F9 /* QKSignResult.m in Sources */,
 				D9D90D751B4500E40071F068 /* QKBalanceView.m in Sources */,
+				D98CA4581BE9D93B00732958 /* QKImageTextMiddleView.m in Sources */,
 				D9FD7C531B69B1A800A517F9 /* QKLocation.m in Sources */,
 				D981BA021B42857F000B0EFA /* QKReturnResult.m in Sources */,
 				D9C7C6591B72E90300DC93BA /* NJKWebViewProgress.m in Sources */,

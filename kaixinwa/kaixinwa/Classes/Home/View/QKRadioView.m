@@ -13,6 +13,7 @@
 @property(nonatomic,weak)UILabel * titleLabel;
 @property(nonatomic,weak)UIButton * moreButton;
 @property(nonatomic,weak)QKRadioDetailView * radioDetailView;
+@property(nonatomic,weak)UIImageView * dividerView;
 @end
 
 @implementation QKRadioView
@@ -21,7 +22,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor brownColor];
+        self.backgroundColor = [UIColor whiteColor];
         //1.创建标题label
         UILabel * titleLabel = [[UILabel alloc]init];
         [titleLabel setTextColor:[UIColor blackColor]];
@@ -39,9 +40,15 @@
         [self addSubview:moreButton];
         
         QKRadioDetailView * radioDetailView = [[QKRadioDetailView alloc]init];
-        radioDetailView.backgroundColor = [UIColor cyanColor];
+//        radioDetailView.backgroundColor = [UIColor cyanColor];
         [self addSubview:radioDetailView];
         self.radioDetailView = radioDetailView;
+        
+        //分隔线
+        UIImageView * dividerView = [[UIImageView alloc]init];
+        dividerView.backgroundColor = [UIColor grayColor];
+        [self addSubview:dividerView];
+        self.dividerView = dividerView;
         
     }
     return self;
@@ -49,7 +56,7 @@
 
 -(void)onClick:(UIButton *)button
 {
-    
+    DCLog(@"oncc");
 }
 -(void)setRadio:(QKRadio *)radio
 {
@@ -77,6 +84,11 @@
     self.radioDetailView.y = CGRectGetMaxY(self.titleLabel.frame) + QKCellMargin;
     self.radioDetailView.width = self.width;
     self.radioDetailView.height = self.height - QKCellMargin * 2 - self.titleLabel.height- 2 * QKCellMargin;
+    
+    self.dividerView.x = QKDoubleMargin;
+    self.dividerView.height = 1;
+    self.dividerView.width = QKScreenWidth - self.dividerView.x;
+    self.dividerView.y = self.height - self.dividerView.height;
 }
 
 @end

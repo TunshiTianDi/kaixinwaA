@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "QKGame.h"
+#import "QKGoods.h"
 @interface QKImageTextView : UIView
 
-@property(nonatomic,weak)UILabel * nameLabel;
-
-@property(nonatomic,weak)UIImageView * imageView;
-
+@property(nonatomic,strong)QKGame * game;
+@property(nonatomic,strong)QKGoods * goods;
 @end

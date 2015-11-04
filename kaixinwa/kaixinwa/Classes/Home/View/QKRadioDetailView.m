@@ -22,7 +22,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         UIImageView * imageView = [[UIImageView alloc]init];
-        imageView.backgroundColor = [UIColor redColor];
+//        imageView.backgroundColor = [UIColor redColor];
         [self addSubview:imageView];
         self.imageView = imageView;
         

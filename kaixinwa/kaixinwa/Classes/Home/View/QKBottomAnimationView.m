@@ -7,9 +7,9 @@
 //
 
 #import "QKBottomAnimationView.h"
-#import "QKImageTextView.h"
+#import "QKImageTextMiddleView.h"
 #import "QKVideo.h"
-#import "UIImageView+WebCache.h"
+
 
 @implementation QKBottomAnimationView
 
@@ -17,10 +17,10 @@
 {
     _items = items;
     for (int i = 0; i < items.count; i++) {
-        QKImageTextView * itView = [[QKImageTextView alloc]init];
+        QKImageTextMiddleView * itView = [[QKImageTextMiddleView alloc]init];
         QKVideo * video = items[i];
-        [itView.imageView sd_setImageWithURL:[NSURL URLWithString:video.type_face_url] placeholderImage:nil];
-        itView.nameLabel.text = video.type_name;
+        itView.video = video;
+        
         itView.tag = i + 8;
         [self addSubview:itView];
     }
@@ -30,7 +30,7 @@
 {
     [super layoutSubviews];
     for (int i = 0; i<self.subviews.count; i++) {
-        QKImageTextView * itView = self.subviews[i];
+        QKImageTextMiddleView * itView = self.subviews[i];
         itView.width = (self.width - 6 * QKCellMargin)/3;
         itView.x = QKCellMargin + i * (itView.width + 2 * QKCellMargin);
         itView.height = self.height;

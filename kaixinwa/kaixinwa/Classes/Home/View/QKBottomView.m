@@ -10,14 +10,14 @@
 #import "QKImageTextView.h"
 #import "QKGame.h"
 #import "QKGoods.h"
-#import "UIImageView+WebCache.h"
+
 @implementation QKBottomView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor redColor];
+//        self.backgroundColor = [UIColor redColor];
     }
     return self;
 }
@@ -29,13 +29,11 @@
         if ([items[i] isKindOfClass:[QKGame class]]) {
             itView.tag = i;
             QKGame * game = items[i];
-            [itView.imageView sd_setImageWithURL:[NSURL URLWithString:game.faceurl] placeholderImage:nil];
-            itView.nameLabel.text = game.title;
+            itView.game = game;
         }else{
             itView.tag = i + 4;
             QKGoods * good = items[i];
-            [itView.imageView sd_setImageWithURL:[NSURL URLWithString:good.goods_faceurl] placeholderImage:nil];
-            itView.nameLabel.text = good.goods_name;
+            itView.goods = good;
         }
         [self addSubview:itView];
     }

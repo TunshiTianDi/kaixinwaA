@@ -12,6 +12,7 @@
 @interface QKAnimationView()
 @property(nonatomic,weak)UILabel * titleLabel;
 @property(nonatomic,weak)QKBottomAnimationView * bottomAnimationView;
+@property(nonatomic,weak)UIImageView * dividerView;
 @end
 
 @implementation QKAnimationView
@@ -19,6 +20,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor whiteColor];
         //创建
         UILabel* titleLabel =[[UILabel alloc]init];
         [titleLabel setTextColor:[UIColor blackColor]];
@@ -30,6 +32,12 @@
         QKBottomAnimationView * bottomAnimationView = [[QKBottomAnimationView alloc]init];
         [self addSubview:bottomAnimationView];
         self.bottomAnimationView = bottomAnimationView;
+        
+        //分隔线
+        UIImageView * dividerView = [[UIImageView alloc]init];
+        dividerView.backgroundColor = [UIColor grayColor];
+        [self addSubview:dividerView];
+        self.dividerView = dividerView;
         
     }
     return self;
@@ -56,6 +64,11 @@
     self.bottomAnimationView.y = CGRectGetMaxY(self.titleLabel.frame)+ QKCellMargin;
     self.bottomAnimationView.width = self.width;
     self.bottomAnimationView.height = self.height - QKCellMargin * 2 - self.titleLabel.height- 2 * QKCellMargin;
+    
+    self.dividerView.x = QKDoubleMargin;
+    self.dividerView.height = 1;
+    self.dividerView.width = QKScreenWidth - self.dividerView.x;
+    self.dividerView.y = self.height - self.dividerView.height;
 }
 
 @end

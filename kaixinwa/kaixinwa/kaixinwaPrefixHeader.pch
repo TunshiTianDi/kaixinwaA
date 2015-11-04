@@ -32,6 +32,7 @@
 #define QKGlobalBg QKColor(234, 234, 234)
 //Cell间距
 #define QKCellMargin 10
+#define QKDoubleMargin 20
 //屏幕宽度
 #define QKScreenWidth [UIScreen mainScreen].bounds.size.width
 

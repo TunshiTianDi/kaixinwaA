@@ -24,6 +24,7 @@
 
 @interface QKHomeViewController ()<ImagePlayerViewDelegate>
 @property(nonatomic,strong)NSMutableArray * imageUrls;
+@property(nonatomic,strong)NSMutableArray * lunboDesUrls;
 @property(nonatomic,weak)UIScrollView * scrollView;
 @property(nonatomic,weak)ImagePlayerView * imagePlayerView;
 @property(nonatomic,weak)QKGridView * exchangeView;
@@ -40,17 +41,29 @@
     }
     return _imageUrls;
 }
+-(NSMutableArray *)lunboDesUrls
+{
+    if (!_lunboDesUrls) {
+        _lunboDesUrls = [NSMutableArray array];
+    }
+    return _lunboDesUrls;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.titleView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"kaixinwa"]];
+    
+    
     [self creatUI];
+    
+    //发送请求获取首页数据
     [QKHttpTool post:@"http://test.qkhl-api.com/qkhl_api/index.php/Kxwapi/Index/gethome" params:nil success:^(id responseObj) {
         DCLog(@"%@",responseObj);
         QKFirstHome * home = [QKFirstHome objectWithKeyValues:responseObj];
         for (QKLunbo * lunbo in home.data.lunbo) {
             [self.imageUrls addObject:lunbo.lunbo_faceurl];
+            [self.lunboDesUrls addObject:lunbo.lunbo_des_url];
         }
         self.exchangeView.items = home.data.goods;
         self.radioView.radio = home.data.radio;
@@ -67,7 +80,7 @@
 -(void)creatUI
 {
     UIScrollView * scrollView = [[UIScrollView alloc]init];
-//    scrollView.backgroundColor = [UIColor yellowColor];
+    scrollView.backgroundColor = QKGlobalBg;
     scrollView.frame = self.view.bounds;
     [self.view addSubview:scrollView];
     self.scrollView = scrollView;
@@ -136,7 +149,7 @@
 }
 - (void)imagePlayerView:(ImagePlayerView *)imagePlayerView didTapAtIndex:(NSInteger)index
 {
-    DCLog(@"did tap index = %d", (int)index);
+    DCLog(@"did tap index = %@", self.lunboDesUrls[index]);
 }
 
 
