@@ -38,13 +38,11 @@
 		7BA485811B422CFE0035B4CD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA485801B422CFE0035B4CD /* MessageUI.framework */; };
 		7BA485831B422D1C0035B4CD /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA485821B422D1C0035B4CD /* AddressBook.framework */; };
 		7BA485851B422D360035B4CD /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA485841B422D360035B4CD /* AddressBookUI.framework */; };
-		7BA485871B422D780035B4CD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA485861B422D780035B4CD /* libz.dylib */; };
 		7BA4858D1B4230AD0035B4CD /* JKCountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA4858C1B4230AD0035B4CD /* JKCountDownButton.m */; };
 		7BFB84851B40E2EB0001FA88 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BFB84841B40E2EB0001FA88 /* AVFoundation.framework */; };
 		7BFB84871B40E3EA0001FA88 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BFB84861B40E3EA0001FA88 /* CoreMedia.framework */; };
 		7BFB84891B40E3F80001FA88 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BFB84881B40E3F80001FA88 /* CoreVideo.framework */; };
 		7BFB848B1B40E4020001FA88 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BFB848A1B40E4020001FA88 /* QuartzCore.framework */; };
-		7BFB848D1B40E4250001FA88 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BFB848C1B40E4250001FA88 /* libiconv.dylib */; };
 		7BFB849B1B40E7580001FA88 /* HMCommonArrowItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFB84901B40E7580001FA88 /* HMCommonArrowItem.m */; };
 		7BFB849C1B40E7580001FA88 /* HMCommonCenterItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFB84921B40E7580001FA88 /* HMCommonCenterItem.m */; };
 		7BFB849D1B40E7580001FA88 /* HMCommonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFB84941B40E7580001FA88 /* HMCommonGroup.m */; };
@@ -169,6 +167,14 @@
 		D9945BF01B847F3B00C954A4 /* QKGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9945BEB1B847F3B00C954A4 /* QKGameViewController.m */; };
 		D9945BF11B847F3B00C954A4 /* QKMicroLessonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9945BED1B847F3B00C954A4 /* QKMicroLessonViewController.m */; };
 		D9945BF21B847F3B00C954A4 /* QKRadioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9945BEF1B847F3B00C954A4 /* QKRadioViewController.m */; };
+		D998E9F71BEAF3CC00A268A2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D998E9F61BEAF3CC00A268A2 /* libsqlite3.tbd */; };
+		D998E9F91BEAF3F000A268A2 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D998E9F81BEAF3F000A268A2 /* libstdc++.tbd */; };
+		D998E9FB1BEAF40800A268A2 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D998E9FA1BEAF40800A268A2 /* libsqlite3.0.tbd */; };
+		D998E9FD1BEAF42300A268A2 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D998E9FC1BEAF42300A268A2 /* libiconv.tbd */; };
+		D998E9FF1BEAF44000A268A2 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D998E9FE1BEAF44000A268A2 /* libz.tbd */; };
+		D998EA041BEB2A2900A268A2 /* AAPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = D998EA011BEB2A2900A268A2 /* AAPullToRefresh.m */; };
+		D998EA051BEB2A2900A268A2 /* centerIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D998EA021BEB2A2900A268A2 /* centerIcon@2x.png */; };
+		D998EA061BEB2A2900A268A2 /* launchpad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D998EA031BEB2A2900A268A2 /* launchpad@2x.png */; };
 		D99B25221B85852700BFF143 /* QKNotFoundNetView.m in Sources */ = {isa = PBXBuildFile; fileRef = D99B25211B85852700BFF143 /* QKNotFoundNetView.m */; };
 		D9A226391B9D8560001EE8D9 /* QKQRScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A226381B9D8560001EE8D9 /* QKQRScanView.m */; };
 		D9A41C631B8D948300CA12A9 /* QKShareAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A41C611B8D948300CA12A9 /* QKShareAppViewController.m */; };
@@ -181,13 +187,10 @@
 		D9BA956B1B5C9956009BF610 /* UIViewController+LJWKeyboardHandlerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BA95641B5C9956009BF610 /* UIViewController+LJWKeyboardHandlerHelper.m */; };
 		D9BA956C1B5C9956009BF610 /* UIWindow+LJWPresentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BA95661B5C9956009BF610 /* UIWindow+LJWPresentViewController.m */; };
 		D9BA95741B5CDA66009BF610 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9BA95731B5CDA66009BF610 /* SystemConfiguration.framework */; };
-		D9BA95761B5CDA83009BF610 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D9BA95751B5CDA83009BF610 /* libsqlite3.0.dylib */; };
 		D9C7C6581B72E90300DC93BA /* QKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C7C6511B72E90300DC93BA /* QKWebViewController.m */; };
 		D9C7C6591B72E90300DC93BA /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C7C6551B72E90300DC93BA /* NJKWebViewProgress.m */; };
 		D9C7C65A1B72E90300DC93BA /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C7C6571B72E90300DC93BA /* NJKWebViewProgressView.m */; };
-		D9C7C6B51B72ED0600DC93BA /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C7C6B41B72ED0600DC93BA /* libstdc++.dylib */; };
 		D9C7C6B71B72ED2400DC93BA /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C7C6B61B72ED2400DC93BA /* CoreTelephony.framework */; };
-		D9C7C6B91B72ED4000DC93BA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C7C6B81B72ED4000DC93BA /* libsqlite3.dylib */; };
 		D9D90D6F1B44EC320071F068 /* QKProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D90D6E1B44EC320071F068 /* QKProfileHeaderView.m */; };
 		D9D90D721B44FFBA0071F068 /* QKProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D90D711B44FFBA0071F068 /* QKProfileView.m */; };
 		D9D90D751B4500E40071F068 /* QKBalanceView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D90D741B4500E40071F068 /* QKBalanceView.m */; };
@@ -283,14 +286,12 @@
 		7BA485801B422CFE0035B4CD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		7BA485821B422D1C0035B4CD /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		7BA485841B422D360035B4CD /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
-		7BA485861B422D780035B4CD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		7BA4858B1B4230AD0035B4CD /* JKCountDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKCountDownButton.h; sourceTree = "<group>"; };
 		7BA4858C1B4230AD0035B4CD /* JKCountDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKCountDownButton.m; sourceTree = "<group>"; };
 		7BFB84841B40E2EB0001FA88 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7BFB84861B40E3EA0001FA88 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		7BFB84881B40E3F80001FA88 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		7BFB848A1B40E4020001FA88 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		7BFB848C1B40E4250001FA88 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		7BFB848F1B40E7580001FA88 /* HMCommonArrowItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMCommonArrowItem.h; sourceTree = "<group>"; };
 		7BFB84901B40E7580001FA88 /* HMCommonArrowItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMCommonArrowItem.m; sourceTree = "<group>"; };
 		7BFB84911B40E7580001FA88 /* HMCommonCenterItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMCommonCenterItem.h; sourceTree = "<group>"; };
@@ -532,6 +533,15 @@
 		D9945BED1B847F3B00C954A4 /* QKMicroLessonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKMicroLessonViewController.m; sourceTree = "<group>"; };
 		D9945BEE1B847F3B00C954A4 /* QKRadioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKRadioViewController.h; sourceTree = "<group>"; };
 		D9945BEF1B847F3B00C954A4 /* QKRadioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKRadioViewController.m; sourceTree = "<group>"; };
+		D998E9F61BEAF3CC00A268A2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		D998E9F81BEAF3F000A268A2 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		D998E9FA1BEAF40800A268A2 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		D998E9FC1BEAF42300A268A2 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		D998E9FE1BEAF44000A268A2 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		D998EA001BEB2A2900A268A2 /* AAPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPullToRefresh.h; sourceTree = "<group>"; };
+		D998EA011BEB2A2900A268A2 /* AAPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPullToRefresh.m; sourceTree = "<group>"; };
+		D998EA021BEB2A2900A268A2 /* centerIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "centerIcon@2x.png"; sourceTree = "<group>"; };
+		D998EA031BEB2A2900A268A2 /* launchpad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launchpad@2x.png"; sourceTree = "<group>"; };
 		D99B25201B85852700BFF143 /* QKNotFoundNetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKNotFoundNetView.h; sourceTree = "<group>"; };
 		D99B25211B85852700BFF143 /* QKNotFoundNetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKNotFoundNetView.m; sourceTree = "<group>"; };
 		D9A226371B9D8560001EE8D9 /* QKQRScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKQRScanView.h; sourceTree = "<group>"; };
@@ -555,16 +565,13 @@
 		D9BA95661B5C9956009BF610 /* UIWindow+LJWPresentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+LJWPresentViewController.m"; sourceTree = "<group>"; };
 		D9BA956D1B5CA678009BF610 /* QKCommonItemHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QKCommonItemHeader.h; sourceTree = "<group>"; };
 		D9BA95731B5CDA66009BF610 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		D9BA95751B5CDA83009BF610 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		D9C7C6501B72E90300DC93BA /* QKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKWebViewController.h; sourceTree = "<group>"; };
 		D9C7C6511B72E90300DC93BA /* QKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKWebViewController.m; sourceTree = "<group>"; };
 		D9C7C6541B72E90300DC93BA /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
 		D9C7C6551B72E90300DC93BA /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
 		D9C7C6561B72E90300DC93BA /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
 		D9C7C6571B72E90300DC93BA /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
-		D9C7C6B41B72ED0600DC93BA /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		D9C7C6B61B72ED2400DC93BA /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		D9C7C6B81B72ED4000DC93BA /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		D9D90D6D1B44EC320071F068 /* QKProfileHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKProfileHeaderView.h; sourceTree = "<group>"; };
 		D9D90D6E1B44EC320071F068 /* QKProfileHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKProfileHeaderView.m; sourceTree = "<group>"; };
 		D9D90D701B44FFBA0071F068 /* QKProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKProfileView.h; sourceTree = "<group>"; };
@@ -616,22 +623,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9C7C6B91B72ED4000DC93BA /* libsqlite3.dylib in Frameworks */,
+				D998E9FF1BEAF44000A268A2 /* libz.tbd in Frameworks */,
+				D998E9FD1BEAF42300A268A2 /* libiconv.tbd in Frameworks */,
+				D998E9FB1BEAF40800A268A2 /* libsqlite3.0.tbd in Frameworks */,
+				D998E9F91BEAF3F000A268A2 /* libstdc++.tbd in Frameworks */,
+				D998E9F71BEAF3CC00A268A2 /* libsqlite3.tbd in Frameworks */,
 				D9C7C6B71B72ED2400DC93BA /* CoreTelephony.framework in Frameworks */,
-				D9C7C6B51B72ED0600DC93BA /* libstdc++.dylib in Frameworks */,
 				D947BB891B7DB75600765D2D /* libUMSocial_Sdk_4.2.3.a in Frameworks */,
-				D9BA95761B5CDA83009BF610 /* libsqlite3.0.dylib in Frameworks */,
 				D947BB991B7DB76800765D2D /* TencentOpenAPI.framework in Frameworks */,
 				D9BA95741B5CDA66009BF610 /* SystemConfiguration.framework in Frameworks */,
 				D93497AF1B53AD9A0089B67A /* CoreLocation.framework in Frameworks */,
-				7BA485871B422D780035B4CD /* libz.dylib in Frameworks */,
 				7BA485851B422D360035B4CD /* AddressBookUI.framework in Frameworks */,
 				7BA485831B422D1C0035B4CD /* AddressBook.framework in Frameworks */,
 				7BA485811B422CFE0035B4CD /* MessageUI.framework in Frameworks */,
 				D947BB981B7DB76800765D2D /* libSocialQQ.a in Frameworks */,
 				D947BBA11B7DB77700765D2D /* libSocialWechat.a in Frameworks */,
 				D9EA3CC51B4F55360017BECF /* MapKit.framework in Frameworks */,
-				7BFB848D1B40E4250001FA88 /* libiconv.dylib in Frameworks */,
 				D947BBA21B7DB77700765D2D /* libWeChatSDK.a in Frameworks */,
 				7BFB848B1B40E4020001FA88 /* QuartzCore.framework in Frameworks */,
 				7BFB84891B40E3F80001FA88 /* CoreVideo.framework in Frameworks */,
@@ -901,6 +908,10 @@
 				D98CA4481BE98FE300732958 /* HappyRadio */,
 				D98CA4591BE9ED6300732958 /* QKMoreButton.h */,
 				D98CA45A1BE9ED6300732958 /* QKMoreButton.m */,
+				D998EA001BEB2A2900A268A2 /* AAPullToRefresh.h */,
+				D998EA011BEB2A2900A268A2 /* AAPullToRefresh.m */,
+				D998EA021BEB2A2900A268A2 /* centerIcon@2x.png */,
+				D998EA031BEB2A2900A268A2 /* launchpad@2x.png */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1032,19 +1043,19 @@
 		7BA485881B422D880035B4CD /* sysLib */ = {
 			isa = PBXGroup;
 			children = (
-				D9C7C6B81B72ED4000DC93BA /* libsqlite3.dylib */,
+				D998E9FE1BEAF44000A268A2 /* libz.tbd */,
+				D998E9FC1BEAF42300A268A2 /* libiconv.tbd */,
+				D998E9FA1BEAF40800A268A2 /* libsqlite3.0.tbd */,
+				D998E9F81BEAF3F000A268A2 /* libstdc++.tbd */,
+				D998E9F61BEAF3CC00A268A2 /* libsqlite3.tbd */,
 				D9C7C6B61B72ED2400DC93BA /* CoreTelephony.framework */,
-				D9C7C6B41B72ED0600DC93BA /* libstdc++.dylib */,
-				D9BA95751B5CDA83009BF610 /* libsqlite3.0.dylib */,
 				D9BA95731B5CDA66009BF610 /* SystemConfiguration.framework */,
 				D93497AE1B53AD9A0089B67A /* CoreLocation.framework */,
-				7BFB848C1B40E4250001FA88 /* libiconv.dylib */,
 				D9EA3CC41B4F55360017BECF /* MapKit.framework */,
 				7BFB848A1B40E4020001FA88 /* QuartzCore.framework */,
 				7BFB84881B40E3F80001FA88 /* CoreVideo.framework */,
 				7BFB84861B40E3EA0001FA88 /* CoreMedia.framework */,
 				7BFB84841B40E2EB0001FA88 /* AVFoundation.framework */,
-				7BA485861B422D780035B4CD /* libz.dylib */,
 				7BA485841B422D360035B4CD /* AddressBookUI.framework */,
 				7BA485821B422D1C0035B4CD /* AddressBook.framework */,
 				7BA485801B422CFE0035B4CD /* MessageUI.framework */,
@@ -1774,9 +1785,11 @@
 				D92E337B1B4382A600A4A34B /* QKRetrievePasswordViewController.xib in Resources */,
 				7B7D859F1B3FCA18007504B8 /* LaunchScreen.xib in Resources */,
 				D947BB8F1B7DB75600765D2D /* UMSLoginViewController.xib in Resources */,
+				D998EA061BEB2A2900A268A2 /* launchpad@2x.png in Resources */,
 				D9E15ABE1B4B7985003B25FA /* pick_bg@2x.png in Resources */,
 				D981B9FE1B427CB0000B0EFA /* MBProgressHUD.bundle in Resources */,
 				D9945BAB1B8455FE00C954A4 /* QKInvateFriendsViewController.xib in Resources */,
+				D998EA051BEB2A2900A268A2 /* centerIcon@2x.png in Resources */,
 				D947BB8A1B7DB75600765D2D /* UMSCommentDetailController.xib in Resources */,
 				D947BB881B7DB75600765D2D /* UMSocialLocalizable.strings in Resources */,
 				D9FD7C581B69B1A800A517F9 /* QKPickerView.xib in Resources */,
@@ -1856,6 +1869,7 @@
 				7B240B771B41362C000EF832 /* QKRegistViewController.m in Sources */,
 				D95D78651B4E2551007F58E8 /* UIView+WebCacheOperation.m in Sources */,
 				D95205551B675A6400E65F12 /* QKMessageViewController.m in Sources */,
+				D998EA041BEB2A2900A268A2 /* AAPullToRefresh.m in Sources */,
 				D9FD7C601B69B1EE00A517F9 /* QKSettingViewController.m in Sources */,
 				D95D785A1B4E2551007F58E8 /* SDWebImageDecoder.m in Sources */,
 				7BFB84AE1B40EA530001FA88 /* UIBarButtonItem+Extension.m in Sources */,
@@ -2095,7 +2109,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Universe-Hanlin Culture Development Co., Ltd. (5TJBR4D2AC)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Xin Hong Yang (YWSDBFFEG8)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/kaixinwa/Classes/Main",
@@ -2113,7 +2128,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qkhl.kaixinwaAnswer1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "17557960-a092-47e6-81b7-cf53268511c4";
+				PROVISIONING_PROFILE = "e78e086a-2aa6-4aa7-9e8f-a67f29d11222";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2122,7 +2137,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Universe-Hanlin Culture Development Co., Ltd. (5TJBR4D2AC)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Xin Hong Yang (YWSDBFFEG8)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/kaixinwa/Classes/Main",
@@ -2140,7 +2156,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qkhl.kaixinwaAnswer1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "17557960-a092-47e6-81b7-cf53268511c4";
+				PROVISIONING_PROFILE = "e78e086a-2aa6-4aa7-9e8f-a67f29d11222";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

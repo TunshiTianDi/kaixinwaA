@@ -105,9 +105,6 @@
     return  [UMSocialSnsService handleOpenURL:url];
 }
 
-
-
-
 //为webview播放视频准备的
 -(UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
 {

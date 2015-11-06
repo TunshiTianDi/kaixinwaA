@@ -21,6 +21,7 @@
 #import "QKGridView.h"
 #import "QKRadioView.h"
 #import "QKAnimationView.h"
+//#import "AAPullToRefresh.h"
 
 @interface QKHomeViewController ()<ImagePlayerViewDelegate>
 @property(nonatomic,strong)NSMutableArray * imageUrls;
@@ -53,7 +54,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.titleView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"kaixinwa"]];
-    
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"leftItem" highImageName:@"leftItem_highlight" target:self action:@selector(signEveryday)];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"rightItem" highImageName:@"rightItem_highlight" target:self action:@selector(toScanView)];
     
     [self creatUI];
     
@@ -75,8 +77,17 @@
         DCLog(@"%@",error);
     }];
     
+}
+-(void)toScanView
+{
+    QKQRCodeViewController * qrVC = [[QKQRCodeViewController alloc]init];
+    [self.navigationController pushViewController:qrVC animated:YES];
+}
+-(void)signEveryday
+{
     
 }
+
 -(void)creatUI
 {
     UIScrollView * scrollView = [[UIScrollView alloc]init];
@@ -87,7 +98,7 @@
     //轮播视图
     ImagePlayerView * imagePlayerView = [[ImagePlayerView alloc]init];
     imagePlayerView.backgroundColor = [UIColor cyanColor];
-    imagePlayerView.frame = CGRectMake(0, 0, self.view.width, 200);
+    imagePlayerView.frame = CGRectMake(0, 0, self.view.width, 160);
     imagePlayerView.imagePlayerViewDelegate = self;
     imagePlayerView.scrollInterval = 5.0;
     imagePlayerView.pageControlPosition = ICPageControlPosition_BottomCenter;
@@ -134,8 +145,25 @@
     self.gameView = gameView;
     
     scrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(gameView.frame));
+    //下拉刷新
+    UIRefreshControl * refreshControl = [[UIRefreshControl alloc]init];
+//    refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"开始刷新"];
+    [scrollView addSubview:refreshControl];
+    [refreshControl addTarget:self action:@selector(refreshHomeData:) forControlEvents:UIControlEventValueChanged];
     
 }
+//下拉刷新
+-(void)refreshHomeData:(UIRefreshControl *)refreshControl
+{
+    [refreshControl beginRefreshing];
+    //发送网络请求
+    /* ---------- */
+    CGFloat delayInSeconds = 1.0;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [refreshControl endRefreshing];
+    });
+}
+
 //设置轮播视图代理
 #pragma mark - ImagePlayerViewDelegate
 - (NSInteger)numberOfItems
@@ -145,7 +173,7 @@
 
 - (void)imagePlayerView:(ImagePlayerView *)imagePlayerView loadImageForImageView:(UIImageView *)imageView index:(NSInteger)index
 {
-    [imageView sd_setImageWithURL:[NSURL URLWithString:[self.imageUrls objectAtIndex:index]] placeholderImage:nil];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[self.imageUrls objectAtIndex:index]] placeholderImage:[UIImage imageNamed:@"placeholder"]];
 }
 - (void)imagePlayerView:(ImagePlayerView *)imagePlayerView didTapAtIndex:(NSInteger)index
 {

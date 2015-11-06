@@ -36,8 +36,9 @@
         QKMoreButton * moreButton = [[QKMoreButton alloc]init];
         [moreButton setTitle:@"显示更多" forState:UIControlStateNormal];
         [moreButton setTitleColor:QKColor(167, 167, 167) forState:UIControlStateNormal];
-        [moreButton setImage:[UIImage imageNamed:@"qq"] forState:UIControlStateNormal];
-        moreButton.backgroundColor = [UIColor yellowColor];
+        [moreButton setImage:[UIImage imageNamed:@"arrow_right"] forState:UIControlStateNormal];
+        [moreButton setImage:[UIImage imageNamed:@"arrow_right_highlighted"] forState:UIControlStateHighlighted];
+//        moreButton.backgroundColor = [UIColor yellowColor];
         [moreButton addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
         self.moreButton = moreButton;
         [self addSubview:moreButton];
@@ -48,7 +49,7 @@
         
         //分隔线
         UIImageView * dividerView = [[UIImageView alloc]init];
-        dividerView.backgroundColor = [UIColor grayColor];
+        dividerView.backgroundColor = QKGlobalBg;
         [self addSubview:dividerView];
         self.dividerView = dividerView;
         

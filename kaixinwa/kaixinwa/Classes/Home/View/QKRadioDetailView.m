@@ -46,7 +46,7 @@
 -(void)setRadio:(QKRadio *)radio
 {
     _radio = radio;
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:radio.radio_faceurl] placeholderImage:nil];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:radio.radio_faceurl] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     CGSize maxTagSize = CGSizeMake(QKScreenWidth - self.imageView.width - 4 * QKCellMargin , MAXFLOAT);
     
     self.titleLabel.text = radio.radio_title;

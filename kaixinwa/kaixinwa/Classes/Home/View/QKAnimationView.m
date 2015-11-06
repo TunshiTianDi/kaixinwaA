@@ -35,7 +35,7 @@
         
         //分隔线
         UIImageView * dividerView = [[UIImageView alloc]init];
-        dividerView.backgroundColor = [UIColor grayColor];
+        dividerView.backgroundColor = QKGlobalBg;
         [self addSubview:dividerView];
         self.dividerView = dividerView;
         

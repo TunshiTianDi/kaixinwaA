@@ -30,7 +30,7 @@
     QKDiscoverController * discover = [[QKDiscoverController alloc]init];
     QKProfileViewController * profile = [[QKProfileViewController alloc]init];
     
-    [self addOneChildVc:home title:@"答案" imageName:@"daa" selectedImageName:@"daa_sel"];
+    [self addOneChildVc:home title:@"首页" imageName:@"daa" selectedImageName:@"daa_sel"];
     [self addOneChildVc:discover title:@"发现" imageName:@"faxian" selectedImageName:@"faxi_sel"];
     [self addOneChildVc:profile title:@"我" imageName:@"wd" selectedImageName:@"wde"];
     

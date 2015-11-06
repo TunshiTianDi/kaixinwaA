@@ -33,8 +33,9 @@
         UIButton * moreButton = [[UIButton alloc]init];
         [moreButton setTitle:@"显示更多" forState:UIControlStateNormal];
         [moreButton setTitleColor:QKColor(167, 167, 167) forState:UIControlStateNormal];
-        moreButton.titleLabel.font = [UIFont systemFontOfSize:14];
-        moreButton.backgroundColor = [UIColor yellowColor];
+        moreButton.titleLabel.font = [UIFont systemFontOfSize:12];
+        moreButton.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);
+//        moreButton.backgroundColor = [UIColor yellowColor];
         [moreButton addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
         self.moreButton = moreButton;
         [self addSubview:moreButton];
@@ -46,7 +47,7 @@
         
         //分隔线
         UIImageView * dividerView = [[UIImageView alloc]init];
-        dividerView.backgroundColor = [UIColor grayColor];
+        dividerView.backgroundColor = QKGlobalBg;
         [self addSubview:dividerView];
         self.dividerView = dividerView;
         

@@ -36,7 +36,7 @@
 -(void)setVideo:(QKVideo *)video
 {
     _video = video;
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:video.type_face_url] placeholderImage:nil];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:video.type_face_url] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     self.nameLabel.text = video.type_name;
 }
 
@@ -53,7 +53,7 @@
     
     self.nameLabel.centerX = self.imageView.centerX;
     self.nameLabel.size = nlSize;
-    self.nameLabel.y = self.height- QKCellMargin/2 - self.nameLabel.height;
+    self.nameLabel.y = CGRectGetMaxY(self.imageView.frame)+QKCellMargin/2;
 }
 
 -(void)tapView{

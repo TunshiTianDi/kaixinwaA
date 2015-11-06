@@ -21,7 +21,7 @@
         // 文字颜色
         [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         // 字体
-        self.titleLabel.font = [UIFont systemFontOfSize:14];
+        self.titleLabel.font = [UIFont systemFontOfSize:12];
         
     }
     return self;
@@ -34,7 +34,7 @@
     CGFloat imageY = 0;
     CGFloat imageW = self.height;
     CGFloat imageH = imageW;
-    CGFloat imageX = self.width - imageW;
+    CGFloat imageX = self.width - imageW + QKCellMargin;
     return CGRectMake(imageX, imageY, imageW, imageH);
 }
 
@@ -44,7 +44,7 @@
 - (CGRect)titleRectForContentRect:(CGRect)contentRect
 {
     CGFloat titleY = 0;
-    CGFloat titleX = 0;
+    CGFloat titleX = QKCellMargin*2;
     CGFloat titleH = self.height;
     CGFloat titleW = self.width - self.height;
     return CGRectMake(titleX, titleY, titleW, titleH);
@@ -58,7 +58,7 @@
     CGSize titleSize = [title sizeWithAttributes:@{NSFontAttributeName: self.titleLabel.font}];
     
     // 2.计算按钮的宽度
-    self.width = titleSize.width + self.height + 10;
+    self.width = titleSize.width + self.height;
 }
 
 

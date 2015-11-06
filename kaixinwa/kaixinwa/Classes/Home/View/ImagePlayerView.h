@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "QKLunbo.h"
 
 typedef NS_ENUM(NSInteger, ICPageControlPosition) {
     ICPageControlPosition_TopLeft,

@@ -22,9 +22,10 @@
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapView)];
         [self addGestureRecognizer:tap];
         UIImageView * imageView = [[UIImageView alloc]init];
+        imageView.clipsToBounds = YES;
         imageView.layer.borderWidth = 1.0;
         imageView.layer.borderColor = QKGlobalBg.CGColor;
-        imageView.layer.cornerRadius = 5;
+        imageView.layer.cornerRadius = 7.5;
         self.imageView = imageView;
         [self addSubview:imageView];
         
@@ -48,7 +49,7 @@
 -(void)setGoods:(QKGoods *)goods
 {
     _goods = goods;
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:goods.goods_faceurl] placeholderImage:nil];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:goods.goods_faceurl] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     self.nameLabel.text = goods.goods_name;
 
 }
@@ -64,11 +65,41 @@
     
     self.nameLabel.centerX = self.imageView.centerX;
     self.nameLabel.size = [self.nameLabel.text sizeWithAttributes:@{NSFontAttributeName:self.nameLabel.font}];
-    self.nameLabel.y = self.height- QKCellMargin/2 - self.nameLabel.height;
+    self.nameLabel.y = CGRectGetMaxY(self.imageView.frame)+QKCellMargin/2;
 }
 
 -(void)tapView{
     DCLog(@"%ld",(long)self.tag);
+    switch (self.tag) {
+        case 0:
+            DCLog(@"11110->%@",self.game.gameurl);
+            break;
+        case 1:
+            DCLog(@"11111->%@",self.game.gameurl);
+            break;
+        case 2:
+            DCLog(@"11112->%@",self.game.gameurl);
+            break;
+        case 3:
+            DCLog(@"11113->%@",self.game.gameurl);
+            break;
+        case 4:
+            DCLog(@"11114->");
+            break;
+        case 5:
+            DCLog(@"11115->");
+            break;
+        case 6:
+            DCLog(@"11116->");
+            break;
+        case 7:
+            DCLog(@"11117->");
+            break;
+            
+        default:
+            break;
+    }
+    
 }
 
 @end
