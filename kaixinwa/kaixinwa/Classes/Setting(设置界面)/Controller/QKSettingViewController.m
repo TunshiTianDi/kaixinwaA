@@ -15,6 +15,7 @@
 #import "MBProgressHUD+MJ.h"
 #import "SDImageCache.h"
 #import "QKDataBaseTool.h"
+#import "UIImageView+WebCache.h"
 
 @interface QKSettingViewController ()<UIAlertViewDelegate>
 @property(nonatomic,copy)NSURL * trackViewUrl;
@@ -50,24 +51,20 @@
     switchItem.on = YES;
     
     HMCommonArrowItem * clearItem = [HMCommonArrowItem itemWithTitle:@"清除图片缓存"];
-    NSString *caches = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-    NSString * imageCachePath = [caches stringByAppendingPathComponent:@"com.hackemist.SDWebImageCache.default"];
-    long long fileSize = [self fileSizeAtFile:imageCachePath];
-    int value = [NSString stringWithFormat:@"(%.1fK)", fileSize / 1000.0].intValue;
-    
-    clearItem.subtitle = value < 1024 ?[NSString stringWithFormat:@"(%.1fK)", fileSize / 1000.0]:[NSString stringWithFormat:@"(%.1fM)", fileSize / 1000.0 * 1000];
+    CGFloat fileSize = [SDWebImageManager sharedManager].imageCache.getSize / 1024.0;
+    clearItem.subtitle = [NSString stringWithFormat:@"%.fKB",fileSize];
+    if (fileSize > 1024) {
+        fileSize =   fileSize / 1024.0;
+        clearItem.subtitle = [NSString stringWithFormat:@"%.1fM",fileSize];
+    }
     __weak typeof(clearItem) weakClearCache = clearItem;
     __weak typeof(self) weakVc = self;
     clearItem.operation = ^{
         [MBProgressHUD showMessage:@"正在清除缓存...."];
         
-        // 清除缓存
-        NSFileManager *mgr = [NSFileManager defaultManager];
-        [mgr removeItemAtPath:imageCachePath error:nil];
-        
-        // 设置subtitle
+        [[SDWebImageManager sharedManager].imageCache clearDisk];
         weakClearCache.subtitle = nil;
-        [QKDataBaseTool cleanAllTaskMessage];
+//        [QKDataBaseTool cleanAllTaskMessage];
         // 刷新表格
         [weakVc.tableView reloadData];
         
@@ -135,6 +132,7 @@
     [QKAccountTool deleteAccount];
     UIWindow * window = [UIApplication sharedApplication].keyWindow;
     QKLoginViewController* loginVc = [[QKLoginViewController alloc]init];
+    loginVc.index = 2;
     UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:loginVc];
     [MBProgressHUD hideHUD];
     window.rootViewController = nav;

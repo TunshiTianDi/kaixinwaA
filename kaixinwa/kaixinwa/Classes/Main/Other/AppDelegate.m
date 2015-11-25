@@ -35,13 +35,14 @@
     self.window.frame = [UIScreen mainScreen].bounds;
     [self.window makeKeyAndVisible];
     QKAccount* account = [QKAccountTool readAccount];
-    if (account) {
-        [QKControllerTool chooseRootViewController];
-    }else{
-        QKLoginViewController* loginVc = [[QKLoginViewController alloc]init];
-        UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:loginVc];
-        self.window.rootViewController = nav;
-    }
+    [QKControllerTool chooseRootViewController];
+//    if (account) {
+//        [QKControllerTool chooseRootViewController];
+//    }else{
+//        QKLoginViewController* loginVc = [[QKLoginViewController alloc]init];
+//        UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:loginVc];
+//        self.window.rootViewController = nav;
+//    }
     
     
     //监控网络
@@ -79,7 +80,7 @@
     
     [UMSocialData setAppKey:@"55b58b3367e58ea9200010f9"];
     //集成微信
-    [UMSocialWechatHandler setWXAppId:@"wx1f4a73928cf283f1" appSecret:@"448685e2583a9f970683e7f7919035c2" url:@"http://android.myapp.com/myapp/detail.htm?apkName=com.qkhl.kaixinwa_android"];
+    [UMSocialWechatHandler setWXAppId:@"wxe3c788b2f83a1b51" appSecret:@"63cbfa0bc45f0864fcb46ce5a54d6ce0" url:@"http://android.myapp.com/myapp/detail.htm?apkName=com.qkhl.kaixinwa_android"];
     //集成qq
     [UMSocialQQHandler setQQWithAppId:@"1104787690" appKey:@"HCOFtkTKgMUz7uPo" url:@"http://android.myapp.com/myapp/detail.htm?apkName=com.qkhl.kaixinwa_android"];
     

@@ -8,10 +8,10 @@
 
 #import "QKTabBarController.h"
 #import "QKHomeViewController.h"
-//#import "QKDiscoverViewController.h"
 #import "QKProfileViewController.h"
 #import "QKNavigationController.h"
-#import "QKDiscoverController.h"
+//#import "QKDiscoverController.h"
+#import "QKNewDiscoverController.h"
 
 @interface QKTabBarController ()
 
@@ -27,10 +27,10 @@
     //创建视图控制器
     QKHomeViewController*home =[[QKHomeViewController alloc]init];
     
-    QKDiscoverController * discover = [[QKDiscoverController alloc]init];
+    QKNewDiscoverController * discover = [[QKNewDiscoverController alloc]init];
     QKProfileViewController * profile = [[QKProfileViewController alloc]init];
     
-    [self addOneChildVc:home title:@"首页" imageName:@"daa" selectedImageName:@"daa_sel"];
+    [self addOneChildVc:home title:@"首页" imageName:@"home" selectedImageName:@"home_sel"];
     [self addOneChildVc:discover title:@"发现" imageName:@"faxian" selectedImageName:@"faxi_sel"];
     [self addOneChildVc:profile title:@"我" imageName:@"wd" selectedImageName:@"wde"];
     

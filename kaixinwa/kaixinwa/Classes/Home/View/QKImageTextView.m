@@ -8,6 +8,7 @@
 
 #import "QKImageTextView.h"
 #import "UIImageView+WebCache.h"
+
 @interface QKImageTextView()
 @property(nonatomic,weak)UILabel * nameLabel;
 @property(nonatomic,weak)UIImageView * imageView;
@@ -69,19 +70,13 @@
 }
 
 -(void)tapView{
-    DCLog(@"%ld",(long)self.tag);
     switch (self.tag) {
         case 0:
-            DCLog(@"11110->%@",self.game.gameurl);
-            break;
         case 1:
-            DCLog(@"11111->%@",self.game.gameurl);
-            break;
         case 2:
-            DCLog(@"11112->%@",self.game.gameurl);
-            break;
         case 3:
-            DCLog(@"11113->%@",self.game.gameurl);
+            DCLog(@"11111->%@->%@",self.game.gameurl,self.game.id_str);
+            [[NSNotificationCenter defaultCenter] postNotificationName:NotifacationToSkipGameWeb object:nil userInfo:@{GameKey : self.game.gameurl,@"id": self.game.id_str}];
             break;
         case 4:
             DCLog(@"11114->");
@@ -99,7 +94,6 @@
         default:
             break;
     }
-    
 }
 
 @end

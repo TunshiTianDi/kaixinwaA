@@ -19,6 +19,11 @@
 #import "QKMyShareTableViewController.h"
 #import "QKBackgroudTool.h"
 #import "QKDataBaseTool.h"
+#import "QKLoginViewController.h"
+#import "QKAccount.h"
+#import "QKAccountTool.h"
+#import "QKProfileHVFrame.h"
+#import "QKTestViewController.h"
 
 @interface QKProfileViewController ()
 @property(nonatomic,strong)QKProfileHeaderView * headerView;
@@ -32,21 +37,22 @@
     [super viewDidLoad];
     
     self.navigationItem.titleView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"kaixinwa"]];
-    
+    QKAccount * account = [QKAccountTool readAccount];
     [self setupHeaderView];
     [self setupGroups];
-    [self setupRefresh];
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"settings_icon" highImageName:@"settings_icon-2" target:self action:@selector(setting)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor blackColor];
+    if (account) {
+        [self setupRefresh];
+        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"shezhi" highImageName:@"shezhi" target:self action:@selector(setting)];
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor blackColor];
+        //获取开心豆数量
+        [QKGetHappyPeaTool getHappyPeaNum];
+    }
     
-    //获取开心豆数量
-    [QKGetHappyPeaTool getHappyPeaNum];
     //通知完成任务
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishSignTask:) name:@"finishSignTask" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishBondQQTask:) name:@"finishBondQQ" object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(finishBondWXTask:) name:@"finishBondWeChat" object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(finishUpdateSchoolTask:) name:@"finishUpdateSchool" object:nil];
 }
+
+
 #pragma mark -通知方法
 -(void)finishSignTask:(NSNotification*)noti
 {
@@ -55,27 +61,7 @@
     self.tabBarItem.badgeValue = @"new";
     [QKDataBaseTool insertInTaskTableWithTitle:@"您已完成了一项任务" andDetailText:@"恭喜你已经完成每日签到任务，并获得5个开心豆"];
 }
--(void)finishBondQQTask:(NSNotification*)noti
-{
-    self.myMessage.badgeValue = @"new";
-    [self.tableView reloadData];
-    self.tabBarItem.badgeValue = @"new";
-    [QKDataBaseTool insertInTaskTableWithTitle:@"您已完成一项任务" andDetailText:@"恭喜你已经完成绑定QQ任务,并获得5个开心豆"];
-}
--(void)finishBondWXTask:(NSNotification*)noti
-{
-    self.myMessage.badgeValue = @"new";
-    [self.tableView reloadData];
-    self.tabBarItem.badgeValue = @"new";
-    [QKDataBaseTool insertInTaskTableWithTitle:@"您已完成一项任务" andDetailText:@"恭喜你已经完成绑定微信任务,并获得5个开心豆"];
-}
--(void)finishUpdateSchoolTask:(NSNotification*)noti
-{
-    self.myMessage.badgeValue = @"new";
-    [self.tableView reloadData];
-    self.tabBarItem.badgeValue = @"new";
-    [QKDataBaseTool insertInTaskTableWithTitle:@"您已完成一项任务" andDetailText:@"恭喜你已经完成填写学校信息任务,并获得10个开心豆"];
-}
+
 #pragma mark -下拉刷新
 -(void)setupRefresh
 {
@@ -90,10 +76,9 @@
 - (void)refreshControlStateChange:(UIRefreshControl *)refreshControl
 {
     [self.refreshControl beginRefreshing];
+    QKAccount * account = [QKAccountTool readAccount];
     //获取开心豆数量
     [QKGetHappyPeaTool getHappyPeaNum];
-    
-    QKAccount * account = [QKAccountTool readAccount];
     NSString * fileName = [QKHttpTool md5HexDigest:account.phoneNum];
     fileName = [fileName stringByAppendingPathExtension:@"png"];
     NSURL * iconURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://kaixinwaavatar.oss-cn-beijing.aliyuncs.com/%@",fileName]];
@@ -128,8 +113,8 @@
             }
         });
     });
-    
 }
+
 #pragma mark - 设置UI
 -(void)setting
 {
@@ -140,11 +125,12 @@
 -(void)setupHeaderView
 {
     QKProfileHeaderView * headerView = [[QKProfileHeaderView alloc]init];
-    //设置frame
-    headerView.x = 0;
-    headerView.y = 0;
-    headerView.width = QKScreenWidth;
-    headerView.height = 244;
+    QKAccount * account = [QKAccountTool readAccount];
+    QKProfileHVFrame * profileHVFrame = [[QKProfileHVFrame alloc]init];
+    profileHVFrame.account = account;
+    headerView.profileHVFrame = profileHVFrame;
+    headerView.frame = profileHVFrame.frame;
+    
     self.headerView = headerView;
     //设置delegate
     //    headerView.balanceView.delegate = self;
@@ -154,45 +140,18 @@
 
 - (void)setupGroups
 {
-    [self setupGroup0];
-//    [self setupGroup1];
-    [self setupGroup2];
-    [self setupGroup3];
+    [self setupGroup1];
 }
 
--(void)setupGroup0
+-(void)setupGroup1
 {
-    HMCommonGroup* group = [HMCommonGroup group];
-    [self.groups addObject:group];
-    
-    HMCommonArrowItem * mytest = [HMCommonArrowItem itemWithTitle:@"我的任务" icon:[UIImage imageNamed:@"my_tasks"]];
-    
-    mytest.destVcClass = [QKMyTeskViewController class];
-    
-    HMCommonArrowItem * myShare = [HMCommonArrowItem itemWithTitle:@"我的分享" icon:[UIImage imageNamed:@"my_share"]];
-    myShare.destVcClass = [QKMyShareTableViewController class];
-    
-    group.items = @[mytest,myShare];
-}
-
-//-(void)setupGroup1
-//{
-//    HMCommonGroup* group = [HMCommonGroup group];
-//    [self.groups addObject:group];
-//    HMCommonArrowItem * shopping = [HMCommonArrowItem itemWithTitle:@"购物车"];
-//    
-//    HMCommonArrowItem * myOrder = [HMCommonArrowItem itemWithTitle:@"我的订单"];
-//    group.items = @[shopping,myOrder];
-//}
-
--(void)setupGroup2
-{
+//    QKAccount * account = [QKAccountTool readAccount];
     HMCommonGroup* group = [HMCommonGroup group];
     [self.groups addObject:group];
     HMCommonArrowItem * inviteFriends = [HMCommonArrowItem itemWithTitle:@"邀请好友" icon:[UIImage imageNamed:@"invite_friend"]];
     inviteFriends.destVcClass = [QKInvateFriendsViewController class];
     
-    
+    //我的消息
     HMCommonArrowItem * myMessage = [HMCommonArrowItem itemWithTitle:@"我的消息" icon:[UIImage imageNamed:@"my_message"]];
     self.myMessage = myMessage;
     __weak typeof(myMessage) wMessage = myMessage;
@@ -203,37 +162,34 @@
         [wSelf.tableView reloadData];
     };
     myMessage.destVcClass = [QKMessageViewController class];
-    group.items = @[myMessage ,inviteFriends];
+    //我的订单
+    HMCommonArrowItem * myOrder = [HMCommonArrowItem itemWithTitle:@"我的订单" icon:[UIImage imageNamed:@"wodedingdan"]];
+    myOrder.destVcClass = [QKTestViewController class];
+    
+//    我的收藏
+    HMCommonArrowItem * myCollected = [HMCommonArrowItem itemWithTitle:@"我的收藏" icon:[UIImage imageNamed:@"wodeshoucang"]];
+    myCollected.destVcClass = [QKTestViewController class];
+    group.items = @[myMessage,myOrder,inviteFriends,myCollected];
     
 }
--(void)setupGroup3
-{
-    HMCommonGroup * group = [HMCommonGroup group];
-    [self.groups addObject:group];
-    HMCommonArrowItem * writeInviteCode = [HMCommonArrowItem itemWithTitle:@"填写邀请码" icon:[UIImage imageNamed:@"input_invite_code"]];
-    writeInviteCode.destVcClass = [QKPutinInvateCodeVC class];
-    
-    group.items = @[writeInviteCode];
-}
-
-//#pragma mark - 处理balanceView中代理方法
-//- (void)balanceOnClickRecharge:(QKBalanceView *)balanceView
-//{
-//    DCLog(@"去充值");
-//}
-//
-//- (void)balanceOnClickShopping:(QKBalanceView *)balanceView
-//{
-//    DCLog(@"去商城");
-//}
 
 #pragma mark - 处理profileView中代理方法
 - (void)tapProfileImage:(QKProfileView *)profileView
 {
-    DCLog(@"点击头像可以跳转");
-    QKModifyUserInfoViewController * modify =[[QKModifyUserInfoViewController alloc]init];
-    modify.avatarImage = profileView.icon.image;
-    [self.navigationController pushViewController:modify animated:YES];
+    QKAccount * account =[QKAccountTool readAccount];
+    if (account) {
+        QKModifyUserInfoViewController * modify =[[QKModifyUserInfoViewController alloc]init];
+        modify.avatarImage = profileView.icon.image;
+        [self.navigationController pushViewController:modify animated:YES];
+    }else{
+        QKLoginViewController * loginVc = [[QKLoginViewController alloc]init];
+        UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:loginVc];
+        [nav setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        
+        [self presentViewController:nav animated:YES completion:nil];
+        
+    }
+    
 }
 -(void)dealloc
 {

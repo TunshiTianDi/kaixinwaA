@@ -27,6 +27,7 @@ typedef NS_ENUM(NSInteger, ICPageControlPosition) {
 @property (nonatomic, assign) BOOL hidePageControl; // hide pageControl, default is NO
 @property (nonatomic, assign) UIEdgeInsets edgeInsets;
 
+@property (nonatomic, strong) UIPageControl *pageControl;
 /**
  *  Reload everything
  */

@@ -98,6 +98,8 @@
 		D947BBA11B7DB77700765D2D /* libSocialWechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D947BB9C1B7DB77700765D2D /* libSocialWechat.a */; };
 		D947BBA21B7DB77700765D2D /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D947BB9D1B7DB77700765D2D /* libWeChatSDK.a */; };
 		D94AE7291B5F5B98006F4B1A /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = D94AE7281B5F5B98006F4B1A /* area.plist */; };
+		D94B86E51C040CBD008CB9BB /* QKProfileHVFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = D94B86E41C040CBD008CB9BB /* QKProfileHVFrame.m */; };
+		D94B86E81C040F06008CB9BB /* QKProfileViewFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = D94B86E71C040F06008CB9BB /* QKProfileViewFrame.m */; };
 		D95205521B670FFC00E65F12 /* QKQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D95205511B670FFC00E65F12 /* QKQRCodeViewController.m */; };
 		D95205551B675A6400E65F12 /* QKMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D95205541B675A6400E65F12 /* QKMessageViewController.m */; };
 		D9573A071B54994D006ABB27 /* NewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9573A061B54994D006ABB27 /* NewfeatureViewController.m */; };
@@ -140,6 +142,8 @@
 		D981BA241B42888C000B0EFA /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = D981BA181B42888C000B0EFA /* NSObject+MJKeyValue.m */; };
 		D981BA251B42888C000B0EFA /* NSObject+MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = D981BA1A1B42888C000B0EFA /* NSObject+MJMember.m */; };
 		D9855C741B55E9B9008DD932 /* QKCheckString.m in Sources */ = {isa = PBXBuildFile; fileRef = D9855C731B55E9B9008DD932 /* QKCheckString.m */; };
+		D988B7971C04435700C3E239 /* QKNewDiscoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = D988B7961C04435700C3E239 /* QKNewDiscoverController.m */; };
+		D988B79A1C044D2600C3E239 /* QKTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D988B7991C044D2600C3E239 /* QKTestViewController.m */; };
 		D98CA44B1BE9903300732958 /* QKRadioView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98CA44A1BE9903300732958 /* QKRadioView.m */; };
 		D98CA44E1BE9952100732958 /* QKRadioDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98CA44D1BE9952100732958 /* QKRadioDetailView.m */; };
 		D98CA4521BE9CC4100732958 /* QKAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98CA4511BE9CC4100732958 /* QKAnimationView.m */; };
@@ -172,9 +176,6 @@
 		D998E9FB1BEAF40800A268A2 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D998E9FA1BEAF40800A268A2 /* libsqlite3.0.tbd */; };
 		D998E9FD1BEAF42300A268A2 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D998E9FC1BEAF42300A268A2 /* libiconv.tbd */; };
 		D998E9FF1BEAF44000A268A2 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D998E9FE1BEAF44000A268A2 /* libz.tbd */; };
-		D998EA041BEB2A2900A268A2 /* AAPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = D998EA011BEB2A2900A268A2 /* AAPullToRefresh.m */; };
-		D998EA051BEB2A2900A268A2 /* centerIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D998EA021BEB2A2900A268A2 /* centerIcon@2x.png */; };
-		D998EA061BEB2A2900A268A2 /* launchpad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D998EA031BEB2A2900A268A2 /* launchpad@2x.png */; };
 		D99B25221B85852700BFF143 /* QKNotFoundNetView.m in Sources */ = {isa = PBXBuildFile; fileRef = D99B25211B85852700BFF143 /* QKNotFoundNetView.m */; };
 		D9A226391B9D8560001EE8D9 /* QKQRScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A226381B9D8560001EE8D9 /* QKQRScanView.m */; };
 		D9A41C631B8D948300CA12A9 /* QKShareAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A41C611B8D948300CA12A9 /* QKShareAppViewController.m */; };
@@ -395,6 +396,10 @@
 		D947BB9F1B7DB77700765D2D /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		D947BBA01B7DB77700765D2D /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		D94AE7281B5F5B98006F4B1A /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
+		D94B86E31C040CBD008CB9BB /* QKProfileHVFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKProfileHVFrame.h; sourceTree = "<group>"; };
+		D94B86E41C040CBD008CB9BB /* QKProfileHVFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKProfileHVFrame.m; sourceTree = "<group>"; };
+		D94B86E61C040F06008CB9BB /* QKProfileViewFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKProfileViewFrame.h; sourceTree = "<group>"; };
+		D94B86E71C040F06008CB9BB /* QKProfileViewFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKProfileViewFrame.m; sourceTree = "<group>"; };
 		D95205501B670FFC00E65F12 /* QKQRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKQRCodeViewController.h; sourceTree = "<group>"; };
 		D95205511B670FFC00E65F12 /* QKQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKQRCodeViewController.m; sourceTree = "<group>"; };
 		D95205531B675A6400E65F12 /* QKMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QKMessageViewController.h; path = ../../Profile/Controller/QKMessageViewController.h; sourceTree = "<group>"; };
@@ -480,6 +485,10 @@
 		D981BA1A1B42888C000B0EFA /* NSObject+MJMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJMember.m"; sourceTree = "<group>"; };
 		D9855C721B55E9B9008DD932 /* QKCheckString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKCheckString.h; sourceTree = "<group>"; };
 		D9855C731B55E9B9008DD932 /* QKCheckString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKCheckString.m; sourceTree = "<group>"; };
+		D988B7951C04435700C3E239 /* QKNewDiscoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKNewDiscoverController.h; sourceTree = "<group>"; };
+		D988B7961C04435700C3E239 /* QKNewDiscoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKNewDiscoverController.m; sourceTree = "<group>"; };
+		D988B7981C044D2600C3E239 /* QKTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKTestViewController.h; sourceTree = "<group>"; };
+		D988B7991C044D2600C3E239 /* QKTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKTestViewController.m; sourceTree = "<group>"; };
 		D98CA4491BE9903300732958 /* QKRadioView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKRadioView.h; sourceTree = "<group>"; };
 		D98CA44A1BE9903300732958 /* QKRadioView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKRadioView.m; sourceTree = "<group>"; };
 		D98CA44C1BE9952100732958 /* QKRadioDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKRadioDetailView.h; sourceTree = "<group>"; };
@@ -538,10 +547,6 @@
 		D998E9FA1BEAF40800A268A2 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		D998E9FC1BEAF42300A268A2 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		D998E9FE1BEAF44000A268A2 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		D998EA001BEB2A2900A268A2 /* AAPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPullToRefresh.h; sourceTree = "<group>"; };
-		D998EA011BEB2A2900A268A2 /* AAPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPullToRefresh.m; sourceTree = "<group>"; };
-		D998EA021BEB2A2900A268A2 /* centerIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "centerIcon@2x.png"; sourceTree = "<group>"; };
-		D998EA031BEB2A2900A268A2 /* launchpad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launchpad@2x.png"; sourceTree = "<group>"; };
 		D99B25201B85852700BFF143 /* QKNotFoundNetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKNotFoundNetView.h; sourceTree = "<group>"; };
 		D99B25211B85852700BFF143 /* QKNotFoundNetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKNotFoundNetView.m; sourceTree = "<group>"; };
 		D9A226371B9D8560001EE8D9 /* QKQRScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKQRScanView.h; sourceTree = "<group>"; };
@@ -834,6 +839,8 @@
 			children = (
 				D9A41C971B8DADAC00CA12A9 /* QKDiscoverController.h */,
 				D9A41C981B8DADAC00CA12A9 /* QKDiscoverController.m */,
+				D988B7951C04435700C3E239 /* QKNewDiscoverController.h */,
+				D988B7961C04435700C3E239 /* QKNewDiscoverController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -908,10 +915,6 @@
 				D98CA4481BE98FE300732958 /* HappyRadio */,
 				D98CA4591BE9ED6300732958 /* QKMoreButton.h */,
 				D98CA45A1BE9ED6300732958 /* QKMoreButton.m */,
-				D998EA001BEB2A2900A268A2 /* AAPullToRefresh.h */,
-				D998EA011BEB2A2900A268A2 /* AAPullToRefresh.m */,
-				D998EA021BEB2A2900A268A2 /* centerIcon@2x.png */,
-				D998EA031BEB2A2900A268A2 /* launchpad@2x.png */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1014,6 +1017,8 @@
 				D947870E1B588E8A0013E1D5 /* QKAboutKaixinwaViewController.h */,
 				D947870F1B588E8A0013E1D5 /* QKAboutKaixinwaViewController.m */,
 				D94787101B588E8A0013E1D5 /* QKAboutKaixinwaViewController.xib */,
+				D988B7981C044D2600C3E239 /* QKTestViewController.h */,
+				D988B7991C044D2600C3E239 /* QKTestViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1023,6 +1028,10 @@
 			children = (
 				D9D90D761B4502530071F068 /* QKUserInfo.h */,
 				D9D90D771B4502530071F068 /* QKUserInfo.m */,
+				D94B86E31C040CBD008CB9BB /* QKProfileHVFrame.h */,
+				D94B86E41C040CBD008CB9BB /* QKProfileHVFrame.m */,
+				D94B86E61C040F06008CB9BB /* QKProfileViewFrame.h */,
+				D94B86E71C040F06008CB9BB /* QKProfileViewFrame.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1785,11 +1794,9 @@
 				D92E337B1B4382A600A4A34B /* QKRetrievePasswordViewController.xib in Resources */,
 				7B7D859F1B3FCA18007504B8 /* LaunchScreen.xib in Resources */,
 				D947BB8F1B7DB75600765D2D /* UMSLoginViewController.xib in Resources */,
-				D998EA061BEB2A2900A268A2 /* launchpad@2x.png in Resources */,
 				D9E15ABE1B4B7985003B25FA /* pick_bg@2x.png in Resources */,
 				D981B9FE1B427CB0000B0EFA /* MBProgressHUD.bundle in Resources */,
 				D9945BAB1B8455FE00C954A4 /* QKInvateFriendsViewController.xib in Resources */,
-				D998EA051BEB2A2900A268A2 /* centerIcon@2x.png in Resources */,
 				D947BB8A1B7DB75600765D2D /* UMSCommentDetailController.xib in Resources */,
 				D947BB881B7DB75600765D2D /* UMSocialLocalizable.strings in Resources */,
 				D9FD7C581B69B1A800A517F9 /* QKPickerView.xib in Resources */,
@@ -1869,7 +1876,6 @@
 				7B240B771B41362C000EF832 /* QKRegistViewController.m in Sources */,
 				D95D78651B4E2551007F58E8 /* UIView+WebCacheOperation.m in Sources */,
 				D95205551B675A6400E65F12 /* QKMessageViewController.m in Sources */,
-				D998EA041BEB2A2900A268A2 /* AAPullToRefresh.m in Sources */,
 				D9FD7C601B69B1EE00A517F9 /* QKSettingViewController.m in Sources */,
 				D95D785A1B4E2551007F58E8 /* SDWebImageDecoder.m in Sources */,
 				7BFB84AE1B40EA530001FA88 /* UIBarButtonItem+Extension.m in Sources */,
@@ -1895,6 +1901,7 @@
 				D97C3A0C1B8AE14300F2709C /* QKShareTool.m in Sources */,
 				D90BD4401BE888210018B118 /* QKVideo.m in Sources */,
 				7BFB849C1B40E7580001FA88 /* HMCommonCenterItem.m in Sources */,
+				D988B79A1C044D2600C3E239 /* QKTestViewController.m in Sources */,
 				D981BA1B1B42888C000B0EFA /* MJArgument.m in Sources */,
 				D981BA1C1B42888C000B0EFA /* MJConst.m in Sources */,
 				D9FD7C521B69B1A800A517F9 /* QKModifyUserInfoViewController.m in Sources */,
@@ -1914,6 +1921,7 @@
 				D981BA251B42888C000B0EFA /* NSObject+MJMember.m in Sources */,
 				D90BD4461BE888400018B118 /* QKLunbo.m in Sources */,
 				D981B9FD1B427CB0000B0EFA /* MBProgressHUD+MJ.m in Sources */,
+				D94B86E81C040F06008CB9BB /* QKProfileViewFrame.m in Sources */,
 				D9E0B1D31B54EA3B00C70063 /* QKResetParam.m in Sources */,
 				D9FD7C671B69B1F400A517F9 /* QKMyTeskViewController.m in Sources */,
 				7B7D85CC1B3FCED1007504B8 /* AppDelegate.m in Sources */,
@@ -1940,6 +1948,7 @@
 				7BFB849D1B40E7580001FA88 /* HMCommonGroup.m in Sources */,
 				D95D78601B4E2551007F58E8 /* UIImage+GIF.m in Sources */,
 				D968C6691B82DB890034C5E4 /* QKGetHappyPeaTool.m in Sources */,
+				D94B86E51C040CBD008CB9BB /* QKProfileHVFrame.m in Sources */,
 				D98CA44B1BE9903300732958 /* QKRadioView.m in Sources */,
 				D9A41C991B8DADAC00CA12A9 /* QKDiscoverController.m in Sources */,
 				D90BD43D1BE888010018B118 /* QKGame.m in Sources */,
@@ -1972,6 +1981,7 @@
 				D98ED4621B86CEA800F090BA /* QKShareCell.m in Sources */,
 				7B7D85E31B3FD51C007504B8 /* NSDate+MJ.m in Sources */,
 				D981BA221B42888C000B0EFA /* MJTypeEncoding.m in Sources */,
+				D988B7971C04435700C3E239 /* QKNewDiscoverController.m in Sources */,
 				D92E338C1B43B29E00A4A34B /* QKControllerTool.m in Sources */,
 				D95205521B670FFC00E65F12 /* QKQRCodeViewController.m in Sources */,
 				7B7D85E21B3FD51C007504B8 /* Foundation+Log.m in Sources */,
@@ -2110,6 +2120,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Xin Hong Yang (YWSDBFFEG8)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2138,6 +2149,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Xin Hong Yang (YWSDBFFEG8)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2165,6 +2177,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -2181,6 +2194,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				INFOPLIST_FILE = kaixinwaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "qkhl.$(PRODUCT_NAME:rfc1034identifier)";

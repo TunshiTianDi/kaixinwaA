@@ -38,8 +38,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"登录开心蛙";
-    self.userNameTF.inputAccessoryView = nil;
+    UIView * aView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, QKScreenWidth, 1)];
+    aView.backgroundColor = [UIColor lightGrayColor];
+    self.userNameTF.inputAccessoryView = aView;
+    self.passwordTF.inputAccessoryView = aView;
     [self registerLJWKeyboardHandler];
+    
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"settings_icon" highImageName:@"settings_icon-2" target:self action:@selector(toTab3)];
+}
+
+-(void)toTab3{
+    
+    if (self.index == 2) {
+        [QKControllerTool chooseRootViewControllerWithIndex:self.index];
+    }else{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    
 }
 
 - (IBAction)login:(id)sender {
@@ -48,7 +63,7 @@
         [MBProgressHUD showError:@"密码格式不正确"];
         return;
     }
-    
+    [self.view endEditing:YES];
     [MBProgressHUD showMessage:@"登录中..."];
     NSDictionary* params = [self getLoginParams];
     [QKHttpTool post:LoginInterface params:params success:^(id responseObj) {
@@ -73,9 +88,12 @@
             account.address = results.data.address;
             account.weixin = results.data.weixin;
             account.qq = results.data.qq;
+            account.token = results.data.token;
+            
             [QKAccountTool save:account];
             //登陆成功跳转
             [QKControllerTool chooseRootViewController];
+            
         }else{
             [MBProgressHUD showError:results.message];
         }

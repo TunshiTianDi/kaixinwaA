@@ -21,7 +21,13 @@
 #import "QKGridView.h"
 #import "QKRadioView.h"
 #import "QKAnimationView.h"
-//#import "AAPullToRefresh.h"
+#import "QKWebViewController.h"
+#import "QKAccountTool.h"
+#import "QKAccount.h"
+#import "MBProgressHUD+MJ.h"
+#import "QKGetHappyPeaTool.h"
+#import "QKSignResult.h"
+#import "QKLoginViewController.h"
 
 @interface QKHomeViewController ()<ImagePlayerViewDelegate>
 @property(nonatomic,strong)NSMutableArray * imageUrls;
@@ -54,14 +60,14 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.titleView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"kaixinwa"]];
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"leftItem" highImageName:@"leftItem_highlight" target:self action:@selector(signEveryday)];
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"rightItem" highImageName:@"rightItem_highlight" target:self action:@selector(toScanView)];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"meiriqiandao" highImageName:@"meiriqiandao_sel" target:self action:@selector(signEveryday:)];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"huoqudaan" highImageName:@"huoqudaan_sel" target:self action:@selector(toScanView)];
     
     [self creatUI];
     
     //发送请求获取首页数据
-    [QKHttpTool post:@"http://test.qkhl-api.com/qkhl_api/index.php/Kxwapi/Index/gethome" params:nil success:^(id responseObj) {
-        DCLog(@"%@",responseObj);
+    [QKHttpTool post:@"http://101.200.173.111/kaixinwa2.0/index.php/Kxwapi/Index/getHome" params:nil success:^(id responseObj) {
+//        DCLog(@"%@",responseObj);
         QKFirstHome * home = [QKFirstHome objectWithKeyValues:responseObj];
         for (QKLunbo * lunbo in home.data.lunbo) {
             [self.imageUrls addObject:lunbo.lunbo_faceurl];
@@ -76,18 +82,68 @@
     } failure:^(NSError *error) {
         DCLog(@"%@",error);
     }];
-    
+    //注册通知处理点击游戏图
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameMethod:) name:NotifacationToSkipGameWeb object:nil];
 }
+
 -(void)toScanView
 {
     QKQRCodeViewController * qrVC = [[QKQRCodeViewController alloc]init];
     [self.navigationController pushViewController:qrVC animated:YES];
 }
--(void)signEveryday
+-(void)signEveryday:(UIBarButtonItem*)item
 {
+    //签到方法
+    QKAccount* account = [QKAccountTool readAccount];
+    if (account) {
+        if (account.lasttime) {
+            //发送签到请求
+            NSDictionary * param = @{@"uid":account.uid};
+            [QKHttpTool post:SignEverydayInterface params:param success:^(id responseObj) {
+                //            DCLog(@"----%@",responseObj);
+                QKSignResult * signResult =[QKSignResult objectWithKeyValues:responseObj];
+                NSString * code = [signResult.code stringValue];
+                //更新账号信息
+                if ([code isEqualToString:@"201"]) {
+                    
+                    account.lasttime = signResult.data.lasttime;
+                    [QKAccountTool save:account];
+                    [MBProgressHUD showSuccess:signResult.message];
+                    [QKGetHappyPeaTool getHappyPeaNum];
+                    //发送通知完成签到任务
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"finishSignTask" object:nil];
+                }else{
+                    [MBProgressHUD showError:signResult.message];
+                }
+            } failure:^(NSError *error) {
+                DCLog(@"----%@",error);
+            }];
+        }else{
+            [MBProgressHUD showError:@"已签到"];
+        };
+    }else{
+        QKLoginViewController* loginVc = [[QKLoginViewController alloc]init];
+        UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:loginVc];
+        [nav setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        
+        [self presentViewController:nav animated:YES completion:nil];
+        
+    }
+    
     
 }
+#pragma mark - 通知方法
+-(void)gameMethod:(NSNotification *)noti
+{
+    QKWebViewController * wvc = [[QKWebViewController alloc]init];
+    NSString * url = noti.userInfo[GameKey];
+    NSString * firstStr = @"http://";
+    firstStr = [firstStr stringByAppendingString:url];
+    wvc.urlStr = firstStr;
+    [self.navigationController pushViewController:wvc animated:YES];
+}
 
+#pragma mark -
 -(void)creatUI
 {
     UIScrollView * scrollView = [[UIScrollView alloc]init];
@@ -97,11 +153,14 @@
     self.scrollView = scrollView;
     //轮播视图
     ImagePlayerView * imagePlayerView = [[ImagePlayerView alloc]init];
-    imagePlayerView.backgroundColor = [UIColor cyanColor];
+    
+//    imagePlayerView.backgroundColor = [UIColor cyanColor];
     imagePlayerView.frame = CGRectMake(0, 0, self.view.width, 160);
     imagePlayerView.imagePlayerViewDelegate = self;
     imagePlayerView.scrollInterval = 5.0;
     imagePlayerView.pageControlPosition = ICPageControlPosition_BottomCenter;
+    imagePlayerView.pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    imagePlayerView.pageControl.currentPageIndicatorTintColor = [UIColor greenColor];
     self.imagePlayerView = imagePlayerView;
     [scrollView addSubview:imagePlayerView];
     //限时兑换
@@ -180,6 +239,9 @@
     DCLog(@"did tap index = %@", self.lunboDesUrls[index]);
 }
 
-
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 @end

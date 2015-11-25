@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface QKLoginViewController : UIViewController
-
+@property(nonatomic,assign)NSUInteger index;
 @end

@@ -15,7 +15,7 @@
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, assign) NSInteger count;
 @property (nonatomic, strong) NSTimer *autoScrollTimer;
-@property (nonatomic, strong) UIPageControl *pageControl;
+
 @property (nonatomic, strong) NSMutableArray *pageControlConstraints;
 @property (nonatomic, strong) NSMutableArray *scrollViewConstraints;
 @end

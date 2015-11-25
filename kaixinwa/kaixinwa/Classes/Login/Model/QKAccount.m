@@ -37,6 +37,7 @@
         self.signature = [decoder decodeObjectForKey:@"signature"];
         self.address = [decoder decodeObjectForKey:@"address"];
         self.qq = [decoder decodeObjectForKey:@"qq"];
+        self.token = [decoder decodeObjectForKey:@"token"];
     }
     return self;
 }
@@ -61,6 +62,7 @@
     [encoder encodeObject:self.signature forKey:@"signature"];
     [encoder encodeObject:self.address forKey:@"address"];
     [encoder encodeObject:self.qq forKey:@"qq"];
+    [encoder encodeObject:self.token forKey:@"token"];
     
 }
 @end

@@ -13,4 +13,8 @@
  *  选择根控制器
  */
 + (void)chooseRootViewController;
+/**
+    选择进入控制器
+ */
++ (void)chooseRootViewControllerWithIndex:(NSUInteger)index;
 @end

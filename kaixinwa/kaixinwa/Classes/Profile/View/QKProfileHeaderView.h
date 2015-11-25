@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QKProfileHVFrame.h"
 @class QKProfileView,QKBalanceView;
 
 @interface QKProfileHeaderView : UIImageView
@@ -15,5 +16,5 @@
 /** 账户余额信息*/
 @property(nonatomic,weak)QKBalanceView * balanceView;
 
-
+@property(nonatomic,strong)QKProfileHVFrame * profileHVFrame;
 @end

@@ -15,8 +15,8 @@
 @property(nonatomic,weak)UILabel * showBalanceLabel;
 
 @property(nonatomic,weak)UIImageView * icon;
-
-
+@property(nonatomic,weak)UIButton * rechargeBtn;
+@property(nonatomic,weak)UIButton * shoppingBtn;
 @property(nonatomic,weak)UILabel * swLabel;
 @end
 
@@ -44,7 +44,6 @@
         UILabel * peaCountLabel = [[UILabel alloc]init];
         peaCountLabel.font = [UIFont systemFontOfSize:15];
         [peaCountLabel setTextColor:QKColor(232, 168, 39)];
-//        peaCountLabel.text = @"0";
         [self addSubview:peaCountLabel];
         self.peaCountLabel = peaCountLabel;
         //创建lable
@@ -53,6 +52,26 @@
         swLabel.text = @"开心豆";
         [self addSubview:swLabel];
         self.swLabel = swLabel;
+        //创建去充值按钮
+        UIButton * rechargeBtn = [[UIButton alloc]init];
+        rechargeBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        [rechargeBtn setTitle:@"去充值" forState:UIControlStateNormal];
+        [rechargeBtn setBackgroundImage:[UIImage imageNamed:@"chongzhiweidianji"] forState:UIControlStateNormal];
+        [rechargeBtn setBackgroundImage:[UIImage imageNamed:@"chongzhidianji"] forState:UIControlStateHighlighted];
+        [rechargeBtn addTarget:self action:@selector(clickRecharge:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:rechargeBtn];
+        self.rechargeBtn = rechargeBtn;
+        
+        //创建去商城按钮
+        UIButton * shoppingBtn = [[UIButton alloc]init];
+        shoppingBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        [shoppingBtn setTitle:@"去商城" forState:UIControlStateNormal];
+        [shoppingBtn setBackgroundImage:[UIImage imageNamed:@"chongzhiweidianji"] forState:UIControlStateNormal];
+        [shoppingBtn setBackgroundImage:[UIImage imageNamed:@"chongzhidianji"] forState:UIControlStateHighlighted];
+        [shoppingBtn addTarget:self action:@selector(clickShopping:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:shoppingBtn];
+        self.shoppingBtn = shoppingBtn;
+        
         //改变开心豆数量
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changePeaCount:) name:ChangePeaCount object:nil];
         
@@ -119,6 +138,17 @@
     self.swLabel.x = CGRectGetMaxX(self.peaCountLabel.frame);
     self.swLabel.y = self.showBalanceLabel.y;
     self.swLabel.size = [self.swLabel.text sizeWithAttributes:@{NSFontAttributeName:self.swLabel.font}];
+    
+    self.rechargeBtn.width = (QKScreenWidth - CGRectGetMaxX(self.swLabel.frame)- 5 * QKCellMargin)/2;
+    self.rechargeBtn.height = self.rechargeBtn.width/2.5;
+    self.rechargeBtn.x = CGRectGetMaxX(self.swLabel.frame) + 3 * QKCellMargin;
+    self.rechargeBtn.y = (self.height - self.rechargeBtn.height)/2;
+    
+    self.shoppingBtn.width = self.rechargeBtn.width;
+    self.shoppingBtn.height = self.rechargeBtn.height;
+    self.shoppingBtn.x = CGRectGetMaxX(self.rechargeBtn.frame) + QKCellMargin;
+    self.shoppingBtn.y = self.rechargeBtn.y;
+    
 }
 -(void)dealloc
 {

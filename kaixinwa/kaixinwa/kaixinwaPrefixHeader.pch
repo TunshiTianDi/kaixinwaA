@@ -43,7 +43,10 @@
 #define MobAppSecret @"5da79d2a4f7f1b6874ae01ff2eed7e34"
 #pragma mark interface
 //登录接口
-#define LoginInterface @"http://101.200.173.163/qkhl_api/index.php/kxwapi/User/login"
+#define LoginInterface @"http://101.200.173.111/kaixinwa2.0/Kxwapi/User/login"
+
+//@"http://101.200.173.163/qkhl_api/index.php/kxwapi/User/login"
+
 //注册接口
 #define RegisteInterface @"http://101.200.173.163/qkhl_api/index.php/kxwapi/User/regist"
 //短信验证码
@@ -90,4 +93,8 @@
 #define ChangePeaCount @"changePeaCount"
 //u盟appKey
 #define UmengAppKey @"55b58b3367e58ea9200010f9"
+
+//首页通知开心益智游戏
+#define NotifacationToSkipGameWeb @"toSkipGame"
+#define GameKey @"toSkipGameKey"
 #endif

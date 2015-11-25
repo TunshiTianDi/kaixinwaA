@@ -10,6 +10,9 @@
 #import "HMCommonViewController.h"
 #import "HMCommonCell.h"
 #import "QKCommonItemHeader.h"
+#import "QKAccountTool.h"
+#import "QKAccount.h"
+#import "QKLoginViewController.h"
 
 @interface HMCommonViewController ()
 @property (nonatomic, strong) NSMutableArray *groups;
@@ -84,16 +87,23 @@
     HMCommonGroup *group = self.groups[indexPath.section];
     HMCommonItem *item = group.items[indexPath.row];
     
-    // 2.判断有无需要跳转的控制器
-    if (item.destVcClass) {
-        UIViewController *destVc = [[item.destVcClass alloc] init];
-        destVc.title = item.title;
-        [self.navigationController pushViewController:destVc animated:YES];
-    }
-    
-    // 3.判断有无想执行的操作
-    if (item.operation) {
-        item.operation();
+    if (![QKAccountTool readAccount]) {
+        QKLoginViewController * loginVc = [[QKLoginViewController alloc]init];
+        UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:loginVc];
+        [nav setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        [self presentViewController:nav animated:YES completion:nil];
+    }else{
+        // 2.判断有无需要跳转的控制器
+        if (item.destVcClass) {
+            UIViewController *destVc = [[item.destVcClass alloc] init];
+            destVc.title = item.title;
+            [self.navigationController pushViewController:destVc animated:YES];
+        }
+        
+        // 3.判断有无想执行的操作
+        if (item.operation) {
+            item.operation();
+        }
     }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

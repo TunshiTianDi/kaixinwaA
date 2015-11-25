@@ -42,5 +42,7 @@
 @property(nonatomic,copy)NSString * address;
 /** 绑定qq号*/
 @property(nonatomic,copy)NSString * qq;
+/** token*/
+@property(nonatomic,copy)NSString * token;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QKProfileViewFrame.h"
 
 @class QKProfileView;
 
@@ -19,5 +20,5 @@
 @interface QKProfileView : UIImageView
 @property(nonatomic,weak)id<QKProfileDelegate>delegate;
 @property (nonatomic , weak)UIImageView * icon;
-
+@property(nonatomic,strong)QKProfileViewFrame * profileViewFrame;
 @end
