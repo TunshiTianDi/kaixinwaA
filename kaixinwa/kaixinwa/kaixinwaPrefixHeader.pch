@@ -58,7 +58,9 @@
 #define UpdataUserInfoInterface @"http://101.200.173.163/qkhl_api/index.php/kxwapi/User/updateInfo"
 
 //获取开心豆接口
-#define GetHappyPeaInterface @"http://101.200.173.163/qkhl_api/index.php/kxwapi/Beancount/getcount"
+#define GetHappyPeaInterface @"http://101.200.173.111/kaixinwa2.0/index.php/kxwapi/Beancount/getcount"
+
+//@"http://101.200.173.163/qkhl_api/index.php/kxwapi/Beancount/getcount"
 
 #define QKUserDefaults [NSUserDefaults standardUserDefaults]
 

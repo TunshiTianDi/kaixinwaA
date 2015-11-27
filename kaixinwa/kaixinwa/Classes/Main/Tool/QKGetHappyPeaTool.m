@@ -13,6 +13,7 @@
 {
     NSDictionary * param = @{@"uid":[QKAccountTool readAccount].uid};
     [QKHttpTool post:GetHappyPeaInterface params:param success:^(id responseObj) {
+        
         QKGetPeaCount * result = [QKGetPeaCount objectWithKeyValues:responseObj];
         NSInteger amount =[result.data.amount integerValue];
         NSString * amountStr = [NSString stringWithFormat:@"%ld",(long)amount];

@@ -63,6 +63,7 @@
     self.maskView.alpha = 0;
     [self.maskView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideMyMask)]];
 }
+
 -(void)hideMyMask
 {
     [UIView animateWithDuration:0.3 animations:^{

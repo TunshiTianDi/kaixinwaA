@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 #import "QKNotFoundNetView.h"
 #import "MBProgressHUD+MJ.h"
-
+#import "QKRechargeViewController.h"
 
 @interface QKWebViewController ()<QKNotFoundNetViewDelegate>
 
@@ -55,9 +55,9 @@
     CGRect navigaitonBarBounds = self.navigationController.navigationBar.bounds;
     CGRect barFrame = CGRectMake(0, navigaitonBarBounds.size.height - progressBarHeight, navigaitonBarBounds.size.width, progressBarHeight);
     self.progressView = [[NJKWebViewProgressView alloc] initWithFrame:barFrame];
-    
-    [self loadUrlWithString:self.urlStr];
-    
+    if (![self isKindOfClass:[QKRechargeViewController class]]) {
+        [self loadUrlWithString:self.urlStr];
+    }
     //注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(begainFullScreen) name:UIWindowDidBecomeVisibleNotification object:nil];//进入全屏
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endFullScreen) name:UIWindowDidBecomeHiddenNotification object:nil];//退出全屏

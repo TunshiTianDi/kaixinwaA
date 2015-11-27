@@ -67,6 +67,7 @@
 		D90BD4501BE898770018B118 /* QKGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = D90BD44F1BE898770018B118 /* QKGridView.m */; };
 		D90BD4531BE89DB80018B118 /* QKImageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D90BD4521BE89DB80018B118 /* QKImageTextView.m */; };
 		D90BD4561BE8A20A0018B118 /* QKBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = D90BD4551BE8A20A0018B118 /* QKBottomView.m */; };
+		D9106C681C07F670002E792C /* QKLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9106C671C07F670002E792C /* QKLoadingView.m */; };
 		D92E337A1B4382A600A4A34B /* QKRetrievePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D92E33781B4382A600A4A34B /* QKRetrievePasswordViewController.m */; };
 		D92E337B1B4382A600A4A34B /* QKRetrievePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D92E33791B4382A600A4A34B /* QKRetrievePasswordViewController.xib */; };
 		D92E337F1B4389F700A4A34B /* QKResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D92E337D1B4389F700A4A34B /* QKResetPasswordViewController.m */; };
@@ -100,6 +101,9 @@
 		D94AE7291B5F5B98006F4B1A /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = D94AE7281B5F5B98006F4B1A /* area.plist */; };
 		D94B86E51C040CBD008CB9BB /* QKProfileHVFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = D94B86E41C040CBD008CB9BB /* QKProfileHVFrame.m */; };
 		D94B86E81C040F06008CB9BB /* QKProfileViewFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = D94B86E71C040F06008CB9BB /* QKProfileViewFrame.m */; };
+		D95153FA1C06D365009F9428 /* QKRechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D95153F91C06D365009F9428 /* QKRechargeViewController.m */; };
+		D95153FC1C06DE81009F9428 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95153FB1C06DE81009F9428 /* StoreKit.framework */; };
+		D95154001C06E99B009F9428 /* products.plist in Resources */ = {isa = PBXBuildFile; fileRef = D95153FF1C06E99B009F9428 /* products.plist */; };
 		D95205521B670FFC00E65F12 /* QKQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D95205511B670FFC00E65F12 /* QKQRCodeViewController.m */; };
 		D95205551B675A6400E65F12 /* QKMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D95205541B675A6400E65F12 /* QKMessageViewController.m */; };
 		D9573A071B54994D006ABB27 /* NewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9573A061B54994D006ABB27 /* NewfeatureViewController.m */; };
@@ -341,6 +345,8 @@
 		D90BD4521BE89DB80018B118 /* QKImageTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKImageTextView.m; sourceTree = "<group>"; };
 		D90BD4541BE8A20A0018B118 /* QKBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKBottomView.h; sourceTree = "<group>"; };
 		D90BD4551BE8A20A0018B118 /* QKBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKBottomView.m; sourceTree = "<group>"; };
+		D9106C661C07F670002E792C /* QKLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKLoadingView.h; sourceTree = "<group>"; };
+		D9106C671C07F670002E792C /* QKLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKLoadingView.m; sourceTree = "<group>"; };
 		D92E33771B4382A600A4A34B /* QKRetrievePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKRetrievePasswordViewController.h; sourceTree = "<group>"; };
 		D92E33781B4382A600A4A34B /* QKRetrievePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKRetrievePasswordViewController.m; sourceTree = "<group>"; };
 		D92E33791B4382A600A4A34B /* QKRetrievePasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QKRetrievePasswordViewController.xib; sourceTree = "<group>"; };
@@ -400,6 +406,10 @@
 		D94B86E41C040CBD008CB9BB /* QKProfileHVFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKProfileHVFrame.m; sourceTree = "<group>"; };
 		D94B86E61C040F06008CB9BB /* QKProfileViewFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKProfileViewFrame.h; sourceTree = "<group>"; };
 		D94B86E71C040F06008CB9BB /* QKProfileViewFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKProfileViewFrame.m; sourceTree = "<group>"; };
+		D95153F81C06D365009F9428 /* QKRechargeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QKRechargeViewController.h; path = ../../WebVC/Controller/QKRechargeViewController.h; sourceTree = "<group>"; };
+		D95153F91C06D365009F9428 /* QKRechargeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QKRechargeViewController.m; path = ../../WebVC/Controller/QKRechargeViewController.m; sourceTree = "<group>"; };
+		D95153FB1C06DE81009F9428 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		D95153FF1C06E99B009F9428 /* products.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = products.plist; sourceTree = "<group>"; };
 		D95205501B670FFC00E65F12 /* QKQRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKQRCodeViewController.h; sourceTree = "<group>"; };
 		D95205511B670FFC00E65F12 /* QKQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKQRCodeViewController.m; sourceTree = "<group>"; };
 		D95205531B675A6400E65F12 /* QKMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QKMessageViewController.h; path = ../../Profile/Controller/QKMessageViewController.h; sourceTree = "<group>"; };
@@ -640,6 +650,7 @@
 				D93497AF1B53AD9A0089B67A /* CoreLocation.framework in Frameworks */,
 				7BA485851B422D360035B4CD /* AddressBookUI.framework in Frameworks */,
 				7BA485831B422D1C0035B4CD /* AddressBook.framework in Frameworks */,
+				D95153FC1C06DE81009F9428 /* StoreKit.framework in Frameworks */,
 				7BA485811B422CFE0035B4CD /* MessageUI.framework in Frameworks */,
 				D947BB981B7DB76800765D2D /* libSocialQQ.a in Frameworks */,
 				D947BBA11B7DB77700765D2D /* libSocialWechat.a in Frameworks */,
@@ -746,6 +757,7 @@
 		7B7D85821B3FCA18007504B8 = {
 			isa = PBXGroup;
 			children = (
+				D95153FB1C06DE81009F9428 /* StoreKit.framework */,
 				7B7D858D1B3FCA18007504B8 /* kaixinwa */,
 				7B7D85A71B3FCA19007504B8 /* kaixinwaTests */,
 				7B7D858C1B3FCA18007504B8 /* Products */,
@@ -775,6 +787,7 @@
 		7B7D858E1B3FCA18007504B8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D95153FF1C06E99B009F9428 /* products.plist */,
 				D947BB6B1B7D9B9500765D2D /* ALBB_OSS_IOS_SDK.framework */,
 				D94AE7281B5F5B98006F4B1A /* area.plist */,
 				D9E15ABB1B4B7985003B25FA /* line@2x.png */,
@@ -818,6 +831,7 @@
 				D9E972821B9BEE82001742CC /* MyMessage(我的消息) */,
 				D9FD7C5A1B69B1EE00A517F9 /* Setting(设置界面) */,
 				D9FD7C3F1B69B1A800A517F9 /* Modify(修改个人信息) */,
+				D95153FD1C06DFCA009F9428 /* Recharge(充值) */,
 				D9945BA11B84547D00C954A4 /* InvateFriends */,
 				D9945B941B84495A00C954A4 /* PutinInvateCode(填写邀请码) */,
 			);
@@ -1139,6 +1153,15 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		D9106C651C07F65A002E792C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D9106C661C07F670002E792C /* QKLoadingView.h */,
+				D9106C671C07F670002E792C /* QKLoadingView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D947BB6D1B7DB75600765D2D /* UMSocial_Sdk_4.2.3 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1205,6 +1228,24 @@
 				D947BBA01B7DB77700765D2D /* WXApiObject.h */,
 			);
 			path = Wechat;
+			sourceTree = "<group>";
+		};
+		D95153FD1C06DFCA009F9428 /* Recharge(充值) */ = {
+			isa = PBXGroup;
+			children = (
+				D9106C651C07F65A002E792C /* View */,
+				D95153FE1C06DFCA009F9428 /* Controller */,
+			);
+			path = "Recharge(充值)";
+			sourceTree = "<group>";
+		};
+		D95153FE1C06DFCA009F9428 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D95153F81C06D365009F9428 /* QKRechargeViewController.h */,
+				D95153F91C06D365009F9428 /* QKRechargeViewController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		D9573A011B5498A7006ABB27 /* NewFeature */ = {
@@ -1750,9 +1791,13 @@
 				TargetAttributes = {
 					7B7D858A1B3FCA18007504B8 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 5TJBR4D2AC;
 						SystemCapabilities = {
-							com.apple.Maps.iOS = {
+							com.apple.InAppPurchase = {
 								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
 							};
 						};
 					};
@@ -1813,6 +1858,7 @@
 				D947BB8D1B7DB75600765D2D /* UMShareEditViewController.xib in Resources */,
 				D9E15ABD1B4B7985003B25FA /* line@2x.png in Resources */,
 				D947BB911B7DB75600765D2D /* UMSShareListController.xib in Resources */,
+				D95154001C06E99B009F9428 /* products.plist in Resources */,
 				D94AE7291B5F5B98006F4B1A /* area.plist in Resources */,
 				D94787121B588E8A0013E1D5 /* QKAboutKaixinwaViewController.xib in Resources */,
 			);
@@ -1898,6 +1944,7 @@
 				D968C6661B82BEC00034C5E4 /* QKPeaCountData.m in Sources */,
 				D98ED4521B86C3AA00F090BA /* FMDatabaseAdditions.m in Sources */,
 				D9945B9C1B844A7B00C954A4 /* QKPutinInvateCodeVC.m in Sources */,
+				D95153FA1C06D365009F9428 /* QKRechargeViewController.m in Sources */,
 				D97C3A0C1B8AE14300F2709C /* QKShareTool.m in Sources */,
 				D90BD4401BE888210018B118 /* QKVideo.m in Sources */,
 				7BFB849C1B40E7580001FA88 /* HMCommonCenterItem.m in Sources */,
@@ -1958,6 +2005,7 @@
 				D9D90D781B4502530071F068 /* QKUserInfo.m in Sources */,
 				D95D78561B4E2551007F58E8 /* MKAnnotationView+WebCache.m in Sources */,
 				D95D78581B4E2551007F58E8 /* SDImageCache.m in Sources */,
+				D9106C681C07F670002E792C /* QKLoadingView.m in Sources */,
 				D94787111B588E8A0013E1D5 /* QKAboutKaixinwaViewController.m in Sources */,
 				D968C6651B82BEC00034C5E4 /* QKGetPeaCount.m in Sources */,
 				D95D78631B4E2551007F58E8 /* UIImageView+HighlightedWebCache.m in Sources */,

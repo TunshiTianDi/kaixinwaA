@@ -24,6 +24,7 @@
 #import "QKAccountTool.h"
 #import "QKProfileHVFrame.h"
 #import "QKTestViewController.h"
+#import "QKRechargeViewController.h"
 
 @interface QKProfileViewController ()
 @property(nonatomic,strong)QKProfileHeaderView * headerView;
@@ -133,7 +134,7 @@
     
     self.headerView = headerView;
     //设置delegate
-    //    headerView.balanceView.delegate = self;
+    headerView.balanceView.delegate = self;
     headerView.profileView.delegate = self;
     self.tableView.tableHeaderView = headerView;
 }
@@ -191,6 +192,22 @@
     }
     
 }
+#pragma mark - 处理balanceView的代理方法
+- (void)balanceOnClickRecharge:(QKBalanceView *)balanceView
+{
+    NSLog(@"去充值");
+    NSString * str = [NSString stringWithFormat:@"http://192.168.1.19/mall.php/index/recharge?uid=%@",[QKAccountTool readAccount].uid];
+    QKRechargeViewController * webVc = [[QKRechargeViewController alloc]init];
+    webVc.urlStr = str;
+    [self.navigationController pushViewController:webVc animated:YES];
+    
+}
+
+- (void)balanceOnClickShopping:(QKBalanceView *)balanceView
+{
+    NSLog(@"去商城");
+}
+
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter]removeObserver:self];
