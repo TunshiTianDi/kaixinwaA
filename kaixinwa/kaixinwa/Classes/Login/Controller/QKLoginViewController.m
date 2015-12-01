@@ -44,7 +44,7 @@
     self.passwordTF.inputAccessoryView = aView;
     [self registerLJWKeyboardHandler];
     
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"settings_icon" highImageName:@"settings_icon-2" target:self action:@selector(toTab3)];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"closeLogin" highImageName:@"closeLogin" target:self action:@selector(toTab3)];
 }
 
 -(void)toTab3{

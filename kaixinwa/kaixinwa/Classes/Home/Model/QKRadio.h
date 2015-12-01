@@ -12,4 +12,6 @@
 @property(nonatomic,copy)NSString * radio_str;
 @property(nonatomic,copy)NSString * radio_faceurl;
 @property(nonatomic,copy)NSString * radio_title;
+@property(nonatomic,copy)NSString * id_str;
+
 @end

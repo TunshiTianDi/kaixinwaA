@@ -28,6 +28,10 @@
     [super viewDidLoad];
     self.title = @"忘记密码";
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"navigation_back" highImageName:@"navigation_back" target:self action:@selector(backTo)];
+    UIView * aView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, QKScreenWidth, 1)];
+    aView.backgroundColor = [UIColor lightGrayColor];
+    self.passwordTF.inputAccessoryView = aView;
+    self.rePasswordTF.inputAccessoryView = aView;
 }
 -(void)backTo
 {

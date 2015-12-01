@@ -79,16 +79,10 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:NotifacationToSkipGameWeb object:nil userInfo:@{GameKey : self.game.gameurl,@"id": self.game.id_str}];
             break;
         case 4:
-            DCLog(@"11114->");
-            break;
         case 5:
-            DCLog(@"11115->");
-            break;
         case 6:
-            DCLog(@"11116->");
-            break;
         case 7:
-            DCLog(@"11117->");
+            [[NSNotificationCenter defaultCenter] postNotificationName:NotifacationToSkipTimeLimit object:nil userInfo:@{@"gid" : self.goods.gid}];
             break;
             
         default:

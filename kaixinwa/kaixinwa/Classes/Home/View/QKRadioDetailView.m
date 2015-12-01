@@ -23,12 +23,17 @@
     if (self) {
         UIImageView * imageView = [[UIImageView alloc]init];
 //        imageView.backgroundColor = [UIColor redColor];
+        imageView.clipsToBounds = YES;
+        imageView.layer.borderWidth = 1.0;
+        imageView.layer.borderColor = QKGlobalBg.CGColor;
+        imageView.layer.cornerRadius = 7.5;
         [self addSubview:imageView];
         self.imageView = imageView;
         
         UILabel* titleLabel =[[UILabel alloc]init];
         [titleLabel setTextColor:[UIColor blackColor]];
         titleLabel.font = [UIFont systemFontOfSize:14];
+        titleLabel.numberOfLines = 0;
         [self addSubview:titleLabel];
         self.titleLabel = titleLabel;
         

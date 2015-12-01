@@ -42,6 +42,9 @@
         
         QKRadioDetailView * radioDetailView = [[QKRadioDetailView alloc]init];
 //        radioDetailView.backgroundColor = [UIColor cyanColor];
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapView:)];
+        [radioDetailView addGestureRecognizer:tap];
+        
         [self addSubview:radioDetailView];
         self.radioDetailView = radioDetailView;
         
@@ -57,8 +60,13 @@
 
 -(void)onClick:(UIButton *)button
 {
-    DCLog(@"oncc");
+    [[NSNotificationCenter defaultCenter] postNotificationName:NotifacationToSkipRadioMore object:nil userInfo:@{@"url":@"http://101.200.173.111/kaixinwa2.0/phone.php/Radio/index"}];
 }
+-(void)tapView:(UITapGestureRecognizer *)tap
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:NotifacationToSkipRadio object:nil userInfo:@{@"id":self.radio.id_str}];
+}
+
 -(void)setRadio:(QKRadio *)radio
 {
     _radio = radio;

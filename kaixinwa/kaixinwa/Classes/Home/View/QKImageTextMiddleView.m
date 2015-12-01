@@ -22,6 +22,11 @@
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapView)];
         [self addGestureRecognizer:tap];
         UIImageView * imageView = [[UIImageView alloc]init];
+        imageView.clipsToBounds = YES;
+        imageView.layer.borderWidth = 1.0;
+        imageView.layer.borderColor = QKGlobalBg.CGColor;
+        imageView.layer.cornerRadius = 7.5;
+        
         self.imageView = imageView;
         [self addSubview:imageView];
         UILabel * nameLabel = [[UILabel alloc]init];
@@ -57,7 +62,9 @@
 }
 
 -(void)tapView{
-    DCLog(@"%ld",(long)self.tag);
+//    DCLog(@"%@",self.video.vid);
+    [[NSNotificationCenter defaultCenter] postNotificationName:NotifacationToSkipAnimationDetail object:nil userInfo:@{@"vid":self.video.vid,@"type":self.video.type}];
+    
 }
 
 @end

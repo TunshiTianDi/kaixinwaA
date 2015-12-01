@@ -28,6 +28,8 @@
 #import "QKGetHappyPeaTool.h"
 #import "QKSignResult.h"
 #import "QKLoginViewController.h"
+#import "QKTimeLimitDetailViewController.h"
+#import "QKHappyVideoController.h"
 
 @interface QKHomeViewController ()<ImagePlayerViewDelegate>
 @property(nonatomic,strong)NSMutableArray * imageUrls;
@@ -38,6 +40,7 @@
 @property(nonatomic,weak)QKRadioView * radioView;
 @property(nonatomic,weak)QKGridView * gameView;
 @property(nonatomic,weak)QKAnimationView * anView;
+@property(nonatomic,weak)UIRefreshControl * refreshControl;
 @end
 
 @implementation QKHomeViewController
@@ -84,8 +87,26 @@
     }];
     //注册通知处理点击游戏图
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameMethod:) name:NotifacationToSkipGameWeb object:nil];
+    //注册通知处理点击限时兑换
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tapGood:) name:NotifacationToSkipTimeLimit object:nil];
+    //注册通知处理限时兑换显示更多
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tapGoodMore:) name:NotifacationToSkipTimeLimitMore object:nil];
+    //注册通知开心动画处理显示更多
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tapMoreVideo:) name:NotifacationToSkipAnimation object:nil];
+    //注册通知开心动画具体
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tapVideo:) name:NotifacationToSkipAnimationDetail object:nil];
+    //注册通知开心电台具体
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(tapRadio:) name:NotifacationToSkipRadio object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(tapMore:) name:NotifacationToSkipRadioMore object:nil];
+    
 }
 
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self.refreshControl endRefreshing];
+}
+#pragma mark - NavigationItem点击事件
 -(void)toScanView
 {
     QKQRCodeViewController * qrVC = [[QKQRCodeViewController alloc]init];
@@ -100,12 +121,10 @@
             //发送签到请求
             NSDictionary * param = @{@"uid":account.uid};
             [QKHttpTool post:SignEverydayInterface params:param success:^(id responseObj) {
-                //            DCLog(@"----%@",responseObj);
                 QKSignResult * signResult =[QKSignResult objectWithKeyValues:responseObj];
                 NSString * code = [signResult.code stringValue];
                 //更新账号信息
                 if ([code isEqualToString:@"201"]) {
-                    
                     account.lasttime = signResult.data.lasttime;
                     [QKAccountTool save:account];
                     [MBProgressHUD showSuccess:signResult.message];
@@ -122,12 +141,7 @@
             [MBProgressHUD showError:@"已签到"];
         };
     }else{
-        QKLoginViewController* loginVc = [[QKLoginViewController alloc]init];
-        UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:loginVc];
-        [nav setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
-        
-        [self presentViewController:nav animated:YES completion:nil];
-        
+        [self skipLoginViewController];
     }
     
     
@@ -142,8 +156,59 @@
     wvc.urlStr = firstStr;
     [self.navigationController pushViewController:wvc animated:YES];
 }
+-(void)tapGood:(NSNotification *)noti
+{
+    QKAccount * account = [QKAccountTool readAccount];
+    QKTimeLimitDetailViewController * tldVc = [[QKTimeLimitDetailViewController alloc]init];
+    NSString * urlStr = [NSString stringWithFormat:@"http://101.200.173.111/kaixinwa2.0/mall.php/Index/details/id/%@/source/1/uid/%@/token/%@",noti.userInfo[@"gid"],account.uid,account.token];
+    
+    tldVc.urlStr = urlStr;
+    
+    [self.navigationController pushViewController:tldVc animated:YES];
+}
+-(void)tapGoodMore:(NSNotification *)noti
+{
+    QKAccount * account = [QKAccountTool readAccount];
+    QKTimeLimitDetailViewController * web = [[QKTimeLimitDetailViewController alloc]init];
+    NSString * strAll = [NSString stringWithFormat:@"%@/uid/%@/token/%@",noti.userInfo[@"url"],account.uid,account.token];
+    web.urlStr = strAll;
+    [self.navigationController pushViewController:web animated:YES];
+}
 
-#pragma mark -
+-(void)tapMore:(NSNotification *)noti
+{
+    QKAccount * account = [QKAccountTool readAccount];
+    QKWebViewController * web = [[QKWebViewController alloc]init];
+    NSString * strAll = [NSString stringWithFormat:@"%@/uid/%@/token/%@",noti.userInfo[@"url"],account.uid,account.token];
+    web.urlStr = strAll;
+    [self.navigationController pushViewController:web animated:YES];
+}
+-(void)tapMoreVideo:(NSNotification *)noti
+{
+    QKAccount * account = [QKAccountTool readAccount];
+    QKHappyVideoController * web = [[QKHappyVideoController alloc]init];
+     NSString * strAll = [NSString stringWithFormat:@"%@/Index/index/uid/%@/token/%@",noti.userInfo[@"url"],account.uid,account.token];
+    web.urlStr = strAll;
+    [self.navigationController pushViewController:web animated:YES];
+}
+
+-(void)tapVideo:(NSNotification *)noti
+{
+    QKHappyVideoController * webV = [[QKHappyVideoController alloc]init];
+    NSString * urlStr = [NSString stringWithFormat:@"http://101.200.173.111/kaixinwa2.0/video.php/Play/index/roomtypeid/%@/uid/%@/token/%@/type/%@",noti.userInfo[@"vid"],[QKAccountTool readAccount].uid,[QKAccountTool readAccount].token,noti.userInfo[@"type"]];
+    webV.urlStr = urlStr;
+    [self.navigationController pushViewController:webV animated:YES];
+    
+}
+-(void)tapRadio:(NSNotification *)noti
+{
+    QKWebViewController * webV = [[QKWebViewController alloc]init];
+    NSString * urlStr = [NSString stringWithFormat:@"http://101.200.173.111/kaixinwa2.0/phone.php/Radio/detail/id/%@/uid/%@/token/%@",noti.userInfo[@"id"],[QKAccountTool readAccount].uid,[QKAccountTool readAccount].token];
+    webV.urlStr = urlStr;
+    [self.navigationController pushViewController:webV animated:YES];
+}
+
+#pragma mark - 首页控件
 -(void)creatUI
 {
     UIScrollView * scrollView = [[UIScrollView alloc]init];
@@ -209,18 +274,35 @@
 //    refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"开始刷新"];
     [scrollView addSubview:refreshControl];
     [refreshControl addTarget:self action:@selector(refreshHomeData:) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
     
 }
 //下拉刷新
 -(void)refreshHomeData:(UIRefreshControl *)refreshControl
 {
     [refreshControl beginRefreshing];
+    [self.imageUrls removeAllObjects];
+    [self.lunboDesUrls removeAllObjects];
     //发送网络请求
-    /* ---------- */
-    CGFloat delayInSeconds = 1.0;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    //发送请求获取首页数据
+    [QKHttpTool post:@"http://101.200.173.111/kaixinwa2.0/index.php/Kxwapi/Index/getHome" params:nil success:^(id responseObj) {
+        //        DCLog(@"%@",responseObj);
+        QKFirstHome * home = [QKFirstHome objectWithKeyValues:responseObj];
+        for (QKLunbo * lunbo in home.data.lunbo) {
+            [self.imageUrls addObject:lunbo.lunbo_faceurl];
+            [self.lunboDesUrls addObject:lunbo.lunbo_des_url];
+        }
+        self.exchangeView.items = home.data.goods;
+        self.radioView.radio = home.data.radio;
+        self.anView.items = home.data.video;
+        self.gameView.items = home.data.game;
+        [self.imagePlayerView reloadData];
         [refreshControl endRefreshing];
-    });
+    } failure:^(NSError *error) {
+        DCLog(@"%@",error);
+        [refreshControl endRefreshing];
+    }];
+    
 }
 
 //设置轮播视图代理
@@ -242,6 +324,14 @@
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(void)skipLoginViewController
+{
+    QKLoginViewController* loginVc = [[QKLoginViewController alloc]init];
+    UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:loginVc];
+    [nav setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 @end

@@ -76,6 +76,15 @@
 #define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
 #define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
 
+//限时兑换
+#define timeLimitUrl @"http://101.200.173.111/kaixinwa2.0/mall.php/Index/index"
+//开心动画
+#define happyVideoUrl @"http://101.200.173.111/kaixinwa2.0/video.php/Index/index"
+//开心电台
+#define happyRadioUrl @"http://101.200.173.111/kaixinwa2.0/phone.php/Radio/index"
+//我的订单
+#define myOrderUrl @"http://101.200.173.111/kaixinwa2.0/mall.php/Index/order"
+
 //阿里云密匙
 #define ALBB_OSS_AccessKey @"EHYIkXpXsuBqP2Gq"
 #define ALBB_OSS_SecretKey @"oDudtCM3kxDgayHSsC8WZfM1I6FZJ5"
@@ -99,4 +108,17 @@
 //首页通知开心益智游戏
 #define NotifacationToSkipGameWeb @"toSkipGame"
 #define GameKey @"toSkipGameKey"
+//首页通知限时兑换
+#define NotifacationToSkipTimeLimit @"toSkipLimit"
+#define NotifacationToSkipTimeLimitMore @"toSkipGoodMore"
+//首页通知开心动画
+#define NotifacationToSkipAnimation @"toSkipAnimation"
+#define NotifacationToSkipAnimationDetail @"toSkipAnimationDetail"
+//首页通知电台
+#define NotifacationToSkipRadioMore @"toSkipRadioMore"
+#define NotifacationToSkipRadio @"toSkipRadio"
+
+//通知充值成功
+#define NotifacationSuccessForRecharge @"rechargeFinished"
+
 #endif

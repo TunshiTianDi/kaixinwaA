@@ -10,7 +10,7 @@
 #import "QKHomeViewController.h"
 #import "QKProfileViewController.h"
 #import "QKNavigationController.h"
-//#import "QKDiscoverController.h"
+#import "QKDiscoverController.h"
 #import "QKNewDiscoverController.h"
 
 @interface QKTabBarController ()
@@ -27,7 +27,7 @@
     //创建视图控制器
     QKHomeViewController*home =[[QKHomeViewController alloc]init];
     
-    QKNewDiscoverController * discover = [[QKNewDiscoverController alloc]init];
+    QKDiscoverController * discover = [[QKDiscoverController alloc]init];
     QKProfileViewController * profile = [[QKProfileViewController alloc]init];
     
     [self addOneChildVc:home title:@"首页" imageName:@"home" selectedImageName:@"home_sel"];
@@ -51,7 +51,7 @@
     [childVc.tabBarItem setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
     // 设置tabBarItem的选中文字颜色
     NSMutableDictionary *selectedTextAttrs = [NSMutableDictionary dictionary];
-    selectedTextAttrs[NSForegroundColorAttributeName] = QKColor(45, 201, 45);;
+    selectedTextAttrs[NSForegroundColorAttributeName] = QKColor(45, 201, 45);
     [childVc.tabBarItem setTitleTextAttributes:selectedTextAttrs forState:UIControlStateSelected];
     
     //设置选中图标

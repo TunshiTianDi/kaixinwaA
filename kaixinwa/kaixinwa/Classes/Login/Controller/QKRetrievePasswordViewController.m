@@ -36,6 +36,10 @@
     self.title = @"忘记密码";
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"navigation_back" highImageName:@"navigation_back" target:self action:@selector(backTo)];
     [self registerLJWKeyboardHandler];
+    UIView * aView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, QKScreenWidth, 1)];
+    aView.backgroundColor = [UIColor lightGrayColor];
+    self.phoneNumTF.inputAccessoryView = aView;
+    self.identifyingCodeTF.inputAccessoryView = aView;
     //注册输入框通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(phoneNumTFchange:) name:UITextFieldTextDidChangeNotification object:nil];
 }

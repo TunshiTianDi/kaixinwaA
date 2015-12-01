@@ -96,7 +96,7 @@
     [self setupGroup0];
     
     [self setupGroup2];
-    [self setupGroup3];
+//    [self setupGroup3];
     [self setupGroup1];
 }
 -(void)setupGroup0{

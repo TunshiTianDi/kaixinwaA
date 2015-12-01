@@ -8,11 +8,13 @@
 
 #import "QKAnimationView.h"
 #import "QKBottomAnimationView.h"
+#import "QKMoreButton.h"
 
 @interface QKAnimationView()
 @property(nonatomic,weak)UILabel * titleLabel;
 @property(nonatomic,weak)QKBottomAnimationView * bottomAnimationView;
 @property(nonatomic,weak)UIImageView * dividerView;
+@property(nonatomic,weak)QKMoreButton *moreButton;
 @end
 
 @implementation QKAnimationView
@@ -27,6 +29,16 @@
         titleLabel.font = [UIFont systemFontOfSize:16];
         [self addSubview:titleLabel];
         self.titleLabel = titleLabel;
+        //右侧按钮
+        QKMoreButton * moreButton = [[QKMoreButton alloc]init];
+        [moreButton setTitle:@"显示更多" forState:UIControlStateNormal];
+        [moreButton setTitleColor:QKColor(167, 167, 167) forState:UIControlStateNormal];
+        [moreButton setImage:[UIImage imageNamed:@"arrow_right"] forState:UIControlStateNormal];
+        [moreButton setImage:[UIImage imageNamed:@"arrow_right_highlighted"] forState:UIControlStateHighlighted];
+        //        moreButton.backgroundColor = [UIColor yellowColor];
+        [moreButton addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
+        self.moreButton = moreButton;
+        [self addSubview:moreButton];
         
         //创建底部3个视图
         QKBottomAnimationView * bottomAnimationView = [[QKBottomAnimationView alloc]init];
@@ -53,12 +65,22 @@
     self.titleLabel.text = title;
     
 }
+
+-(void)onClick:(UIButton*)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:NotifacationToSkipAnimation object:nil userInfo:@{@"url":@"http://101.200.173.111/kaixinwa2.0/video.php"}];
+}
+
 -(void)layoutSubviews
 {
     [super layoutSubviews];
     self.titleLabel.x = QKCellMargin;
     self.titleLabel.y = QKCellMargin;
     self.titleLabel.size = [self.titleLabel.text sizeWithAttributes:@{NSFontAttributeName : self.titleLabel.font}];
+    self.moreButton.width = 100;
+    self.moreButton.height = 40;
+    self.moreButton.x = self.width -self.moreButton.width - QKCellMargin;
+    self.moreButton.centerY = self.titleLabel.centerY;
     
     self.bottomAnimationView.x = 0;
     self.bottomAnimationView.y = CGRectGetMaxY(self.titleLabel.frame)+ QKCellMargin;

@@ -20,6 +20,7 @@
 #import "UMSocialQQHandler.h"
 #import "QKGetHappyPeaTool.h"
 #import "QKDataBaseTool.h"
+#import "UMessage.h"
 
 @interface AppDelegate ()
 
@@ -86,6 +87,10 @@
     
     //未安装隐藏
     [UMSocialConfig hiddenNotInstallPlatforms:@[UMShareToQQ, UMShareToQzone, UMShareToWechatSession, UMShareToWechatTimeline]];
+    //推送消息
+    [UMessage startWithAppkey:@"55b58b3367e58ea9200010f9" launchOptions:launchOptions];
+    [self pushVersionMoreThanEight];
+    
     //建表
     [QKDataBaseTool creatTableForShare];
     [QKDataBaseTool creatTableForTask];
@@ -114,6 +119,41 @@
         
     }
     return UIInterfaceOrientationMaskPortrait;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+//    NSLog(@"%@",[[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
+//                  stringByReplacingOccurrencesOfString: @">" withString: @""]
+//                 stringByReplacingOccurrencesOfString: @" " withString: @""]);
+    [UMessage registerDeviceToken:deviceToken];
+}
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    [UMessage didReceiveRemoteNotification:userInfo];
+}
+//大于8.0设置
+-(void)pushVersionMoreThanEight
+{
+    UIMutableUserNotificationAction *action1 = [[UIMutableUserNotificationAction alloc] init];
+    action1.identifier = @"action1_identifier";
+    action1.title=@"Accept";
+    action1.activationMode = UIUserNotificationActivationModeForeground;//当点击的时候启动程序
+    
+    UIMutableUserNotificationAction *action2 = [[UIMutableUserNotificationAction alloc] init];  //第二按钮
+    action2.identifier = @"action2_identifier";
+    action2.title=@"Reject";
+    action2.activationMode = UIUserNotificationActivationModeBackground;//当点击的时候不启动程序，在后台处理
+    action2.authenticationRequired = YES;//需要解锁才能处理，如果action.activationMode = UIUserNotificationActivationModeForeground;则这个属性被忽略；
+    action2.destructive = YES;
+    
+    UIMutableUserNotificationCategory *categorys = [[UIMutableUserNotificationCategory alloc] init];
+    categorys.identifier = @"category1";//这组动作的唯一标示
+    [categorys setActions:@[action1,action2] forContext:(UIUserNotificationActionContextDefault)];
+    
+    UIUserNotificationSettings *userSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge|UIUserNotificationTypeSound|UIUserNotificationTypeAlert
+                                                                                 categories:[NSSet setWithObject:categorys]];
+    [UMessage registerRemoteNotificationAndUserNotificationSettings:userSettings];
 }
 
 

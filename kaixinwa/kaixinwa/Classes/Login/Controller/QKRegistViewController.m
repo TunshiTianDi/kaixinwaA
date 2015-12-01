@@ -17,9 +17,12 @@
 #import "QKAccountTool.h"
 #import "QKCheckString.h"
 #import "LJWKeyboardHandlerHeaders.h"
+#import "QKWebViewController.h"
 
 @interface QKRegistViewController ()
 - (IBAction)finishButton:(UIButton *)sender;
+//注册协议
+- (IBAction)RegistrationAgreement:(UIButton *)sender;
 
 - (IBAction)tap:(id)sender;
 - (IBAction)sendiCode:(JKCountDownButton *)sender;
@@ -40,6 +43,11 @@
     self.title = @"注册";
     [self registerLJWKeyboardHandler];
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"navigation_back" highImageName:@"navigation_back" target:self action:@selector(backTo)];
+    UIView * aView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, QKScreenWidth, 1)];
+    aView.backgroundColor = [UIColor lightGrayColor];
+    self.phoneNum.inputAccessoryView = aView;
+    self.identifierCodeTF.inputAccessoryView = aView;
+    self.passwordTF.inputAccessoryView = aView;
     
     self.countDownButton.enabled = NO;
     //注册通知
@@ -89,6 +97,13 @@
         DCLog(@"%@",error);
     }];
 }
+
+- (IBAction)RegistrationAgreement:(UIButton *)sender {
+    QKWebViewController * webVc = [[QKWebViewController alloc]init];
+    webVc.urlStr =  @"http://qkhl-api.com/statement/statement.html";
+    [self.navigationController pushViewController:webVc animated:YES];
+}
+
 -(NSDictionary *)getRegistParams
 {
 //    NSString * upkey = [self.phoneNum.text stringByAppendingString:self.passwordTF.text];

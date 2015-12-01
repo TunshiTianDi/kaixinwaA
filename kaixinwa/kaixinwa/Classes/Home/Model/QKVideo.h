@@ -16,4 +16,6 @@
 
 @property(nonatomic,copy)NSString * type_name;
 
+@property(nonatomic,strong)NSNumber * type;
+
 @end

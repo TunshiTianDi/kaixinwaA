@@ -26,5 +26,6 @@
 /** md5加密算法*/
 + (NSString *)md5HexDigest:(NSString *)url;
 
++ (void)postJSON:(NSString *)url params:(NSDictionary *)params success:(void (^)(id responseObj))success failure:(void (^)(NSError *error))failure;
 
 @end

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3D0B28881B80B70200FC1367 /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B28871B80B70200FC1367 /* KxMenu.m */; };
-		3D0B288B1B80B8A500FC1367 /* QKShareTravelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B288A1B80B8A500FC1367 /* QKShareTravelViewController.m */; };
 		7B240B721B413071000EF832 /* QKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B240B701B413071000EF832 /* QKLoginViewController.m */; };
 		7B240B731B413071000EF832 /* QKLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B240B711B413071000EF832 /* QKLoginViewController.xib */; };
 		7B240B771B41362C000EF832 /* QKRegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B240B751B41362C000EF832 /* QKRegistViewController.m */; };
@@ -56,6 +55,7 @@
 		7BFB84AF1B40EA530001FA88 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFB84AD1B40EA530001FA88 /* UIImage+Extension.m */; };
 		D901E8F71B817A7D00857060 /* QKAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D901E8F61B817A7D00857060 /* QKAnswerViewController.m */; };
 		D901E8FA1B81B64400857060 /* FDActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = D901E8F91B81B64400857060 /* FDActionSheet.m */; };
+		D907C3C51C0BD9B5000BA8E6 /* QKTimeLimitDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D907C3C41C0BD9B5000BA8E6 /* QKTimeLimitDetailViewController.m */; };
 		D90BD4371BE884A20018B118 /* QKHomeData.m in Sources */ = {isa = PBXBuildFile; fileRef = D90BD4361BE884A20018B118 /* QKHomeData.m */; };
 		D90BD43A1BE8863D0018B118 /* QKRadio.m in Sources */ = {isa = PBXBuildFile; fileRef = D90BD4391BE8863D0018B118 /* QKRadio.m */; };
 		D90BD43D1BE888010018B118 /* QKGame.m in Sources */ = {isa = PBXBuildFile; fileRef = D90BD43C1BE888010018B118 /* QKGame.m */; };
@@ -68,6 +68,7 @@
 		D90BD4531BE89DB80018B118 /* QKImageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D90BD4521BE89DB80018B118 /* QKImageTextView.m */; };
 		D90BD4561BE8A20A0018B118 /* QKBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = D90BD4551BE8A20A0018B118 /* QKBottomView.m */; };
 		D9106C681C07F670002E792C /* QKLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9106C671C07F670002E792C /* QKLoadingView.m */; };
+		D9106C6C1C0841D1002E792C /* libUMessage_Sdk_1.2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9106C6A1C0841D1002E792C /* libUMessage_Sdk_1.2.1.a */; };
 		D92E337A1B4382A600A4A34B /* QKRetrievePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D92E33781B4382A600A4A34B /* QKRetrievePasswordViewController.m */; };
 		D92E337B1B4382A600A4A34B /* QKRetrievePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D92E33791B4382A600A4A34B /* QKRetrievePasswordViewController.xib */; };
 		D92E337F1B4389F700A4A34B /* QKResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D92E337D1B4389F700A4A34B /* QKResetPasswordViewController.m */; };
@@ -172,9 +173,6 @@
 		D9945BAB1B8455FE00C954A4 /* QKInvateFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9945BA91B8455FE00C954A4 /* QKInvateFriendsViewController.xib */; };
 		D9945BB01B84588A00C954A4 /* QKInvateCode.m in Sources */ = {isa = PBXBuildFile; fileRef = D9945BAD1B84588A00C954A4 /* QKInvateCode.m */; };
 		D9945BB11B84588A00C954A4 /* QKInvateResult.m in Sources */ = {isa = PBXBuildFile; fileRef = D9945BAF1B84588A00C954A4 /* QKInvateResult.m */; };
-		D9945BF01B847F3B00C954A4 /* QKGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9945BEB1B847F3B00C954A4 /* QKGameViewController.m */; };
-		D9945BF11B847F3B00C954A4 /* QKMicroLessonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9945BED1B847F3B00C954A4 /* QKMicroLessonViewController.m */; };
-		D9945BF21B847F3B00C954A4 /* QKRadioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9945BEF1B847F3B00C954A4 /* QKRadioViewController.m */; };
 		D998E9F71BEAF3CC00A268A2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D998E9F61BEAF3CC00A268A2 /* libsqlite3.tbd */; };
 		D998E9F91BEAF3F000A268A2 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D998E9F81BEAF3F000A268A2 /* libstdc++.tbd */; };
 		D998E9FB1BEAF40800A268A2 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D998E9FA1BEAF40800A268A2 /* libsqlite3.0.tbd */; };
@@ -200,6 +198,7 @@
 		D9D90D721B44FFBA0071F068 /* QKProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D90D711B44FFBA0071F068 /* QKProfileView.m */; };
 		D9D90D751B4500E40071F068 /* QKBalanceView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D90D741B4500E40071F068 /* QKBalanceView.m */; };
 		D9D90D781B4502530071F068 /* QKUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D90D771B4502530071F068 /* QKUserInfo.m */; };
+		D9E048C61C0D77E300CA651A /* QKHappyVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E048C51C0D77E300CA651A /* QKHappyVideoController.m */; };
 		D9E0B1D01B54D79300C70063 /* QKLoginData.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E0B1CF1B54D79300C70063 /* QKLoginData.m */; };
 		D9E0B1D31B54EA3B00C70063 /* QKResetParam.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E0B1D21B54EA3B00C70063 /* QKResetParam.m */; };
 		D9E15ABD1B4B7985003B25FA /* line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9E15ABB1B4B7985003B25FA /* line@2x.png */; };
@@ -235,8 +234,6 @@
 /* Begin PBXFileReference section */
 		3D0B28861B80B70200FC1367 /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
 		3D0B28871B80B70200FC1367 /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
-		3D0B28891B80B8A500FC1367 /* QKShareTravelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKShareTravelViewController.h; sourceTree = "<group>"; };
-		3D0B288A1B80B8A500FC1367 /* QKShareTravelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKShareTravelViewController.m; sourceTree = "<group>"; };
 		7B240B6F1B413071000EF832 /* QKLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKLoginViewController.h; sourceTree = "<group>"; };
 		7B240B701B413071000EF832 /* QKLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKLoginViewController.m; sourceTree = "<group>"; };
 		7B240B711B413071000EF832 /* QKLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QKLoginViewController.xib; sourceTree = "<group>"; };
@@ -323,6 +320,8 @@
 		D901E8F61B817A7D00857060 /* QKAnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKAnswerViewController.m; sourceTree = "<group>"; };
 		D901E8F81B81B64400857060 /* FDActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDActionSheet.h; sourceTree = "<group>"; };
 		D901E8F91B81B64400857060 /* FDActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDActionSheet.m; sourceTree = "<group>"; };
+		D907C3C31C0BD9B5000BA8E6 /* QKTimeLimitDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKTimeLimitDetailViewController.h; sourceTree = "<group>"; };
+		D907C3C41C0BD9B5000BA8E6 /* QKTimeLimitDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKTimeLimitDetailViewController.m; sourceTree = "<group>"; };
 		D90BD4351BE884A20018B118 /* QKHomeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKHomeData.h; sourceTree = "<group>"; };
 		D90BD4361BE884A20018B118 /* QKHomeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKHomeData.m; sourceTree = "<group>"; };
 		D90BD4381BE8863D0018B118 /* QKRadio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKRadio.h; sourceTree = "<group>"; };
@@ -347,6 +346,8 @@
 		D90BD4551BE8A20A0018B118 /* QKBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKBottomView.m; sourceTree = "<group>"; };
 		D9106C661C07F670002E792C /* QKLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKLoadingView.h; sourceTree = "<group>"; };
 		D9106C671C07F670002E792C /* QKLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKLoadingView.m; sourceTree = "<group>"; };
+		D9106C6A1C0841D1002E792C /* libUMessage_Sdk_1.2.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.2.1.a; sourceTree = "<group>"; };
+		D9106C6B1C0841D1002E792C /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
 		D92E33771B4382A600A4A34B /* QKRetrievePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKRetrievePasswordViewController.h; sourceTree = "<group>"; };
 		D92E33781B4382A600A4A34B /* QKRetrievePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKRetrievePasswordViewController.m; sourceTree = "<group>"; };
 		D92E33791B4382A600A4A34B /* QKRetrievePasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QKRetrievePasswordViewController.xib; sourceTree = "<group>"; };
@@ -546,12 +547,6 @@
 		D9945BAD1B84588A00C954A4 /* QKInvateCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKInvateCode.m; sourceTree = "<group>"; };
 		D9945BAE1B84588A00C954A4 /* QKInvateResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKInvateResult.h; sourceTree = "<group>"; };
 		D9945BAF1B84588A00C954A4 /* QKInvateResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKInvateResult.m; sourceTree = "<group>"; };
-		D9945BEA1B847F3B00C954A4 /* QKGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKGameViewController.h; sourceTree = "<group>"; };
-		D9945BEB1B847F3B00C954A4 /* QKGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKGameViewController.m; sourceTree = "<group>"; };
-		D9945BEC1B847F3B00C954A4 /* QKMicroLessonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKMicroLessonViewController.h; sourceTree = "<group>"; };
-		D9945BED1B847F3B00C954A4 /* QKMicroLessonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKMicroLessonViewController.m; sourceTree = "<group>"; };
-		D9945BEE1B847F3B00C954A4 /* QKRadioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKRadioViewController.h; sourceTree = "<group>"; };
-		D9945BEF1B847F3B00C954A4 /* QKRadioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKRadioViewController.m; sourceTree = "<group>"; };
 		D998E9F61BEAF3CC00A268A2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		D998E9F81BEAF3F000A268A2 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		D998E9FA1BEAF40800A268A2 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -595,6 +590,8 @@
 		D9D90D741B4500E40071F068 /* QKBalanceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKBalanceView.m; sourceTree = "<group>"; };
 		D9D90D761B4502530071F068 /* QKUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKUserInfo.h; sourceTree = "<group>"; };
 		D9D90D771B4502530071F068 /* QKUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKUserInfo.m; sourceTree = "<group>"; };
+		D9E048C41C0D77E300CA651A /* QKHappyVideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKHappyVideoController.h; sourceTree = "<group>"; };
+		D9E048C51C0D77E300CA651A /* QKHappyVideoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKHappyVideoController.m; sourceTree = "<group>"; };
 		D9E0B1CE1B54D79300C70063 /* QKLoginData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKLoginData.h; sourceTree = "<group>"; };
 		D9E0B1CF1B54D79300C70063 /* QKLoginData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKLoginData.m; sourceTree = "<group>"; };
 		D9E0B1D11B54EA3B00C70063 /* QKResetParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKResetParam.h; sourceTree = "<group>"; };
@@ -653,6 +650,7 @@
 				D95153FC1C06DE81009F9428 /* StoreKit.framework in Frameworks */,
 				7BA485811B422CFE0035B4CD /* MessageUI.framework in Frameworks */,
 				D947BB981B7DB76800765D2D /* libSocialQQ.a in Frameworks */,
+				D9106C6C1C0841D1002E792C /* libUMessage_Sdk_1.2.1.a in Frameworks */,
 				D947BBA11B7DB77700765D2D /* libSocialWechat.a in Frameworks */,
 				D9EA3CC51B4F55360017BECF /* MapKit.framework in Frameworks */,
 				D947BBA21B7DB77700765D2D /* libWeChatSDK.a in Frameworks */,
@@ -832,6 +830,8 @@
 				D9FD7C5A1B69B1EE00A517F9 /* Setting(设置界面) */,
 				D9FD7C3F1B69B1A800A517F9 /* Modify(修改个人信息) */,
 				D95153FD1C06DFCA009F9428 /* Recharge(充值) */,
+				D907C3C11C0BD981000BA8E6 /* TimeLimitExchange(限时兑换) */,
+				D9E048C01C0D766100CA651A /* HappyVideo(开心动画) */,
 				D9945BA11B84547D00C954A4 /* InvateFriends */,
 				D9945B941B84495A00C954A4 /* PutinInvateCode(填写邀请码) */,
 			);
@@ -1113,6 +1113,7 @@
 		7BFB84681B40E2400001FA88 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				D9106C691C0841D1002E792C /* UMessage_Sdk_1.2.1 */,
 				D98ED4451B86C3AA00F090BA /* fmdb */,
 				D947BB9B1B7DB77700765D2D /* Wechat */,
 				D947BB931B7DB76800765D2D /* TencentOpenAPI */,
@@ -1153,6 +1154,23 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		D907C3C11C0BD981000BA8E6 /* TimeLimitExchange(限时兑换) */ = {
+			isa = PBXGroup;
+			children = (
+				D907C3C21C0BD981000BA8E6 /* Controller */,
+			);
+			path = "TimeLimitExchange(限时兑换)";
+			sourceTree = "<group>";
+		};
+		D907C3C21C0BD981000BA8E6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D907C3C31C0BD9B5000BA8E6 /* QKTimeLimitDetailViewController.h */,
+				D907C3C41C0BD9B5000BA8E6 /* QKTimeLimitDetailViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		D9106C651C07F65A002E792C /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1160,6 +1178,15 @@
 				D9106C671C07F670002E792C /* QKLoadingView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D9106C691C0841D1002E792C /* UMessage_Sdk_1.2.1 */ = {
+			isa = PBXGroup;
+			children = (
+				D9106C6A1C0841D1002E792C /* libUMessage_Sdk_1.2.1.a */,
+				D9106C6B1C0841D1002E792C /* UMessage.h */,
+			);
+			path = UMessage_Sdk_1.2.1;
 			sourceTree = "<group>";
 		};
 		D947BB6D1B7DB75600765D2D /* UMSocial_Sdk_4.2.3 */ = {
@@ -1536,16 +1563,8 @@
 		D9C7C64F1B72E90300DC93BA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D9945BEA1B847F3B00C954A4 /* QKGameViewController.h */,
-				D9945BEB1B847F3B00C954A4 /* QKGameViewController.m */,
-				D9945BEC1B847F3B00C954A4 /* QKMicroLessonViewController.h */,
-				D9945BED1B847F3B00C954A4 /* QKMicroLessonViewController.m */,
-				D9945BEE1B847F3B00C954A4 /* QKRadioViewController.h */,
-				D9945BEF1B847F3B00C954A4 /* QKRadioViewController.m */,
 				D9C7C6501B72E90300DC93BA /* QKWebViewController.h */,
 				D9C7C6511B72E90300DC93BA /* QKWebViewController.m */,
-				3D0B28891B80B8A500FC1367 /* QKShareTravelViewController.h */,
-				3D0B288A1B80B8A500FC1367 /* QKShareTravelViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1571,6 +1590,39 @@
 				D9C7C6571B72E90300DC93BA /* NJKWebViewProgressView.m */,
 			);
 			path = NJKWebViewProgress;
+			sourceTree = "<group>";
+		};
+		D9E048C01C0D766100CA651A /* HappyVideo(开心动画) */ = {
+			isa = PBXGroup;
+			children = (
+				D9E048C11C0D766100CA651A /* Controller */,
+				D9E048C21C0D766100CA651A /* Model */,
+				D9E048C31C0D766100CA651A /* View */,
+			);
+			path = "HappyVideo(开心动画)";
+			sourceTree = "<group>";
+		};
+		D9E048C11C0D766100CA651A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D9E048C41C0D77E300CA651A /* QKHappyVideoController.h */,
+				D9E048C51C0D77E300CA651A /* QKHappyVideoController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D9E048C21C0D766100CA651A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D9E048C31C0D766100CA651A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D9E2F6951B4E6A23008138C3 /* CCLocation */ = {
@@ -1791,12 +1843,14 @@
 				TargetAttributes = {
 					7B7D858A1B3FCA18007504B8 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 5TJBR4D2AC;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 1;
 							};
 							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+							com.apple.Push = {
 								enabled = 0;
 							};
 						};
@@ -1893,6 +1947,7 @@
 				D90BD4531BE89DB80018B118 /* QKImageTextView.m in Sources */,
 				D9BA95681B5C9956009BF610 /* LJWKeyboardToolBar.m in Sources */,
 				7B7D85D01B3FCF4C007504B8 /* QKTabBarController.m in Sources */,
+				D907C3C51C0BD9B5000BA8E6 /* QKTimeLimitDetailViewController.m in Sources */,
 				D9945BA01B844FD900C954A4 /* QKBaseResult.m in Sources */,
 				D9855C741B55E9B9008DD932 /* QKCheckString.m in Sources */,
 				D9945BAA1B8455FE00C954A4 /* QKInvateFriendsViewController.m in Sources */,
@@ -1916,7 +1971,6 @@
 				D98CA44E1BE9952100732958 /* QKRadioDetailView.m in Sources */,
 				D9E9727E1B9BE784001742CC /* QKMessageContent.m in Sources */,
 				D95D78591B4E2551007F58E8 /* SDWebImageCompat.m in Sources */,
-				D9945BF01B847F3B00C954A4 /* QKGameViewController.m in Sources */,
 				D9945BB11B84588A00C954A4 /* QKInvateResult.m in Sources */,
 				7B7D85D31B3FCFD6007504B8 /* QKHomeViewController.m in Sources */,
 				7B240B771B41362C000EF832 /* QKRegistViewController.m in Sources */,
@@ -1981,7 +2035,6 @@
 				D9E9728B1B9C009C001742CC /* QKMessageView.m in Sources */,
 				D9FD7CFA1B69D54F00A517F9 /* UIScrollView+EmptyDataSet.m in Sources */,
 				D9E972881B9BEEBE001742CC /* QKMessageCell.m in Sources */,
-				D9945BF21B847F3B00C954A4 /* QKRadioViewController.m in Sources */,
 				7B240B721B413071000EF832 /* QKLoginViewController.m in Sources */,
 				7B240B901B41400F000EF832 /* AFNetworkReachabilityManager.m in Sources */,
 				D95D78571B4E2551007F58E8 /* NSData+ImageContentType.m in Sources */,
@@ -2001,7 +2054,6 @@
 				D90BD43D1BE888010018B118 /* QKGame.m in Sources */,
 				D9BA95671B5C9956009BF610 /* LJWKeyboardHandler.m in Sources */,
 				D90BD43A1BE8863D0018B118 /* QKRadio.m in Sources */,
-				3D0B288B1B80B8A500FC1367 /* QKShareTravelViewController.m in Sources */,
 				D9D90D781B4502530071F068 /* QKUserInfo.m in Sources */,
 				D95D78561B4E2551007F58E8 /* MKAnnotationView+WebCache.m in Sources */,
 				D95D78581B4E2551007F58E8 /* SDImageCache.m in Sources */,
@@ -2012,7 +2064,7 @@
 				7B240B8F1B41400F000EF832 /* AFHTTPSessionManager.m in Sources */,
 				7B240B931B41400F000EF832 /* AFURLRequestSerialization.m in Sources */,
 				D981BA241B42888C000B0EFA /* NSObject+MJKeyValue.m in Sources */,
-				D9945BF11B847F3B00C954A4 /* QKMicroLessonViewController.m in Sources */,
+				D9E048C61C0D77E300CA651A /* QKHappyVideoController.m in Sources */,
 				D90BD4561BE8A20A0018B118 /* QKBottomView.m in Sources */,
 				D90BD4501BE898770018B118 /* QKGridView.m in Sources */,
 				D9FD7C6D1B69B26B00A517F9 /* QKSignResult.m in Sources */,
@@ -2168,6 +2220,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Xin Hong Yang (YWSDBFFEG8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xin Hong Yang (YWSDBFFEG8)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2184,10 +2237,11 @@
 					"$(PROJECT_DIR)/kaixinwa/Classes/Main/Lib/UMSocial_Sdk_4.2.3",
 					"$(PROJECT_DIR)/kaixinwa/Classes/Main/Lib/TencentOpenAPI",
 					"$(PROJECT_DIR)/kaixinwa/Classes/Main/Lib/Wechat",
+					"$(PROJECT_DIR)/kaixinwa/Classes/Main/Lib/UMessage_Sdk_1.2.1",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qkhl.kaixinwaAnswer1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e78e086a-2aa6-4aa7-9e8f-a67f29d11222";
+				PROVISIONING_PROFILE = "5d83f84f-e94d-425a-9ad0-b7ecaa471425";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2197,6 +2251,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Xin Hong Yang (YWSDBFFEG8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xin Hong Yang (YWSDBFFEG8)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2213,10 +2268,11 @@
 					"$(PROJECT_DIR)/kaixinwa/Classes/Main/Lib/UMSocial_Sdk_4.2.3",
 					"$(PROJECT_DIR)/kaixinwa/Classes/Main/Lib/TencentOpenAPI",
 					"$(PROJECT_DIR)/kaixinwa/Classes/Main/Lib/Wechat",
+					"$(PROJECT_DIR)/kaixinwa/Classes/Main/Lib/UMessage_Sdk_1.2.1",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qkhl.kaixinwaAnswer1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e78e086a-2aa6-4aa7-9e8f-a67f29d11222";
+				PROVISIONING_PROFILE = "5d83f84f-e94d-425a-9ad0-b7ecaa471425";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

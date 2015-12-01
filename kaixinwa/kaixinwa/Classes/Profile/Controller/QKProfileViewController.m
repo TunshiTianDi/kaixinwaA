@@ -25,6 +25,7 @@
 #import "QKProfileHVFrame.h"
 #import "QKTestViewController.h"
 #import "QKRechargeViewController.h"
+#import "QKTimeLimitDetailViewController.h"
 
 @interface QKProfileViewController ()
 @property(nonatomic,strong)QKProfileHeaderView * headerView;
@@ -41,6 +42,7 @@
     QKAccount * account = [QKAccountTool readAccount];
     [self setupHeaderView];
     [self setupGroups];
+    
     if (account) {
         [self setupRefresh];
         self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"shezhi" highImageName:@"shezhi" target:self action:@selector(setting)];
@@ -51,8 +53,13 @@
     
     //通知完成任务
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishSignTask:) name:@"finishSignTask" object:nil];
+    //通知充值成功
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rechargeFinished:) name:NotifacationSuccessForRecharge object:nil];
 }
-
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [self.refreshControl endRefreshing];
+}
 
 #pragma mark -通知方法
 -(void)finishSignTask:(NSNotification*)noti
@@ -61,6 +68,15 @@
     [self.tableView reloadData];
     self.tabBarItem.badgeValue = @"new";
     [QKDataBaseTool insertInTaskTableWithTitle:@"您已完成了一项任务" andDetailText:@"恭喜你已经完成每日签到任务，并获得5个开心豆"];
+}
+-(void)rechargeFinished:(NSNotification*)noti
+{
+    self.myMessage.badgeValue = @"new";
+    [QKGetHappyPeaTool getHappyPeaNum];
+    [self.tableView reloadData];
+    self.tabBarItem.badgeValue = @"new";
+    NSString * detailText = [NSString stringWithFormat:@"成功充值￥%@元,开心豆已添加至账户",noti.userInfo[@"price"]];
+    [QKDataBaseTool insertInTaskTableWithTitle:@"开心豆充值成功" andDetailText:detailText];
 }
 
 #pragma mark -下拉刷新
@@ -146,11 +162,11 @@
 
 -(void)setupGroup1
 {
-//    QKAccount * account = [QKAccountTool readAccount];
+    QKAccount * account = [QKAccountTool readAccount];
     HMCommonGroup* group = [HMCommonGroup group];
     [self.groups addObject:group];
-    HMCommonArrowItem * inviteFriends = [HMCommonArrowItem itemWithTitle:@"邀请好友" icon:[UIImage imageNamed:@"invite_friend"]];
-    inviteFriends.destVcClass = [QKInvateFriendsViewController class];
+//    HMCommonArrowItem * inviteFriends = [HMCommonArrowItem itemWithTitle:@"邀请好友" icon:[UIImage imageNamed:@"invite_friend"]];
+//    inviteFriends.destVcClass = [QKInvateFriendsViewController class];
     
     //我的消息
     HMCommonArrowItem * myMessage = [HMCommonArrowItem itemWithTitle:@"我的消息" icon:[UIImage imageNamed:@"my_message"]];
@@ -165,12 +181,17 @@
     myMessage.destVcClass = [QKMessageViewController class];
     //我的订单
     HMCommonArrowItem * myOrder = [HMCommonArrowItem itemWithTitle:@"我的订单" icon:[UIImage imageNamed:@"wodedingdan"]];
-    myOrder.destVcClass = [QKTestViewController class];
+    myOrder.operation = ^{
+        QKTimeLimitDetailViewController * order = [[QKTimeLimitDetailViewController alloc]init];
+        NSString * string = [NSString stringWithFormat:@"%@/uid/%@/token/%@",myOrderUrl,account.uid,account.token];
+        order.urlStr = string;
+        [wSelf.navigationController pushViewController:order animated:YES];
+    };
     
 //    我的收藏
     HMCommonArrowItem * myCollected = [HMCommonArrowItem itemWithTitle:@"我的收藏" icon:[UIImage imageNamed:@"wodeshoucang"]];
     myCollected.destVcClass = [QKTestViewController class];
-    group.items = @[myMessage,myOrder,inviteFriends,myCollected];
+    group.items = @[myMessage,myOrder,myCollected];
     
 }
 
@@ -195,8 +216,8 @@
 #pragma mark - 处理balanceView的代理方法
 - (void)balanceOnClickRecharge:(QKBalanceView *)balanceView
 {
-    NSLog(@"去充值");
-    NSString * str = [NSString stringWithFormat:@"http://192.168.1.19/mall.php/index/recharge?uid=%@",[QKAccountTool readAccount].uid];
+//    NSLog(@"去充值");
+    NSString * str = [NSString stringWithFormat:@"http://101.200.173.111/kaixinwa2.0/mall.php/Index/recharge?uid=%@",[QKAccountTool readAccount].uid];
     QKRechargeViewController * webVc = [[QKRechargeViewController alloc]init];
     webVc.urlStr = str;
     [self.navigationController pushViewController:webVc animated:YES];
@@ -205,7 +226,11 @@
 
 - (void)balanceOnClickShopping:(QKBalanceView *)balanceView
 {
-    NSLog(@"去商城");
+//    NSLog(@"去商城");
+    QKTimeLimitDetailViewController * shop = [[QKTimeLimitDetailViewController alloc]init];
+    NSString * string = [NSString stringWithFormat:@"%@/uid/%@/token/%@",timeLimitUrl,[QKAccountTool readAccount].uid,[QKAccountTool readAccount].token];
+    shop.urlStr = string;
+    [self.navigationController pushViewController:shop animated:YES];
 }
 
 -(void)dealloc

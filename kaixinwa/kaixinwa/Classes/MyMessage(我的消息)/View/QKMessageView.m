@@ -31,8 +31,7 @@
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
         UIButton * typeBtn = [[UIButton alloc]init];
-        [typeBtn setBackgroundImage:[UIImage imageNamed:@"green-frame"] forState:UIControlStateNormal];
-        [typeBtn setTitle:@"任务" forState:UIControlStateNormal];
+        
         [typeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         typeBtn.userInteractionEnabled = NO;
         [self addSubview:typeBtn];
@@ -85,7 +84,16 @@
 -(void)setMessageContent:(QKMessageContent *)messageContent
 {
     _messageContent = messageContent;
+    
     self.titleLabel.text = messageContent.title;
+    if([messageContent.title containsString:@"任务"]){
+        [self.typeBtn setBackgroundImage:[UIImage imageNamed:@"green-frame"] forState:UIControlStateNormal];
+        [self.typeBtn setTitle:@"任务" forState:UIControlStateNormal];
+    }else{
+        [self.typeBtn setBackgroundImage:[UIImage imageNamed:@"yellow-frame"] forState:UIControlStateNormal];
+        [self.typeBtn setTitle:@"消息" forState:UIControlStateNormal];
+    }
+    
     self.detailLabel.text = messageContent.detailText;
     
 }

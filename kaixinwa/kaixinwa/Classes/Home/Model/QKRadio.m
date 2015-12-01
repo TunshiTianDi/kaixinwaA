@@ -7,7 +7,10 @@
 //
 
 #import "QKRadio.h"
-
+#import "MJExtension.h"
 @implementation QKRadio
-
+-(NSDictionary *)replacedKeyFromPropertyName
+{
+    return @{@"id_str" : @"id"};
+}
 @end

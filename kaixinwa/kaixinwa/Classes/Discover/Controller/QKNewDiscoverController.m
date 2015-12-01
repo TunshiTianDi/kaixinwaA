@@ -39,7 +39,6 @@
     HMCommonArrowItem * video = [HMCommonArrowItem itemWithTitle:@"开心蛙动画" icon:[UIImage imageNamed:@"kaixinwadonghua"]];
     
     group.items = @[radio,video];
-    
 }
 
 -(void)setupGroup1

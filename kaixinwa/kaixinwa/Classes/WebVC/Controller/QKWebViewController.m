@@ -20,8 +20,6 @@
 @property(nonatomic,strong)NSString * shareContent;
 //是否连接失败
 @property(nonatomic,assign)BOOL isFail;
-//连接失败页面
-@property(nonatomic,weak)QKNotFoundNetView * notFoundView;
 
 @property(nonatomic,strong)NSURLRequest * currentRequest;
 @end
@@ -40,6 +38,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"fanhui" highImageName:@"jiantousel" target:self action:@selector(back)];
+    
     
     //创建webView
     UIWebView * myWebView = [[UIWebView alloc]init];
@@ -57,6 +57,8 @@
     self.progressView = [[NJKWebViewProgressView alloc] initWithFrame:barFrame];
     if (![self isKindOfClass:[QKRechargeViewController class]]) {
         [self loadUrlWithString:self.urlStr];
+    }else{
+        self.progressView.hidden = YES;
     }
     //注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(begainFullScreen) name:UIWindowDidBecomeVisibleNotification object:nil];//进入全屏
@@ -64,8 +66,14 @@
     
 }
 
-
-
+-(void)back
+{
+    if (self.myWebView.canGoBack) {
+        [self.myWebView goBack];
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
 
 
 - (void)viewWillAppear:(BOOL)animated
@@ -87,6 +95,7 @@
 
 -(void)loadUrlWithString:(NSString *)urlStr
 {
+    self.progressView.hidden = NO;
     NSURLRequest *req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:urlStr]];
     [self.myWebView loadRequest:req];
 }
@@ -103,32 +112,42 @@
 {
     self.isFail = NO;
     self.currentRequest = request;
+    
     return YES;
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     self.isFail = NO;
     [MBProgressHUD hideHUD];
-     
 }
+
 
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    self.isFail = YES;
-    //创建连接失败视图
-    QKNotFoundNetView * notFoundView = [[QKNotFoundNetView alloc]init];
-    notFoundView.frame = CGRectMake(0, 0, self.view.width, self.view.height);
-    notFoundView.delegate = self;
-    [self.view addSubview:notFoundView];
     
-    [MBProgressHUD hideHUD];
-    [self.notFoundView showInView:self.view];
+    self.isFail = YES;
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    
+    if (self.isFail && !appDelegate.isExistenceNetwork) {
+        //创建连接失败视图
+        QKNotFoundNetView * notFoundView = [[QKNotFoundNetView alloc]init];
+        notFoundView.frame = CGRectMake(0, 0, self.view.width, self.view.height);
+        notFoundView.delegate = self;
+        [self.view addSubview:notFoundView];
+        
+        [MBProgressHUD hideHUD];
+        
+    }
+    
 }
 
 #pragma mark - NJKWebViewProgressDelegate
 - (void)webViewProgress:(NJKWebViewProgress *)webViewProgress updateProgress:(float)progress
 {
+    
     [self.progressView setProgress:progress animated:YES];
+    
+    
     self.title = [self.myWebView stringByEvaluatingJavaScriptFromString:@"document.title"];
     if ([self.title isEqualToString:@""]||self.title == nil) {
         self.title = self.webName;
@@ -165,12 +184,10 @@
     [MBProgressHUD showMessage:@"请稍后..."];
     
     [self.myWebView loadRequest:self.currentRequest];
-
     
-    if (self.isFail == NO) {
         
-        [notFoundNetView hideInOtherView:self.myWebView];
-    }
+    [notFoundNetView hideInOtherView:self.myWebView];
+
 }
 
 

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QKRegistViewController">
@@ -175,11 +176,25 @@
                         <constraint firstItem="3hw-7P-ftv" firstAttribute="leading" secondItem="ogr-y8-omH" secondAttribute="leading" id="pPP-K2-3l9"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXK-GN-kkr">
+                    <rect key="frame" x="207" y="352" width="187" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="QEF-XV-8BW"/>
+                        <constraint firstAttribute="width" constant="187" id="SwN-4a-F0p"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="14"/>
+                    <state key="normal" title="用户注册及使用APP隐私协议"/>
+                    <connections>
+                        <action selector="RegistrationAgreement:" destination="-1" eventType="touchUpInside" id="WHP-Aa-VX7"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="ogr-y8-omH" secondAttribute="bottom" id="8Eb-DC-ptB"/>
                 <constraint firstAttribute="trailing" secondItem="uHK-rw-PBa" secondAttribute="trailing" constant="8" id="S3J-rk-LF2"/>
+                <constraint firstItem="UXK-GN-kkr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dXv-yP-7PE"/>
+                <constraint firstItem="UXK-GN-kkr" firstAttribute="top" secondItem="uHK-rw-PBa" secondAttribute="bottom" constant="8" id="gRg-hj-TDT"/>
                 <constraint firstItem="uHK-rw-PBa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="hJC-Vd-Tof"/>
                 <constraint firstAttribute="trailing" secondItem="ogr-y8-omH" secondAttribute="trailing" id="tLw-yg-Kyt"/>
                 <constraint firstItem="ogr-y8-omH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uRT-a4-0mg"/>
