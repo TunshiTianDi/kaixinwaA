@@ -9,7 +9,7 @@
 #import "HMCommonCell.h"
 #import "HMBadgeView.h"
 #import "QKCommonItemHeader.h"
-
+#import "UMessage.h"
 
 
 
@@ -63,6 +63,7 @@
 {
     if (_rightSwitch == nil) {
         self.rightSwitch = [[UISwitch alloc] init];
+        
         [self.rightSwitch addTarget:self action:@selector(changeSwitch:) forControlEvents:UIControlEventValueChanged];
     }
     return _rightSwitch;
@@ -71,6 +72,8 @@
 {
     HMCommonSwitchItem * switchItem = (HMCommonSwitchItem *)_item;
     switchItem.on = switchView.on;
+    
+    
 }
 
 - (UILabel *)rightLabel
@@ -90,6 +93,7 @@
     }
     return _bageView;
 }
+
 -(UIImageView *)checkView
 {
     if (_checkView == nil) {

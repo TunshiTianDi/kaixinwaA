@@ -36,17 +36,33 @@
     if (account) {
         self.templeLabelFrame = CGRectZero;
         //昵称
-        CGSize nameLabelSize = [account.user_name sizeWithAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:17]}];
+        CGSize nameLabelSize;
+        
+        if ([account.user_name isEqualToString:@""]||account.user_name == nil) {
+            nameLabelSize = [@"点击头像设置昵称" sizeWithAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:17]}];
+        }else{
+            nameLabelSize = [account.user_name sizeWithAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:17]}];
+        }
         CGFloat nameLabelX = (QKScreenWidth - nameLabelSize.width)/2;
         CGFloat nameLabelY = CGRectGetMaxY(self.iconBGFrame) + QKCellMargin;
         self.nameLabelFrame = CGRectMake(nameLabelX, nameLabelY, nameLabelSize.width, nameLabelSize.height);
         //个性签名
-        CGSize signatureLabelSize = [account.signature sizeWithAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]}];
+        CGSize signatureLabelSize;
+        if([account.signature isEqualToString:@""]||account.signature== nil){
+             signatureLabelSize = [@"未设置" sizeWithAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]}];
+        }else{
+             signatureLabelSize = [account.signature sizeWithAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]}];
+        }
         CGFloat signatureLabelX = (QKScreenWidth - signatureLabelSize.width)/2;
         CGFloat signatureLabelY = CGRectGetMaxY(self.nameLabelFrame) + QKCellMargin/2;
         self.signatureLabelFrame = CGRectMake(signatureLabelX, signatureLabelY, signatureLabelSize.width, signatureLabelSize.height);
         //学校
-        CGSize schoolLabelSize = [account.school sizeWithAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]}];
+        CGSize schoolLabelSize;
+        if ([account.school isEqualToString:@""]||account.school== nil) {
+            schoolLabelSize = [@"未设置" sizeWithAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]}];
+        }else{
+            schoolLabelSize = [account.school sizeWithAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]}];
+        }
         CGFloat schoolLabelX = (QKScreenWidth - schoolLabelSize.width) / 2;
         CGFloat schoolLabelY = CGRectGetMaxY(self.signatureLabelFrame) + QKCellMargin/2;
         self.schoolLabelFrame = CGRectMake(schoolLabelX, schoolLabelY, schoolLabelSize.width, schoolLabelSize.height);

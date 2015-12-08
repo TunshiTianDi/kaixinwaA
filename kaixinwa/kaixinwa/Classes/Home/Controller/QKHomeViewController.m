@@ -70,7 +70,7 @@
     
     //发送请求获取首页数据
     [QKHttpTool post:@"http://101.200.173.111/kaixinwa2.0/index.php/Kxwapi/Index/getHome" params:nil success:^(id responseObj) {
-//        DCLog(@"%@",responseObj);
+        DCLog(@"%@",responseObj);
         QKFirstHome * home = [QKFirstHome objectWithKeyValues:responseObj];
         for (QKLunbo * lunbo in home.data.lunbo) {
             [self.imageUrls addObject:lunbo.lunbo_faceurl];
@@ -84,9 +84,16 @@
         
     } failure:^(NSError *error) {
         DCLog(@"%@",error);
+        [MBProgressHUD showError:@"请求失败..."];
     }];
+    
+    [self registNotifications];
+}
+-(void)registNotifications
+{
     //注册通知处理点击游戏图
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameMethod:) name:NotifacationToSkipGameWeb object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameMore:) name:NotifacationToSkipGameMore object:nil];
     //注册通知处理点击限时兑换
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tapGood:) name:NotifacationToSkipTimeLimit object:nil];
     //注册通知处理限时兑换显示更多
@@ -98,7 +105,7 @@
     //注册通知开心电台具体
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(tapRadio:) name:NotifacationToSkipRadio object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(tapMore:) name:NotifacationToSkipRadioMore object:nil];
-    
+
 }
 
 -(void)viewDidDisappear:(BOOL)animated
@@ -151,21 +158,31 @@
 {
     QKWebViewController * wvc = [[QKWebViewController alloc]init];
     NSString * url = noti.userInfo[GameKey];
-    NSString * firstStr = @"http://";
-    firstStr = [firstStr stringByAppendingString:url];
-    wvc.urlStr = firstStr;
+    wvc.urlStr = url;
+    [self.navigationController pushViewController:wvc animated:YES];
+}
+
+-(void)gameMore:(NSNotification *)noti
+{
+    QKWebViewController * wvc = [[QKWebViewController alloc]init];
+    NSString * url = noti.userInfo[@"url"];
+    wvc.urlStr = url;
     [self.navigationController pushViewController:wvc animated:YES];
 }
 -(void)tapGood:(NSNotification *)noti
 {
     QKAccount * account = [QKAccountTool readAccount];
-    QKTimeLimitDetailViewController * tldVc = [[QKTimeLimitDetailViewController alloc]init];
-    NSString * urlStr = [NSString stringWithFormat:@"http://101.200.173.111/kaixinwa2.0/mall.php/Index/details/id/%@/source/1/uid/%@/token/%@",noti.userInfo[@"gid"],account.uid,account.token];
-    
-    tldVc.urlStr = urlStr;
-    
-    [self.navigationController pushViewController:tldVc animated:YES];
+    if(account){
+        QKTimeLimitDetailViewController * tldVc = [[QKTimeLimitDetailViewController alloc]init];
+        NSString * urlStr = [NSString stringWithFormat:@"http://101.200.173.111/kaixinwa2.0/mall.php/Index/details/id/%@/source/1/uid/%@/token/%@",noti.userInfo[@"gid"],account.uid,account.token];
+        tldVc.urlStr = urlStr;
+        
+        [self.navigationController pushViewController:tldVc animated:YES];
+    }else{
+        [self skipLoginViewController];
+    }
 }
+
 -(void)tapGoodMore:(NSNotification *)noti
 {
     QKAccount * account = [QKAccountTool readAccount];
@@ -228,6 +245,7 @@
     imagePlayerView.pageControl.currentPageIndicatorTintColor = [UIColor greenColor];
     self.imagePlayerView = imagePlayerView;
     [scrollView addSubview:imagePlayerView];
+    
     //限时兑换
     QKGridView * exchangeView = [[QKGridView alloc]init];
     exchangeView.title = @"限时兑换";
@@ -235,7 +253,7 @@
     exchangeView.x = 0;
     exchangeView.y = QKCellMargin + imagePlayerView.height;
     exchangeView.width = QKScreenWidth;
-    exchangeView.height = QKCellHeight;
+    exchangeView.height = ISLessThanFourInch ? 150 : QKCellHeight;
     self.exchangeView = exchangeView;
     [scrollView addSubview:exchangeView];
     //开心电台
@@ -244,7 +262,7 @@
     radioView.x = 0;
     radioView.y = CGRectGetMaxY(exchangeView.frame);
     radioView.width = QKScreenWidth;
-    radioView.height = QKCellHeight;
+    radioView.height = ISLessThanFourInch ? 150 : QKCellHeight;
     [scrollView addSubview:radioView];
     self.radioView = radioView;
     //开心蛙动画
@@ -253,7 +271,7 @@
     anView.x = 0;
     anView.y = CGRectGetMaxY(radioView.frame);
     anView.width = QKScreenWidth;
-    anView.height = QKCellHeight;
+    anView.height = ISLessThanFourInch ? 140 : QKCellHeight;
     [scrollView addSubview:anView];
     self.anView = anView;
     
@@ -264,7 +282,7 @@
     gameView.x = exchangeView.x;
     gameView.y = CGRectGetMaxY(anView.frame);
     gameView.width = QKScreenWidth;
-    gameView.height = QKCellHeight;
+    gameView.height = ISLessThanFourInch ? 140 : QKCellHeight;
     [scrollView addSubview:gameView];
     self.gameView = gameView;
     
@@ -283,10 +301,8 @@
     [refreshControl beginRefreshing];
     [self.imageUrls removeAllObjects];
     [self.lunboDesUrls removeAllObjects];
-    //发送网络请求
     //发送请求获取首页数据
     [QKHttpTool post:@"http://101.200.173.111/kaixinwa2.0/index.php/Kxwapi/Index/getHome" params:nil success:^(id responseObj) {
-        //        DCLog(@"%@",responseObj);
         QKFirstHome * home = [QKFirstHome objectWithKeyValues:responseObj];
         for (QKLunbo * lunbo in home.data.lunbo) {
             [self.imageUrls addObject:lunbo.lunbo_faceurl];
@@ -316,6 +332,7 @@
 {
     [imageView sd_setImageWithURL:[NSURL URLWithString:[self.imageUrls objectAtIndex:index]] placeholderImage:[UIImage imageNamed:@"placeholder"]];
 }
+
 - (void)imagePlayerView:(ImagePlayerView *)imagePlayerView didTapAtIndex:(NSInteger)index
 {
     DCLog(@"did tap index = %@", self.lunboDesUrls[index]);

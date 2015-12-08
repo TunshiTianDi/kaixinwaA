@@ -16,6 +16,7 @@
 #import "SDImageCache.h"
 #import "QKDataBaseTool.h"
 #import "UIImageView+WebCache.h"
+#import "QKHttpTool.h"
 
 @interface QKSettingViewController ()<UIAlertViewDelegate>
 @property(nonatomic,copy)NSURL * trackViewUrl;
@@ -46,16 +47,15 @@
 {
     HMCommonGroup * group = [HMCommonGroup group];
     [self.groups addObject:group];
-    HMCommonSwitchItem * switchItem = [HMCommonSwitchItem itemWithTitle:@"消息推送提醒"];
+//    HMCommonSwitchItem * switchItem = [HMCommonSwitchItem itemWithTitle:@"消息推送提醒"];
     
-    switchItem.on = YES;
     
     HMCommonArrowItem * clearItem = [HMCommonArrowItem itemWithTitle:@"清除图片缓存"];
     CGFloat fileSize = [SDWebImageManager sharedManager].imageCache.getSize / 1024.0;
-    clearItem.subtitle = [NSString stringWithFormat:@"%.fKB",fileSize];
+    clearItem.subtitle = [NSString stringWithFormat:@"(%.fKB)",fileSize];
     if (fileSize > 1024) {
         fileSize =   fileSize / 1024.0;
-        clearItem.subtitle = [NSString stringWithFormat:@"%.1fM",fileSize];
+        clearItem.subtitle = [NSString stringWithFormat:@"(%.1fM)",fileSize];
     }
     __weak typeof(clearItem) weakClearCache = clearItem;
     __weak typeof(self) weakVc = self;
@@ -70,7 +70,7 @@
         
         [MBProgressHUD hideHUD];
     };
-    group.items = @[switchItem,clearItem];
+    group.items = @[clearItem];
 }
 
 -(void)setupGroup1
@@ -124,18 +124,21 @@
 {
     DCLog(@"点击退出");
     [MBProgressHUD showMessage:@"正在退出"];
-    [self performSelector:@selector(delayMethod) withObject:nil afterDelay:1.5];
+    QKAccount * account = [QKAccountTool readAccount];
+//    [self performSelector:@selector(delayMethod) withObject:nil afterDelay:1.5];
+    [QKHttpTool post:@"http://101.200.173.111/kaixinwa2.0/mall.php/index/clearsession" params:@{@"uid":account.uid} success:^(id responseObj) {
+//        DCLog(@"%@",responseObj);
+        [QKAccountTool deleteAccount];
+        UIWindow * window = [UIApplication sharedApplication].keyWindow;
+        QKLoginViewController* loginVc = [[QKLoginViewController alloc]init];
+        loginVc.index = 2;
+        UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:loginVc];
+        [MBProgressHUD hideHUD];
+        window.rootViewController = nav;
+    } failure:^(NSError *error) {
+        DCLog(@"%@",error);
+    }];
     
-}
--(void)delayMethod
-{
-    [QKAccountTool deleteAccount];
-    UIWindow * window = [UIApplication sharedApplication].keyWindow;
-    QKLoginViewController* loginVc = [[QKLoginViewController alloc]init];
-    loginVc.index = 2;
-    UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:loginVc];
-    [MBProgressHUD hideHUD];
-    window.rootViewController = nav;
 }
 
 - (long long)fileSizeAtFile:(NSString *)file

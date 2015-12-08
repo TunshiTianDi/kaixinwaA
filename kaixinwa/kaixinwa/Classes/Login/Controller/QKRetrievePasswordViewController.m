@@ -86,7 +86,7 @@
     [MBProgressHUD showMessage:@"验证中..."];
     //发送请求获取uid
     NSDictionary * params = @{@"telephone":self.phoneNumTF.text,@"mobile_code":self.identifyingCodeTF.text};
-    [QKHttpTool post:@"http://101.200.173.163/qkhl_api/index.php/kxwapi/User/checkUser" params:params success:^(id responseObj) {
+    [QKHttpTool post:codeVerityInterface params:params success:^(id responseObj) {
         DCLog(@"成功---%@",responseObj);
         [MBProgressHUD hideHUD];
         QKReturnResult * result = [QKReturnResult objectWithKeyValues:responseObj];

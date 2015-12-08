@@ -32,6 +32,7 @@
         
         UILabel * nameLabel = [[UILabel alloc]init];
         nameLabel.font = [UIFont systemFontOfSize:11];
+        nameLabel.numberOfLines = 0;
         [nameLabel setTextColor:QKColor(157, 157, 157)];
         self.nameLabel = nameLabel;
         [self addSubview:nameLabel];
@@ -63,9 +64,11 @@
     self.imageView.width = self.width;
     self.imageView.height = self.width;
     
-    
+    CGSize maxSize = CGSizeMake(self.imageView.width, 999);
     self.nameLabel.centerX = self.imageView.centerX;
-    self.nameLabel.size = [self.nameLabel.text sizeWithAttributes:@{NSFontAttributeName:self.nameLabel.font}];
+    self.nameLabel.size =[self.nameLabel.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.nameLabel.font} context:nil].size;
+    
+//    self.nameLabel.size = [self.nameLabel.text sizeWithAttributes:@{NSFontAttributeName:self.nameLabel.font}];
     self.nameLabel.y = CGRectGetMaxY(self.imageView.frame)+QKCellMargin/2;
 }
 

@@ -35,20 +35,20 @@
         self.icon = icon;
         //创建label
         UILabel * showBalanceLabel = [[UILabel alloc]init];
-        showBalanceLabel.font = [UIFont systemFontOfSize:15];
+        showBalanceLabel.font = [UIFont systemFontOfSize:14];
         showBalanceLabel.tintColor = [UIColor blackColor];
-        showBalanceLabel.text = @"目前拥有";
+        showBalanceLabel.text = @"拥有";
         [self addSubview:showBalanceLabel];
         self.showBalanceLabel = showBalanceLabel;
         //创建开心豆数量lable
         UILabel * peaCountLabel = [[UILabel alloc]init];
-        peaCountLabel.font = [UIFont systemFontOfSize:15];
+        peaCountLabel.font = [UIFont systemFontOfSize:14];
         [peaCountLabel setTextColor:QKColor(232, 168, 39)];
         [self addSubview:peaCountLabel];
         self.peaCountLabel = peaCountLabel;
         //创建lable
         UILabel * swLabel = [[UILabel alloc]init];
-        swLabel.font = [UIFont systemFontOfSize:15];
+        swLabel.font = [UIFont systemFontOfSize:14];
         swLabel.text = @"开心豆";
         [self addSubview:swLabel];
         self.swLabel = swLabel;

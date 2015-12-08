@@ -11,7 +11,6 @@
 #import "QKProfileViewController.h"
 #import "QKNavigationController.h"
 #import "QKDiscoverController.h"
-#import "QKNewDiscoverController.h"
 
 @interface QKTabBarController ()
 

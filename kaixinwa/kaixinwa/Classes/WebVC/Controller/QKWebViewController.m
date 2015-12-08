@@ -21,7 +21,7 @@
 //是否连接失败
 @property(nonatomic,assign)BOOL isFail;
 
-@property(nonatomic,strong)NSURLRequest * currentRequest;
+
 @end
 
 @implementation QKWebViewController
@@ -49,7 +49,7 @@
 //    myWebView.scalesPageToFit = YES;
     self.myWebView = myWebView;
     
-
+    self.currentRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:self.urlStr]];
     //创建加载进度条
     CGFloat progressBarHeight = 2.f;
     CGRect navigaitonBarBounds = self.navigationController.navigationBar.bounds;
@@ -111,14 +111,13 @@
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     self.isFail = NO;
-    self.currentRequest = request;
+    
     
     return YES;
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     self.isFail = NO;
-    [MBProgressHUD hideHUD];
 }
 
 
@@ -134,8 +133,6 @@
         notFoundView.frame = CGRectMake(0, 0, self.view.width, self.view.height);
         notFoundView.delegate = self;
         [self.view addSubview:notFoundView];
-        
-        [MBProgressHUD hideHUD];
         
     }
     
@@ -181,8 +178,6 @@
 #pragma mark - notfoundDelegate
 - (void)clickReloadButton:(QKNotFoundNetView *)notFoundNetView
 {
-    [MBProgressHUD showMessage:@"请稍后..."];
-    
     [self.myWebView loadRequest:self.currentRequest];
     
         

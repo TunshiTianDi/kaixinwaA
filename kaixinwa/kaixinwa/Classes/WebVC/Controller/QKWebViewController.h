@@ -19,6 +19,8 @@
 /** 分享的集数*/
 @property(nonatomic,copy)NSString * number;
 
+@property(nonatomic,strong)NSURLRequest * currentRequest;
+
 -(NSString *)cutString:(NSString *)str withName:(NSString*)name;
 -(void)loadUrlWithString:(NSString *)urlStr;
 

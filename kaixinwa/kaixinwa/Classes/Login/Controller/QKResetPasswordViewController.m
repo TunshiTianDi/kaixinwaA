@@ -49,7 +49,7 @@
         [MBProgressHUD showMessage:@"提交中"];
         NSString * md5Password = [QKHttpTool md5HexDigest:self.passwordTF.text];
         NSDictionary * params = @{@"password":md5Password,@"uid":self.resetParam.uid,@"telephone":self.resetParam.telephone};
-        [QKHttpTool post:@"http://101.200.173.163/qkhl_api/index.php/kxwapi/User/modpwd" params:params success:^(id responseObj) {
+        [QKHttpTool post:@"http://101.200.173.111/kaixinwa2.0/kxwaapi.php/User/modpwd" params:params success:^(id responseObj) {
             DCLog(@"-------%@",responseObj);
             QKReturnResult * result = [QKReturnResult objectWithKeyValues:responseObj];
             NSString* code = [result.code stringValue];

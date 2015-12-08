@@ -72,11 +72,10 @@
 {
     switch (button.tag) {
         case 1:
-            DCLog(@"限时兑换显示更多");
             [[NSNotificationCenter defaultCenter] postNotificationName:NotifacationToSkipTimeLimitMore object:nil userInfo:@{@"url":@"http://101.200.173.111/kaixinwa2.0/mall.php/Index/index"}];
             break;
         case 2:
-            DCLog(@"play game");
+            [[NSNotificationCenter defaultCenter] postNotificationName:NotifacationToSkipGameMore object:nil userInfo:@{@"url":happyGameUrl}];
             break;
         default:
             break;

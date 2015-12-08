@@ -44,5 +44,6 @@
 @property(nonatomic,copy)NSString * qq;
 /** token*/
 @property(nonatomic,copy)NSString * token;
-
+/** header*/
+@property(nonatomic,copy)NSString * header;
 @end

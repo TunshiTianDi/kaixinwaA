@@ -14,8 +14,6 @@
 #import "QKModifyUserInfoViewController.h"
 #import "QKMessageViewController.h"
 #import "QKGetHappyPeaTool.h"
-#import "QKPutinInvateCodeVC.h"
-#import "QKInvateFriendsViewController.h"
 #import "QKMyShareTableViewController.h"
 #import "QKBackgroudTool.h"
 #import "QKDataBaseTool.h"
@@ -26,6 +24,7 @@
 #import "QKTestViewController.h"
 #import "QKRechargeViewController.h"
 #import "QKTimeLimitDetailViewController.h"
+#import "UIImageView+WebCache.h"
 
 @interface QKProfileViewController ()
 @property(nonatomic,strong)QKProfileHeaderView * headerView;
@@ -96,40 +95,13 @@
     QKAccount * account = [QKAccountTool readAccount];
     //获取开心豆数量
     [QKGetHappyPeaTool getHappyPeaNum];
-    NSString * fileName = [QKHttpTool md5HexDigest:account.phoneNum];
-    fileName = [fileName stringByAppendingPathExtension:@"png"];
-    NSURL * iconURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://kaixinwaavatar.oss-cn-beijing.aliyuncs.com/%@",fileName]];
+    
     //下载头像
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSData * data =[NSData dataWithContentsOfURL:iconURL];
-        //回到主线程
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (data) {
-                //结束刷新
-                [self.refreshControl endRefreshing];
-                
-                self.headerView.profileView.icon.image = [UIImage imageWithData:data];
-                //设置背景
-                self.headerView.profileView.image = [QKBackgroudTool gaussianBlur:self.headerView.profileView.icon.image];
-                if (![[QKUserDefaults objectForKey:@"upload"] isEqualToString:@"hadUpload"]) {
-                    //储存头像到本地
-                    NSString * iconPath =  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-                    iconPath = [iconPath stringByAppendingPathComponent:fileName];
-                    [data writeToFile:iconPath atomically:YES];
-                    [QKUserDefaults setObject:@"hadUpload" forKey:@"upload"];
-                    [QKUserDefaults synchronize];
-                }else{
-                    //储存头像到本地
-                    NSString * iconPath =  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-                    iconPath = [iconPath stringByAppendingPathComponent:fileName];
-                    [data writeToFile:iconPath atomically:YES];
-                }
-            }else{
-                self.headerView.profileView.icon.image = [UIImage imageNamed:@"change_avatar-1"];
-                [self.refreshControl endRefreshing];
-            }
-        });
-    });
+    NSURL * header_url =[NSURL URLWithString:account.header];
+    [self.headerView.profileView.icon sd_setImageWithURL:header_url placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.headerView.profileView.image = [QKBackgroudTool gaussianBlur:image];
+        [self.refreshControl endRefreshing];
+    }];
 }
 
 #pragma mark - 设置UI
@@ -189,9 +161,9 @@
     };
     
 //    我的收藏
-    HMCommonArrowItem * myCollected = [HMCommonArrowItem itemWithTitle:@"我的收藏" icon:[UIImage imageNamed:@"wodeshoucang"]];
-    myCollected.destVcClass = [QKTestViewController class];
-    group.items = @[myMessage,myOrder,myCollected];
+//    HMCommonArrowItem * myCollected = [HMCommonArrowItem itemWithTitle:@"我的收藏" icon:[UIImage imageNamed:@"wodeshoucang"]];
+//    myCollected.destVcClass = [QKTestViewController class];
+    group.items = @[myMessage,myOrder];
     
 }
 
@@ -213,6 +185,7 @@
     }
     
 }
+
 #pragma mark - 处理balanceView的代理方法
 - (void)balanceOnClickRecharge:(QKBalanceView *)balanceView
 {

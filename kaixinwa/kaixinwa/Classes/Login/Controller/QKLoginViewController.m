@@ -89,7 +89,7 @@
             account.weixin = results.data.weixin;
             account.qq = results.data.qq;
             account.token = results.data.token;
-            
+            account.header = results.data.header;
             [QKAccountTool save:account];
             //登陆成功跳转
             [QKControllerTool chooseRootViewController];

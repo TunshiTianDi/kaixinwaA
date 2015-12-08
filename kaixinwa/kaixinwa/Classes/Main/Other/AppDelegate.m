@@ -21,15 +21,17 @@
 #import "QKGetHappyPeaTool.h"
 #import "QKDataBaseTool.h"
 #import "UMessage.h"
+#import "QKTestPushViewController.h"
 
 @interface AppDelegate ()
-
+@property(nonatomic,strong)NSDictionary * userInfo;
 @end
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc]init];
@@ -37,14 +39,6 @@
     [self.window makeKeyAndVisible];
     QKAccount* account = [QKAccountTool readAccount];
     [QKControllerTool chooseRootViewController];
-//    if (account) {
-//        [QKControllerTool chooseRootViewController];
-//    }else{
-//        QKLoginViewController* loginVc = [[QKLoginViewController alloc]init];
-//        UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:loginVc];
-//        self.window.rootViewController = nav;
-//    }
-    
     
     //监控网络
     AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
@@ -91,6 +85,7 @@
     [UMessage startWithAppkey:@"55b58b3367e58ea9200010f9" launchOptions:launchOptions];
     [self pushVersionMoreThanEight];
     
+    
     //建表
     [QKDataBaseTool creatTableForShare];
     [QKDataBaseTool creatTableForTask];
@@ -128,10 +123,44 @@
 //                 stringByReplacingOccurrencesOfString: @" " withString: @""]);
     [UMessage registerDeviceToken:deviceToken];
 }
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+//{
+//    NSLog(@"-------%@",userInfo);
+//    self.userInfo = userInfo;
+//     NSString *alertStr = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
+//    if (application.applicationState == UIApplicationStateActive) {
+//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:[NSString stringWithFormat:@"%@", alertStr] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"查看", nil];
+//        [alertView show];
+//    }
+//    
+//    if (application.applicationState != UIApplicationStateBackground && application.applicationState != UIApplicationStateActive) {
+//        
+//        [self presentViewControllerWithPushInfo:userInfo];
+//    }
+////    [UMessage didReceiveRemoteNotification:userInfo];
+//
+//}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    [UMessage didReceiveRemoteNotification:userInfo];
+    if (buttonIndex == 1) {
+        [self presentViewControllerWithPushInfo:self.userInfo];
+    }
 }
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+    self.userInfo = userInfo;
+    NSString *alertStr = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
+    if (application.applicationState == UIApplicationStateActive) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:[NSString stringWithFormat:@"%@", alertStr] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"查看", nil];
+        [alertView show];
+    }
+    
+    if (application.applicationState != UIApplicationStateBackground && application.applicationState != UIApplicationStateActive) {
+        
+        [self presentViewControllerWithPushInfo:userInfo];
+    }
+}
+
 //大于8.0设置
 -(void)pushVersionMoreThanEight
 {
@@ -153,8 +182,37 @@
     
     UIUserNotificationSettings *userSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge|UIUserNotificationTypeSound|UIUserNotificationTypeAlert
                                                                                  categories:[NSSet setWithObject:categorys]];
+    
     [UMessage registerRemoteNotificationAndUserNotificationSettings:userSettings];
+    
+    
 }
 
+- (BOOL)isAllowedNotification
+{
+    UIUserNotificationSettings *setting = [[UIApplication sharedApplication] currentUserNotificationSettings];
+    if(UIUserNotificationTypeNone != setting.types) {
+        return YES;
+    }
+    return NO;
+}
+//后台接受推送 跳转
+- (void)presentViewControllerWithPushInfo:(NSDictionary *)userInfo{
+    
+//    NSUserDefaults *pushJudge = [NSUserDefaults standardUserDefaults];
+//    [pushJudge setObject:@"push" forKey:@"push"];
+//    [pushJudge synchronize];
+    
+    //这个是我要通过推送跳转过去到页面
+    NSString * testStr = userInfo[@"test"];
+    if (testStr) {
+        QKTestPushViewController *orderListCtrl = [[QKTestPushViewController alloc] init];
+        
+        orderListCtrl.urlStr = testStr;
+        UINavigationController *pushNav = [[UINavigationController alloc] initWithRootViewController:orderListCtrl];
+        self.window.rootViewController = pushNav;
+    }
+    
+}
 
 @end

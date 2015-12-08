@@ -82,7 +82,6 @@
 		D945244A1B8317880090BE54 /* QKAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D94524491B8317880090BE54 /* QKAlertView.xib */; };
 		D94787111B588E8A0013E1D5 /* QKAboutKaixinwaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D947870F1B588E8A0013E1D5 /* QKAboutKaixinwaViewController.m */; };
 		D94787121B588E8A0013E1D5 /* QKAboutKaixinwaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D94787101B588E8A0013E1D5 /* QKAboutKaixinwaViewController.xib */; };
-		D947BB6C1B7D9B9500765D2D /* ALBB_OSS_IOS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D947BB6B1B7D9B9500765D2D /* ALBB_OSS_IOS_SDK.framework */; };
 		D947BB881B7DB75600765D2D /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D947BB6E1B7DB75600765D2D /* UMSocialLocalizable.strings */; };
 		D947BB891B7DB75600765D2D /* libUMSocial_Sdk_4.2.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D947BB7C1B7DB75600765D2D /* libUMSocial_Sdk_4.2.3.a */; };
 		D947BB8A1B7DB75600765D2D /* UMSCommentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D947BB7E1B7DB75600765D2D /* UMSCommentDetailController.xib */; };
@@ -147,7 +146,6 @@
 		D981BA241B42888C000B0EFA /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = D981BA181B42888C000B0EFA /* NSObject+MJKeyValue.m */; };
 		D981BA251B42888C000B0EFA /* NSObject+MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = D981BA1A1B42888C000B0EFA /* NSObject+MJMember.m */; };
 		D9855C741B55E9B9008DD932 /* QKCheckString.m in Sources */ = {isa = PBXBuildFile; fileRef = D9855C731B55E9B9008DD932 /* QKCheckString.m */; };
-		D988B7971C04435700C3E239 /* QKNewDiscoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = D988B7961C04435700C3E239 /* QKNewDiscoverController.m */; };
 		D988B79A1C044D2600C3E239 /* QKTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D988B7991C044D2600C3E239 /* QKTestViewController.m */; };
 		D98CA44B1BE9903300732958 /* QKRadioView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98CA44A1BE9903300732958 /* QKRadioView.m */; };
 		D98CA44E1BE9952100732958 /* QKRadioDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98CA44D1BE9952100732958 /* QKRadioDetailView.m */; };
@@ -166,13 +164,7 @@
 		D98ED4621B86CEA800F090BA /* QKShareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D98ED4611B86CEA800F090BA /* QKShareCell.m */; };
 		D98ED4651B86D4B700F090BA /* QKDataBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D98ED4641B86D4B700F090BA /* QKDataBaseTool.m */; };
 		D98ED46B1B8706ED00F090BA /* QKShareDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98ED46A1B8706ED00F090BA /* QKShareDetailView.m */; };
-		D9945B9C1B844A7B00C954A4 /* QKPutinInvateCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D9945B9A1B844A7B00C954A4 /* QKPutinInvateCodeVC.m */; };
-		D9945B9D1B844A7B00C954A4 /* QKPutinInvateCodeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9945B9B1B844A7B00C954A4 /* QKPutinInvateCodeVC.xib */; };
 		D9945BA01B844FD900C954A4 /* QKBaseResult.m in Sources */ = {isa = PBXBuildFile; fileRef = D9945B9F1B844FD900C954A4 /* QKBaseResult.m */; };
-		D9945BAA1B8455FE00C954A4 /* QKInvateFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9945BA81B8455FE00C954A4 /* QKInvateFriendsViewController.m */; };
-		D9945BAB1B8455FE00C954A4 /* QKInvateFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9945BA91B8455FE00C954A4 /* QKInvateFriendsViewController.xib */; };
-		D9945BB01B84588A00C954A4 /* QKInvateCode.m in Sources */ = {isa = PBXBuildFile; fileRef = D9945BAD1B84588A00C954A4 /* QKInvateCode.m */; };
-		D9945BB11B84588A00C954A4 /* QKInvateResult.m in Sources */ = {isa = PBXBuildFile; fileRef = D9945BAF1B84588A00C954A4 /* QKInvateResult.m */; };
 		D998E9F71BEAF3CC00A268A2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D998E9F61BEAF3CC00A268A2 /* libsqlite3.tbd */; };
 		D998E9F91BEAF3F000A268A2 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D998E9F81BEAF3F000A268A2 /* libstdc++.tbd */; };
 		D998E9FB1BEAF40800A268A2 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D998E9FA1BEAF40800A268A2 /* libsqlite3.0.tbd */; };
@@ -180,6 +172,7 @@
 		D998E9FF1BEAF44000A268A2 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D998E9FE1BEAF44000A268A2 /* libz.tbd */; };
 		D99B25221B85852700BFF143 /* QKNotFoundNetView.m in Sources */ = {isa = PBXBuildFile; fileRef = D99B25211B85852700BFF143 /* QKNotFoundNetView.m */; };
 		D9A226391B9D8560001EE8D9 /* QKQRScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A226381B9D8560001EE8D9 /* QKQRScanView.m */; };
+		D9A3587F1C0E9A8A00A4042D /* QKUploadIconTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A3587E1C0E9A8A00A4042D /* QKUploadIconTool.m */; };
 		D9A41C631B8D948300CA12A9 /* QKShareAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A41C611B8D948300CA12A9 /* QKShareAppViewController.m */; };
 		D9A41C641B8D948300CA12A9 /* QKShareAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9A41C621B8D948300CA12A9 /* QKShareAppViewController.xib */; };
 		D9A41C991B8DADAC00CA12A9 /* QKDiscoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A41C981B8DADAC00CA12A9 /* QKDiscoverController.m */; };
@@ -208,6 +201,7 @@
 		D9E972881B9BEEBE001742CC /* QKMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E972871B9BEEBE001742CC /* QKMessageCell.m */; };
 		D9E9728B1B9C009C001742CC /* QKMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E9728A1B9C009C001742CC /* QKMessageView.m */; };
 		D9EA3CC51B4F55360017BECF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9EA3CC41B4F55360017BECF /* MapKit.framework */; };
+		D9EDF41A1C15506F003A72A4 /* QKTestPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EDF4191C15506F003A72A4 /* QKTestPushViewController.m */; };
 		D9FD7C521B69B1A800A517F9 /* QKModifyUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD7C421B69B1A800A517F9 /* QKModifyUserInfoViewController.m */; };
 		D9FD7C531B69B1A800A517F9 /* QKLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD7C451B69B1A800A517F9 /* QKLocation.m */; };
 		D9FD7C561B69B1A800A517F9 /* QKUpdateParam.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD7C4B1B69B1A800A517F9 /* QKUpdateParam.m */; };
@@ -369,7 +363,6 @@
 		D947870E1B588E8A0013E1D5 /* QKAboutKaixinwaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKAboutKaixinwaViewController.h; sourceTree = "<group>"; };
 		D947870F1B588E8A0013E1D5 /* QKAboutKaixinwaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKAboutKaixinwaViewController.m; sourceTree = "<group>"; };
 		D94787101B588E8A0013E1D5 /* QKAboutKaixinwaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QKAboutKaixinwaViewController.xib; sourceTree = "<group>"; };
-		D947BB6B1B7D9B9500765D2D /* ALBB_OSS_IOS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ALBB_OSS_IOS_SDK.framework; path = Classes/Main/ALBB_OSS_IOS_SDK.framework; sourceTree = "<group>"; };
 		D947BB6F1B7DB75600765D2D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		D947BB711B7DB75600765D2D /* UMSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocial.h; sourceTree = "<group>"; };
 		D947BB721B7DB75600765D2D /* UMSocialAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialAccountManager.h; sourceTree = "<group>"; };
@@ -496,8 +489,6 @@
 		D981BA1A1B42888C000B0EFA /* NSObject+MJMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJMember.m"; sourceTree = "<group>"; };
 		D9855C721B55E9B9008DD932 /* QKCheckString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKCheckString.h; sourceTree = "<group>"; };
 		D9855C731B55E9B9008DD932 /* QKCheckString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKCheckString.m; sourceTree = "<group>"; };
-		D988B7951C04435700C3E239 /* QKNewDiscoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKNewDiscoverController.h; sourceTree = "<group>"; };
-		D988B7961C04435700C3E239 /* QKNewDiscoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKNewDiscoverController.m; sourceTree = "<group>"; };
 		D988B7981C044D2600C3E239 /* QKTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKTestViewController.h; sourceTree = "<group>"; };
 		D988B7991C044D2600C3E239 /* QKTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKTestViewController.m; sourceTree = "<group>"; };
 		D98CA4491BE9903300732958 /* QKRadioView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKRadioView.h; sourceTree = "<group>"; };
@@ -535,18 +526,8 @@
 		D98ED4641B86D4B700F090BA /* QKDataBaseTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKDataBaseTool.m; sourceTree = "<group>"; };
 		D98ED4691B8706ED00F090BA /* QKShareDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKShareDetailView.h; sourceTree = "<group>"; };
 		D98ED46A1B8706ED00F090BA /* QKShareDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKShareDetailView.m; sourceTree = "<group>"; };
-		D9945B991B844A7B00C954A4 /* QKPutinInvateCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKPutinInvateCodeVC.h; sourceTree = "<group>"; };
-		D9945B9A1B844A7B00C954A4 /* QKPutinInvateCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKPutinInvateCodeVC.m; sourceTree = "<group>"; };
-		D9945B9B1B844A7B00C954A4 /* QKPutinInvateCodeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QKPutinInvateCodeVC.xib; sourceTree = "<group>"; };
 		D9945B9E1B844FD900C954A4 /* QKBaseResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKBaseResult.h; sourceTree = "<group>"; };
 		D9945B9F1B844FD900C954A4 /* QKBaseResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKBaseResult.m; sourceTree = "<group>"; };
-		D9945BA71B8455FE00C954A4 /* QKInvateFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKInvateFriendsViewController.h; sourceTree = "<group>"; };
-		D9945BA81B8455FE00C954A4 /* QKInvateFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKInvateFriendsViewController.m; sourceTree = "<group>"; };
-		D9945BA91B8455FE00C954A4 /* QKInvateFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QKInvateFriendsViewController.xib; sourceTree = "<group>"; };
-		D9945BAC1B84588A00C954A4 /* QKInvateCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKInvateCode.h; sourceTree = "<group>"; };
-		D9945BAD1B84588A00C954A4 /* QKInvateCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKInvateCode.m; sourceTree = "<group>"; };
-		D9945BAE1B84588A00C954A4 /* QKInvateResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKInvateResult.h; sourceTree = "<group>"; };
-		D9945BAF1B84588A00C954A4 /* QKInvateResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKInvateResult.m; sourceTree = "<group>"; };
 		D998E9F61BEAF3CC00A268A2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		D998E9F81BEAF3F000A268A2 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		D998E9FA1BEAF40800A268A2 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -556,6 +537,8 @@
 		D99B25211B85852700BFF143 /* QKNotFoundNetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKNotFoundNetView.m; sourceTree = "<group>"; };
 		D9A226371B9D8560001EE8D9 /* QKQRScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKQRScanView.h; sourceTree = "<group>"; };
 		D9A226381B9D8560001EE8D9 /* QKQRScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKQRScanView.m; sourceTree = "<group>"; };
+		D9A3587D1C0E9A8A00A4042D /* QKUploadIconTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKUploadIconTool.h; sourceTree = "<group>"; };
+		D9A3587E1C0E9A8A00A4042D /* QKUploadIconTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKUploadIconTool.m; sourceTree = "<group>"; };
 		D9A41C601B8D948300CA12A9 /* QKShareAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKShareAppViewController.h; sourceTree = "<group>"; };
 		D9A41C611B8D948300CA12A9 /* QKShareAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKShareAppViewController.m; sourceTree = "<group>"; };
 		D9A41C621B8D948300CA12A9 /* QKShareAppViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QKShareAppViewController.xib; sourceTree = "<group>"; };
@@ -607,6 +590,8 @@
 		D9E972891B9C009C001742CC /* QKMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKMessageView.h; sourceTree = "<group>"; };
 		D9E9728A1B9C009C001742CC /* QKMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKMessageView.m; sourceTree = "<group>"; };
 		D9EA3CC41B4F55360017BECF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D9EDF4181C15506F003A72A4 /* QKTestPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKTestPushViewController.h; sourceTree = "<group>"; };
+		D9EDF4191C15506F003A72A4 /* QKTestPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKTestPushViewController.m; sourceTree = "<group>"; };
 		D9FD7C411B69B1A800A517F9 /* QKModifyUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKModifyUserInfoViewController.h; sourceTree = "<group>"; };
 		D9FD7C421B69B1A800A517F9 /* QKModifyUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKModifyUserInfoViewController.m; sourceTree = "<group>"; };
 		D9FD7C441B69B1A800A517F9 /* QKLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKLocation.h; sourceTree = "<group>"; };
@@ -657,7 +642,6 @@
 				7BFB848B1B40E4020001FA88 /* QuartzCore.framework in Frameworks */,
 				7BFB84891B40E3F80001FA88 /* CoreVideo.framework in Frameworks */,
 				7BFB84871B40E3EA0001FA88 /* CoreMedia.framework in Frameworks */,
-				D947BB6C1B7D9B9500765D2D /* ALBB_OSS_IOS_SDK.framework in Frameworks */,
 				7BFB84851B40E2EB0001FA88 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -748,6 +732,8 @@
 				D97C3A0B1B8AE14300F2709C /* QKShareTool.m */,
 				D98E157E1B8EF65900E4F1C5 /* QKBackgroudTool.h */,
 				D98E157F1B8EF65900E4F1C5 /* QKBackgroudTool.m */,
+				D9A3587D1C0E9A8A00A4042D /* QKUploadIconTool.h */,
+				D9A3587E1C0E9A8A00A4042D /* QKUploadIconTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -786,7 +772,6 @@
 			isa = PBXGroup;
 			children = (
 				D95153FF1C06E99B009F9428 /* products.plist */,
-				D947BB6B1B7D9B9500765D2D /* ALBB_OSS_IOS_SDK.framework */,
 				D94AE7281B5F5B98006F4B1A /* area.plist */,
 				D9E15ABB1B4B7985003B25FA /* line@2x.png */,
 				D9E15ABC1B4B7985003B25FA /* pick_bg@2x.png */,
@@ -832,8 +817,6 @@
 				D95153FD1C06DFCA009F9428 /* Recharge(充值) */,
 				D907C3C11C0BD981000BA8E6 /* TimeLimitExchange(限时兑换) */,
 				D9E048C01C0D766100CA651A /* HappyVideo(开心动画) */,
-				D9945BA11B84547D00C954A4 /* InvateFriends */,
-				D9945B941B84495A00C954A4 /* PutinInvateCode(填写邀请码) */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -853,8 +836,6 @@
 			children = (
 				D9A41C971B8DADAC00CA12A9 /* QKDiscoverController.h */,
 				D9A41C981B8DADAC00CA12A9 /* QKDiscoverController.m */,
-				D988B7951C04435700C3E239 /* QKNewDiscoverController.h */,
-				D988B7961C04435700C3E239 /* QKNewDiscoverController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1484,54 +1465,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		D9945B941B84495A00C954A4 /* PutinInvateCode(填写邀请码) */ = {
-			isa = PBXGroup;
-			children = (
-				D9945B951B84495A00C954A4 /* Controller */,
-			);
-			path = "PutinInvateCode(填写邀请码)";
-			sourceTree = "<group>";
-		};
-		D9945B951B84495A00C954A4 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				D9945B991B844A7B00C954A4 /* QKPutinInvateCodeVC.h */,
-				D9945B9A1B844A7B00C954A4 /* QKPutinInvateCodeVC.m */,
-				D9945B9B1B844A7B00C954A4 /* QKPutinInvateCodeVC.xib */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		D9945BA11B84547D00C954A4 /* InvateFriends */ = {
-			isa = PBXGroup;
-			children = (
-				D9945BA21B84547D00C954A4 /* Controller */,
-				D9945BA31B84547D00C954A4 /* Model */,
-			);
-			path = InvateFriends;
-			sourceTree = "<group>";
-		};
-		D9945BA21B84547D00C954A4 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				D9945BA71B8455FE00C954A4 /* QKInvateFriendsViewController.h */,
-				D9945BA81B8455FE00C954A4 /* QKInvateFriendsViewController.m */,
-				D9945BA91B8455FE00C954A4 /* QKInvateFriendsViewController.xib */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		D9945BA31B84547D00C954A4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D9945BAC1B84588A00C954A4 /* QKInvateCode.h */,
-				D9945BAD1B84588A00C954A4 /* QKInvateCode.m */,
-				D9945BAE1B84588A00C954A4 /* QKInvateResult.h */,
-				D9945BAF1B84588A00C954A4 /* QKInvateResult.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		D9BA955A1B5C9956009BF610 /* LJWKeyboardHandler */ = {
 			isa = PBXGroup;
 			children = (
@@ -1563,6 +1496,8 @@
 		D9C7C64F1B72E90300DC93BA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D9EDF4181C15506F003A72A4 /* QKTestPushViewController.h */,
+				D9EDF4191C15506F003A72A4 /* QKTestPushViewController.m */,
 				D9C7C6501B72E90300DC93BA /* QKWebViewController.h */,
 				D9C7C6511B72E90300DC93BA /* QKWebViewController.m */,
 			);
@@ -1895,7 +1830,6 @@
 				D947BB8F1B7DB75600765D2D /* UMSLoginViewController.xib in Resources */,
 				D9E15ABE1B4B7985003B25FA /* pick_bg@2x.png in Resources */,
 				D981B9FE1B427CB0000B0EFA /* MBProgressHUD.bundle in Resources */,
-				D9945BAB1B8455FE00C954A4 /* QKInvateFriendsViewController.xib in Resources */,
 				D947BB8A1B7DB75600765D2D /* UMSCommentDetailController.xib in Resources */,
 				D947BB881B7DB75600765D2D /* UMSocialLocalizable.strings in Resources */,
 				D9FD7C581B69B1A800A517F9 /* QKPickerView.xib in Resources */,
@@ -1907,7 +1841,6 @@
 				D947BB921B7DB75600765D2D /* UMSocialSDKResourcesNew.bundle in Resources */,
 				7B240B731B413071000EF832 /* QKLoginViewController.xib in Resources */,
 				D9A41C641B8D948300CA12A9 /* QKShareAppViewController.xib in Resources */,
-				D9945B9D1B844A7B00C954A4 /* QKPutinInvateCodeVC.xib in Resources */,
 				D947BB8E1B7DB75600765D2D /* UMShareEditViewControlleriPad.xib in Resources */,
 				D947BB8D1B7DB75600765D2D /* UMShareEditViewController.xib in Resources */,
 				D9E15ABD1B4B7985003B25FA /* line@2x.png in Resources */,
@@ -1933,6 +1866,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B240B8D1B41400F000EF832 /* AFHTTPRequestOperation.m in Sources */,
+				D9A3587F1C0E9A8A00A4042D /* QKUploadIconTool.m in Sources */,
 				3D0B28881B80B70200FC1367 /* KxMenu.m in Sources */,
 				D95D785D1B4E2551007F58E8 /* SDWebImageManager.m in Sources */,
 				D90BD44D1BE892A10018B118 /* ImagePlayerView.m in Sources */,
@@ -1950,7 +1884,6 @@
 				D907C3C51C0BD9B5000BA8E6 /* QKTimeLimitDetailViewController.m in Sources */,
 				D9945BA01B844FD900C954A4 /* QKBaseResult.m in Sources */,
 				D9855C741B55E9B9008DD932 /* QKCheckString.m in Sources */,
-				D9945BAA1B8455FE00C954A4 /* QKInvateFriendsViewController.m in Sources */,
 				D9BA956B1B5C9956009BF610 /* UIViewController+LJWKeyboardHandlerHelper.m in Sources */,
 				7BFB84A31B40E7950001FA88 /* HMCommonViewController.m in Sources */,
 				D95D78611B4E2551007F58E8 /* UIImage+MultiFormat.m in Sources */,
@@ -1971,7 +1904,6 @@
 				D98CA44E1BE9952100732958 /* QKRadioDetailView.m in Sources */,
 				D9E9727E1B9BE784001742CC /* QKMessageContent.m in Sources */,
 				D95D78591B4E2551007F58E8 /* SDWebImageCompat.m in Sources */,
-				D9945BB11B84588A00C954A4 /* QKInvateResult.m in Sources */,
 				7B7D85D31B3FCFD6007504B8 /* QKHomeViewController.m in Sources */,
 				7B240B771B41362C000EF832 /* QKRegistViewController.m in Sources */,
 				D95D78651B4E2551007F58E8 /* UIView+WebCacheOperation.m in Sources */,
@@ -1991,13 +1923,11 @@
 				7B7D85CD1B3FCED1007504B8 /* main.m in Sources */,
 				D98ED4531B86C3AA00F090BA /* FMDatabasePool.m in Sources */,
 				D95D785C1B4E2551007F58E8 /* SDWebImageDownloaderOperation.m in Sources */,
-				D9945BB01B84588A00C954A4 /* QKInvateCode.m in Sources */,
 				D98ED4651B86D4B700F090BA /* QKDataBaseTool.m in Sources */,
 				D9E0B1D01B54D79300C70063 /* QKLoginData.m in Sources */,
 				D981B9F61B426FBD000B0EFA /* OpenUDID.m in Sources */,
 				D968C6661B82BEC00034C5E4 /* QKPeaCountData.m in Sources */,
 				D98ED4521B86C3AA00F090BA /* FMDatabaseAdditions.m in Sources */,
-				D9945B9C1B844A7B00C954A4 /* QKPutinInvateCodeVC.m in Sources */,
 				D95153FA1C06D365009F9428 /* QKRechargeViewController.m in Sources */,
 				D97C3A0C1B8AE14300F2709C /* QKShareTool.m in Sources */,
 				D90BD4401BE888210018B118 /* QKVideo.m in Sources */,
@@ -2015,6 +1945,7 @@
 				D92E33861B43921100A4A34B /* QKAccount.m in Sources */,
 				D98CA4551BE9CE6D00732958 /* QKBottomAnimationView.m in Sources */,
 				D94524481B83176A0090BE54 /* QKAlertView.m in Sources */,
+				D9EDF41A1C15506F003A72A4 /* QKTestPushViewController.m in Sources */,
 				7BFB84A91B40E83E0001FA88 /* HMCommonCell.m in Sources */,
 				7B240B951B41400F000EF832 /* AFURLSessionManager.m in Sources */,
 				D90BD4371BE884A20018B118 /* QKHomeData.m in Sources */,
@@ -2081,7 +2012,6 @@
 				D98ED4621B86CEA800F090BA /* QKShareCell.m in Sources */,
 				7B7D85E31B3FD51C007504B8 /* NSDate+MJ.m in Sources */,
 				D981BA221B42888C000B0EFA /* MJTypeEncoding.m in Sources */,
-				D988B7971C04435700C3E239 /* QKNewDiscoverController.m in Sources */,
 				D92E338C1B43B29E00A4A34B /* QKControllerTool.m in Sources */,
 				D95205521B670FFC00E65F12 /* QKQRCodeViewController.m in Sources */,
 				7B7D85E21B3FD51C007504B8 /* Foundation+Log.m in Sources */,

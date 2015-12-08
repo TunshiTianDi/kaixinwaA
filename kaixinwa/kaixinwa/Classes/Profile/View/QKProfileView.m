@@ -56,46 +56,11 @@
         [icon addGestureRecognizer:tap];
         QKAccount * account = [QKAccountTool readAccount];
         if (account) {
-            NSString * fileName = [QKHttpTool md5HexDigest:account.phoneNum];
-            fileName = [fileName stringByAppendingPathExtension:@"png"];
-            //从沙盒中获取头像路径
-            NSString * iconPath =  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-            iconPath = [iconPath stringByAppendingPathComponent:fileName];
-            //        DCLog(@"%@",iconPath);
-            
-            if([[QKUserDefaults objectForKey:@"upload"] isEqualToString:@"hadUpload"]){
-                icon.image = [UIImage imageWithContentsOfFile:iconPath];
-                //设置背景
-                self.image = [QKBackgroudTool gaussianBlur:icon.image];
-                
-            }else{
-                icon.image = [UIImage imageNamed:@"change_avatar-1"];
-                
-                NSURL * iconURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://kaixinwaavatar.oss-cn-beijing.aliyuncs.com/%@",fileName]];
-                //下载头像
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                    NSData * data =[NSData dataWithContentsOfURL:iconURL];
-                    //回到主线程
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        if (data) {
-                            icon.image = [UIImage imageWithData:data];
-                            //设置背景
-                            self.image = [QKBackgroudTool gaussianBlur:icon.image];
-                            if (![[QKUserDefaults objectForKey:@"upload"] isEqualToString:@"hadUpload"]) {
-                                //储存头像到本地
-                                NSString * iconPath =  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-                                iconPath = [iconPath stringByAppendingPathComponent:fileName];
-                                [data writeToFile:iconPath atomically:YES];
-                                [QKUserDefaults setObject:@"hadUpload" forKey:@"upload"];
-                                [QKUserDefaults synchronize];
-                                
-                            }
-                        }else{
-                            icon.image = [UIImage imageNamed:@"change_avatar-1"];
-                        }
-                    });
-                });
-            }
+            NSString * header = [QKAccountTool readAccount].header;
+            NSURL * header_url = [NSURL URLWithString:header];
+            [icon sd_setImageWithURL:header_url placeholderImage:[UIImage imageNamed:@"change_avatar-1"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                self.image = [QKBackgroudTool gaussianBlur:image];
+            }];
         }else{
             icon.image = [UIImage imageNamed:@"change_avatar-1"];
         }
@@ -114,7 +79,7 @@
             nameLabel.font = [UIFont systemFontOfSize:17];
             [nameLabel setTextColor:[UIColor blackColor]];
             if ([account.user_name isEqualToString:@""]||account.user_name == nil) {
-                nameLabel.text = @"未设置";
+                nameLabel.text = @"点击头像设置昵称";
             }else{
                 nameLabel.text = account.user_name;
             }
@@ -169,18 +134,23 @@
 -(void)changeSchool:(NSNotification *)noti
 {
     self.schoolInfo.size = [noti.userInfo[@"school"] sizeWithAttributes:@{NSFontAttributeName:self.schoolInfo.font}];
+    self.schoolInfo.x = (self.width - self.schoolInfo.width)/2;
+    
+    
     self.schoolInfo.text = noti.userInfo[@"school"];
 }
 
 -(void)changeUserName:(NSNotification *)noti
 {
     self.nameLabel.size = [noti.userInfo[@"user_name"] sizeWithAttributes:@{NSFontAttributeName:self.nameLabel.font}];
+    self.nameLabel.x = (self.width - self.nameLabel.width)/2;
     self.nameLabel.text = noti.userInfo[@"user_name"];
 }
 
 -(void)changeSignature:(NSNotification *)noti
 {
     self.signature.size = [noti.userInfo[@"signature"] sizeWithAttributes:@{NSFontAttributeName:self.signature.font}];
+    self.signature.x = (self.width - self.signature.width)/2;
     self.signature.text = noti.userInfo[@"signature"];
 }
 

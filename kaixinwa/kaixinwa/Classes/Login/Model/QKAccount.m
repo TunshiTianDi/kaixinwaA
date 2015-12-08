@@ -38,6 +38,7 @@
         self.address = [decoder decodeObjectForKey:@"address"];
         self.qq = [decoder decodeObjectForKey:@"qq"];
         self.token = [decoder decodeObjectForKey:@"token"];
+        self.header = [decoder decodeObjectForKey:@"header"];
     }
     return self;
 }
@@ -63,6 +64,7 @@
     [encoder encodeObject:self.address forKey:@"address"];
     [encoder encodeObject:self.qq forKey:@"qq"];
     [encoder encodeObject:self.token forKey:@"token"];
+    [encoder encodeObject:self.header forKey:@"header"];
     
 }
 @end

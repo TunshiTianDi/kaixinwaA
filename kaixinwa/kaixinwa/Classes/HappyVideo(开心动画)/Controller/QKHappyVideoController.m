@@ -7,7 +7,7 @@
 //
 
 #import "QKHappyVideoController.h"
-
+#import "QKLoginViewController.h"
 @interface QKHappyVideoController ()
 
 @end
@@ -21,8 +21,28 @@
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    DCLog(@"%@",request.URL.absoluteString);
+    NSString * str = request.URL.absoluteString;
+    DCLog(@"%@",str);
+    if ([str hasPrefix:@"ios://ios//"]) {
+        NSArray * array= [str componentsSeparatedByString:@"//ios//"];
+        NSString * ocMethod = array.lastObject;
+        //        NSLog(@"%@",ocMethod);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [self performSelector:NSSelectorFromString(ocMethod)];
+#pragma clang diagnostic pop
+        return NO;
+    }
     return YES;
     
 }
+
+-(void)removeAccount
+{
+    QKLoginViewController* loginVc = [[QKLoginViewController alloc]init];
+    UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:loginVc];
+    [nav setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [self presentViewController:nav animated:YES completion:nil];
+}
+
 @end

@@ -27,7 +27,7 @@
         self.aiv = aiv;
         [self addSubview:aiv];
         UILabel * explainLabel = [[UILabel alloc]init];
-        explainLabel.text = @"请求中...";
+        explainLabel.text = @"请稍后...";
         explainLabel.textColor = [UIColor greenColor];
 //        explainLabel.backgroundColor = [UIColor redColor];
         explainLabel.font = [UIFont systemFontOfSize:15];
@@ -42,7 +42,7 @@
     [super layoutSubviews];
     self.aiv.x = 60;
     self.aiv.y = 100;
-    self.aiv.size = CGSizeMake(50, 50);
+    self.aiv.size = CGSizeMake(30, 30);
     
     
     

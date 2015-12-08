@@ -8,7 +8,6 @@
 
 #import "QKModifyUserInfoViewController.h"
 #import "QKCommonItemHeader.h"
-#import <ALBB_OSS_IOS_SDK/OSSService.h>
 #import "FDActionSheet.h"
 #import "QKHttpTool.h"
 #import "MBProgressHUD+MJ.h"
@@ -42,18 +41,6 @@
 @end
 
 @implementation QKModifyUserInfoViewController
-{
-    OSSBucket *bucket;
-    OSSData *ossDownloadData;
-    OSSData *ossUploadData;
-    NSString *accessKey;
-    NSString *secretKey;
-    NSString *yourBucket;
-    
-    NSString *yourUploadObjectKey;
-    NSString *yourUploadDataPath;
-    NSString *yourHostId;
-}
 
 #pragma mark - init view
 - (void)initView {
@@ -87,7 +74,6 @@
 
 -(void)changeIcon:(NSNotification *)note
 {
-    DCLog(@"通知--%s", __func__);
     self.iconItem.avatar = note.userInfo[ChangAvatarKey];
     [self.tableView reloadData];
 }
@@ -137,7 +123,6 @@
     signature.text = [account.signature isEqualToString:@""]? @"未设置" : account.signature;
     __weak typeof (HMCommonLabelItem) * weakSignature = signature;
     signature.operation = ^{
-        //        [self updateUserInfoWithParamType:@"signature" andCellType:weakSignature andTitle:@"设置个性签名" andEnumType:QKUpdateSignature];
         [self updateInfo:QKUpdateSignature andPlaceholder:@"设置个性签名" andKeyboardType:UIKeyboardTypeDefault andUpdateType:@"signature" andCellType:weakSignature];
     };
     group.items = @[nickname,signature];
@@ -320,7 +305,6 @@
     param.uid = account.uid;
     NSDictionary * paramDic = [param keyValues];
     [QKHttpTool post:UpdataUserInfoInterface params:paramDic success:^(id responseObj) {
-        DCLog(@"%@",responseObj);
         QKReturnResult * results = [QKReturnResult objectWithKeyValues:responseObj];
         NSString * code = [results.code stringValue];
         if ([code isEqualToString:@"201"]) {
@@ -344,39 +328,6 @@
     [self hideMyMask];
 }
 
-#pragma mark 阿里云服务器初始化参数
-//阿里云上传头像代码
--(void)setupOSSParams
-{
-    accessKey = ALBB_OSS_AccessKey;
-    secretKey = ALBB_OSS_SecretKey;
-    yourBucket = ALBB_OSS_Bucket;
-    yourUploadObjectKey = self.imageFileName;
-    yourUploadDataPath = self.imageDataPath;
-    yourHostId = ALBB_OSS_HostID;
-}
-//初始化阿里云服务
-- (void)initOSSService
-{
-    id<ALBBOSSServiceProtocol> ossService = [ALBBOSSServiceProvider getService];
-    [ossService setGlobalDefaultBucketAcl:PRIVATE];
-    [ossService setGlobalDefaultBucketHostId:yourHostId];
-    [ossService setAuthenticationType:ORIGIN_AKSK];
-    [ossService setGenerateToken:^(NSString *method, NSString *md5, NSString *type, NSString *date, NSString *xoss, NSString *resource){
-        NSString *signature = nil;
-        NSString *content = [NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@%@", method, md5, type, date, xoss, resource];
-        signature = [OSSTool calBase64Sha1WithData:content withKey:secretKey];
-        signature = [NSString stringWithFormat:@"OSS %@:%@", accessKey, signature];
-        NSLog(@"here signature:%@", signature);
-        return signature;
-    }];
-    bucket = [ossService getBucket:yourBucket];
-    
-    ossUploadData = [ossService getOSSDataWithBucket:bucket key:yourUploadObjectKey];
-    NSData *uploadData = [[NSData alloc] initWithContentsOfFile:yourUploadDataPath];
-    [ossUploadData setData:uploadData withType:@"type"];
-    [ossUploadData enableUploadCheckMd5sum:YES];
-}
 
 
 #pragma mark - 处理FDActionSheet的delegate
@@ -432,57 +383,49 @@
     // 1.取出选中的图片
     UIImage * originalImage = info[UIImagePickerControllerEditedImage];
     UIImage * newImage = [self.iconItem addImage:originalImage];
-    QKAccount * account = [QKAccountTool readAccount];
-    NSString * newImageName = [QKHttpTool md5HexDigest:account.phoneNum];
-    [self saveImage:newImage WithName:newImageName];
+    
+    [self saveImage:newImage];
     
     //发个改变头像的通知
     [[NSNotificationCenter defaultCenter] postNotificationName:ChangeAvatarNote object:nil userInfo:@{ChangAvatarKey : newImage}];
 }
 //处理照片本地化后上载
-- (void)saveImage:(UIImage *)tempImage WithName:(NSString *)imageName{
+- (void)saveImage:(UIImage *)tempImage{
     
     NSData * imageData = UIImageJPEGRepresentation(tempImage, 0.5);
     if(imageData==nil){
         imageData = UIImagePNGRepresentation(tempImage);
     }
-    imageName = [imageName stringByAppendingPathExtension:@"png"];
     
-    self.imageFileName = imageName;
     
     NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString* documentsDirectory = [paths objectAtIndex:0];
-    NSString* fullPathToFile = [documentsDirectory stringByAppendingPathComponent:imageName];
+    NSString* fullPathToFile = [documentsDirectory stringByAppendingPathComponent:@"upload_header.data"];
     // and then we write it out
+    DCLog(@"路径：%@",fullPathToFile);
     [imageData writeToFile:fullPathToFile atomically:YES];
     self.imageDataPath = fullPathToFile;
     
-    //设置上传图片参数
-    [self setupOSSParams];
-    //初始化阿里云服务
-    [self initOSSService];
     //开始上传
-    [self uploadStart];
+    [MBProgressHUD showMessage:@"正在上传..."];
+    NSDictionary * param = @{@"uid" : [QKAccountTool readAccount].uid};
+    [QKHttpTool sendNickPicWithImage:tempImage params:param success:^(id responseObj) {
+        NSDictionary * dataDic = responseObj[@"data"];
+        NSString * header = dataDic[@"header"];
+        //更新头像URL
+        QKAccount * account = [QKAccountTool readAccount];
+        account.header = header;
+        [QKAccountTool save:account];
+        
+        [MBProgressHUD hideHUD];
+        [MBProgressHUD showSuccess:@"上传成功"];
+    } failure:^(NSError *error) {
+        DCLog(@"%@",error);
+        [MBProgressHUD hideHUD];
+        [MBProgressHUD showError:@"上传失败"];
+    }];
 }
 
--(void)uploadStart
-{
-    [MBProgressHUD showMessage:@"正在上传"];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [ossUploadData uploadWithUploadCallback:^(BOOL isSuccess, NSError *error) {
-            if (isSuccess) {
-                [MBProgressHUD showSuccess:@"头像上传成功"];
-            } else {
-                DCLog(@"失败原因：%@", error);
-            }
-        } withProgressCallback:^(float progress) {
-            DCLog(@"当前进度： %f", progress);
-            if (progress >= 1.00) {
-                
-                [MBProgressHUD hideHUD];
-            }
-        }];
-    });
-}
+
 
 @end

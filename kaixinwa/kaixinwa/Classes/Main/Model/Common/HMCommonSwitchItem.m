@@ -15,6 +15,7 @@
     //存储数据
     NSUserDefaults * ud = [NSUserDefaults standardUserDefaults];
     [ud setBool:on forKey:self.title];
+    [ud synchronize];
 }
 
 -(void)setTitle:(NSString *)title

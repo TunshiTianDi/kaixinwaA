@@ -177,7 +177,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXK-GN-kkr">
-                    <rect key="frame" x="207" y="352" width="187" height="32"/>
+                    <rect key="frame" x="207" y="385" width="187" height="32"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="QEF-XV-8BW"/>
                         <constraint firstAttribute="width" constant="187" id="SwN-4a-F0p"/>
@@ -188,13 +188,25 @@
                         <action selector="RegistrationAgreement:" destination="-1" eventType="touchUpInside" id="WHP-Aa-VX7"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册即视为同意" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzs-Uh-jYO">
+                    <rect key="frame" x="241" y="367" width="119" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="KbS-F9-4F9"/>
+                        <constraint firstAttribute="width" constant="119" id="Psl-Fs-SNi"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="lzs-Uh-jYO" firstAttribute="top" secondItem="uHK-rw-PBa" secondAttribute="bottom" constant="23" id="5cx-Na-3Bs"/>
                 <constraint firstAttribute="bottom" secondItem="ogr-y8-omH" secondAttribute="bottom" id="8Eb-DC-ptB"/>
+                <constraint firstItem="UXK-GN-kkr" firstAttribute="top" secondItem="lzs-Uh-jYO" secondAttribute="bottom" constant="-3" id="8Zu-K4-RE0"/>
+                <constraint firstItem="lzs-Uh-jYO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="RYC-nA-oQE"/>
                 <constraint firstAttribute="trailing" secondItem="uHK-rw-PBa" secondAttribute="trailing" constant="8" id="S3J-rk-LF2"/>
                 <constraint firstItem="UXK-GN-kkr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dXv-yP-7PE"/>
-                <constraint firstItem="UXK-GN-kkr" firstAttribute="top" secondItem="uHK-rw-PBa" secondAttribute="bottom" constant="8" id="gRg-hj-TDT"/>
                 <constraint firstItem="uHK-rw-PBa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="hJC-Vd-Tof"/>
                 <constraint firstAttribute="trailing" secondItem="ogr-y8-omH" secondAttribute="trailing" id="tLw-yg-Kyt"/>
                 <constraint firstItem="ogr-y8-omH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uRT-a4-0mg"/>

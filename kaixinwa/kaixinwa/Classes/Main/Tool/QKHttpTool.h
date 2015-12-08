@@ -28,4 +28,5 @@
 
 + (void)postJSON:(NSString *)url params:(NSDictionary *)params success:(void (^)(id responseObj))success failure:(void (^)(NSError *error))failure;
 
++(void)sendNickPicWithImage:(UIImage *)image params:(NSDictionary *)params success:(void (^)(id responseObj))success failure:(void (^)(NSError *error))failure;
 @end

@@ -93,7 +93,7 @@
                     </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开心蛙版本1.2" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prc-st-oyE">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开心蛙版本2.0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prc-st-oyE">
                     <rect key="frame" x="269" y="177" width="62" height="62"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="62" id="wYa-BG-rYG"/>
@@ -123,7 +123,7 @@
                 <constraint firstItem="hFw-Dg-cHS" firstAttribute="top" secondItem="p2M-ld-zY0" secondAttribute="bottom" constant="30" id="umd-mL-nSY"/>
                 <constraint firstAttribute="centerX" secondItem="p2M-ld-zY0" secondAttribute="centerX" id="zTo-fi-bdL"/>
             </constraints>
-            <point key="canvasLocation" x="490" y="199"/>
+            <point key="canvasLocation" x="319" y="152"/>
         </view>
     </objects>
     <resources>

@@ -51,21 +51,21 @@
 #define RegisteInterface @"http://101.200.173.163/qkhl_api/index.php/kxwapi/User/regist"
 //短信验证码
 #define SendSMSInterface @"http://101.200.173.163/qkhl_api/index.php/kxwapi/Sms/sendSMS"
-
+//开心蛙修改密码验证接口
+#define codeVerityInterface @"http://101.200.173.111/kaixinwa2.0/kxwaapi.php/User/checkUser"
 //每日签到接口
-#define SignEverydayInterface @"http://101.200.173.163/qkhl_api/index.php/kxwapi/Sign/doSign"
+#define SignEverydayInterface @"http://101.200.173.111/kaixinwa2.0/kxwaapi.php/Sign/doSign"
 //修改信息接口
-#define UpdataUserInfoInterface @"http://101.200.173.163/qkhl_api/index.php/kxwapi/User/updateInfo"
+#define UpdataUserInfoInterface @"http://101.200.173.111/kaixinwa2.0/kxwaapi.php/User/updateInfo"
 
 //获取开心豆接口
 #define GetHappyPeaInterface @"http://101.200.173.111/kaixinwa2.0/index.php/kxwapi/Beancount/getcount"
 
-//@"http://101.200.173.163/qkhl_api/index.php/kxwapi/Beancount/getcount"
 
 #define QKUserDefaults [NSUserDefaults standardUserDefaults]
 
 //判断手机型号
-#define FourInch ([UIScreen mainScreen].bounds.size.height == 568.0)
+#define ISLessThanFourInch ([UIScreen mainScreen].bounds.size.height <= 568.0)
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 #define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
 #define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
@@ -84,6 +84,8 @@
 #define happyRadioUrl @"http://101.200.173.111/kaixinwa2.0/phone.php/Radio/index"
 //我的订单
 #define myOrderUrl @"http://101.200.173.111/kaixinwa2.0/mall.php/Index/order"
+//开心游戏
+#define happyGameUrl @"http://101.201.176.9/kxw_game/index.html"
 
 //阿里云密匙
 #define ALBB_OSS_AccessKey @"EHYIkXpXsuBqP2Gq"
@@ -108,6 +110,7 @@
 //首页通知开心益智游戏
 #define NotifacationToSkipGameWeb @"toSkipGame"
 #define GameKey @"toSkipGameKey"
+#define NotifacationToSkipGameMore @"toSkipGameMore"
 //首页通知限时兑换
 #define NotifacationToSkipTimeLimit @"toSkipLimit"
 #define NotifacationToSkipTimeLimitMore @"toSkipGoodMore"

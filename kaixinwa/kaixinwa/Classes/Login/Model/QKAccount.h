@@ -40,4 +40,6 @@
 @property(nonatomic,copy)NSString * qq;
 /** token*/
 @property(nonatomic,copy)NSString * token;
+/** 头像URL*/
+@property(nonatomic,copy)NSString * header;
 @end
