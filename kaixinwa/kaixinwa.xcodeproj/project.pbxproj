@@ -187,6 +187,7 @@
 		D9C7C6591B72E90300DC93BA /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C7C6551B72E90300DC93BA /* NJKWebViewProgress.m */; };
 		D9C7C65A1B72E90300DC93BA /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C7C6571B72E90300DC93BA /* NJKWebViewProgressView.m */; };
 		D9C7C6B71B72ED2400DC93BA /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C7C6B61B72ED2400DC93BA /* CoreTelephony.framework */; };
+		D9C93FBA1C16CE6300B80E78 /* QKHomeRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C93FB91C16CE6300B80E78 /* QKHomeRequestTool.m */; };
 		D9D90D6F1B44EC320071F068 /* QKProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D90D6E1B44EC320071F068 /* QKProfileHeaderView.m */; };
 		D9D90D721B44FFBA0071F068 /* QKProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D90D711B44FFBA0071F068 /* QKProfileView.m */; };
 		D9D90D751B4500E40071F068 /* QKBalanceView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D90D741B4500E40071F068 /* QKBalanceView.m */; };
@@ -565,6 +566,8 @@
 		D9C7C6561B72E90300DC93BA /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
 		D9C7C6571B72E90300DC93BA /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
 		D9C7C6B61B72ED2400DC93BA /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		D9C93FB81C16CE6300B80E78 /* QKHomeRequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKHomeRequestTool.h; sourceTree = "<group>"; };
+		D9C93FB91C16CE6300B80E78 /* QKHomeRequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKHomeRequestTool.m; sourceTree = "<group>"; };
 		D9D90D6D1B44EC320071F068 /* QKProfileHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKProfileHeaderView.h; sourceTree = "<group>"; };
 		D9D90D6E1B44EC320071F068 /* QKProfileHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKProfileHeaderView.m; sourceTree = "<group>"; };
 		D9D90D701B44FFBA0071F068 /* QKProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKProfileView.h; sourceTree = "<group>"; };
@@ -734,6 +737,8 @@
 				D98E157F1B8EF65900E4F1C5 /* QKBackgroudTool.m */,
 				D9A3587D1C0E9A8A00A4042D /* QKUploadIconTool.h */,
 				D9A3587E1C0E9A8A00A4042D /* QKUploadIconTool.m */,
+				D9C93FB81C16CE6300B80E78 /* QKHomeRequestTool.h */,
+				D9C93FB91C16CE6300B80E78 /* QKHomeRequestTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1778,6 +1783,7 @@
 				TargetAttributes = {
 					7B7D858A1B3FCA18007504B8 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 5TJBR4D2AC;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 1;
@@ -1786,7 +1792,7 @@
 								enabled = 0;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -1939,6 +1945,7 @@
 				7BFB84A61B40E8330001FA88 /* HMBadgeView.m in Sources */,
 				D9D90D6F1B44EC320071F068 /* QKProfileHeaderView.m in Sources */,
 				D9FD7C561B69B1A800A517F9 /* QKUpdateParam.m in Sources */,
+				D9C93FBA1C16CE6300B80E78 /* QKHomeRequestTool.m in Sources */,
 				D95D78621B4E2551007F58E8 /* UIImage+WebP.m in Sources */,
 				D92E337F1B4389F700A4A34B /* QKResetPasswordViewController.m in Sources */,
 				7B7D85DC1B3FD130007504B8 /* QKNavigationController.m in Sources */,

@@ -26,7 +26,7 @@
     [super viewDidLoad];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"fenxiang" highImageName:@"fenxiangsel" target:self action:@selector(cleanAll)];
-    self.shareArray = [QKDataBaseTool lookupTableContent];
+//    self.shareArray = [QKDataBaseTool lookupTableContent];
     
 }
 -(void)cleanAll
@@ -59,7 +59,6 @@
 }
 -(void)delayMethod
 {
-    [QKDataBaseTool cleanAll];
     self.shareArray = nil;
     [self.tableView reloadData];
     [MBProgressHUD hideHUD];
@@ -82,7 +81,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     QKShareCell *cell = [QKShareCell cellWithTableView:tableView];
-    
     // Configure the cell...
     QKMyShareObj * myshare = self.shareArray[indexPath.row];
     cell.myShare = myshare;

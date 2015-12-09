@@ -43,9 +43,9 @@
     [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[shareTo] content:content image:nil location:nil urlResource:urlResource presentedController:presentedController completion:^(UMSocialResponseEntity *response){
         if (response.responseCode == UMSResponseCodeSuccess) {
             //将分享内容插入数据库中
-            NSTimeInterval nowtime = [[NSDate date] timeIntervalSince1970];
-            NSString * creattime = [NSString stringWithFormat:@"%lf",nowtime];
-            [QKDataBaseTool insertInShareTableWithTitle:title andShareUrl:urlForShare andImageUrl:imageUrl andCreatTime:creattime];
+//            NSTimeInterval nowtime = [[NSDate date] timeIntervalSince1970];
+//            NSString * creattime = [NSString stringWithFormat:@"%lf",nowtime];
+            
             
             UIAlertView * av = [[UIAlertView alloc]initWithTitle:@"消息" message:@"分享成功" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
             [av show];

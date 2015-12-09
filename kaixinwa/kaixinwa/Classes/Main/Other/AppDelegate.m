@@ -87,7 +87,6 @@
     
     
     //建表
-    [QKDataBaseTool creatTableForShare];
     [QKDataBaseTool creatTableForTask];
     return YES;
 }
@@ -123,23 +122,6 @@
 //                 stringByReplacingOccurrencesOfString: @" " withString: @""]);
     [UMessage registerDeviceToken:deviceToken];
 }
-//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
-//{
-//    NSLog(@"-------%@",userInfo);
-//    self.userInfo = userInfo;
-//     NSString *alertStr = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
-//    if (application.applicationState == UIApplicationStateActive) {
-//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:[NSString stringWithFormat:@"%@", alertStr] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"查看", nil];
-//        [alertView show];
-//    }
-//    
-//    if (application.applicationState != UIApplicationStateBackground && application.applicationState != UIApplicationStateActive) {
-//        
-//        [self presentViewControllerWithPushInfo:userInfo];
-//    }
-////    [UMessage didReceiveRemoteNotification:userInfo];
-//
-//}
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
@@ -198,10 +180,6 @@
 }
 //后台接受推送 跳转
 - (void)presentViewControllerWithPushInfo:(NSDictionary *)userInfo{
-    
-//    NSUserDefaults *pushJudge = [NSUserDefaults standardUserDefaults];
-//    [pushJudge setObject:@"push" forKey:@"push"];
-//    [pushJudge synchronize];
     
     //这个是我要通过推送跳转过去到页面
     NSString * testStr = userInfo[@"test"];

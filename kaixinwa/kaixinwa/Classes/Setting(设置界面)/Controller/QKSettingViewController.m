@@ -17,9 +17,12 @@
 #import "QKDataBaseTool.h"
 #import "UIImageView+WebCache.h"
 #import "QKHttpTool.h"
+#import "AppDelegate.h"
 
 @interface QKSettingViewController ()<UIAlertViewDelegate>
 @property(nonatomic,copy)NSURL * trackViewUrl;
+
+@property(nonatomic,weak)HMCommonArrowItem * pushItem;
 @end
 
 @implementation QKSettingViewController
@@ -34,6 +37,12 @@
     
     [self setupGroups];
     [self setupFooter];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:) name:UIApplicationWillEnterForegroundNotification object:nil];
+}
+-(void)refreshView:(NSNotification *)noti
+{
+    self.pushItem.subtitle = [self isAllowedNotification]? @"已开启" : @"未开启";
+    [self.tableView reloadData];
 }
 
 -(void)setupGroups
@@ -47,8 +56,17 @@
 {
     HMCommonGroup * group = [HMCommonGroup group];
     [self.groups addObject:group];
-//    HMCommonSwitchItem * switchItem = [HMCommonSwitchItem itemWithTitle:@"消息推送提醒"];
-    
+    HMCommonArrowItem * pushItem = [HMCommonArrowItem itemWithTitle:@"消息推送提醒"];
+    pushItem.subtitle = [self isAllowedNotification]? @"已开启" : @"未开启";
+    pushItem.operation = ^{
+//        NSURL *url = [NSURL URLWithString:@"prefs:root=NOTIFICATIONS_ID"];
+        NSURL * url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+        if ([[UIApplication sharedApplication] canOpenURL:url])
+        {
+            [[UIApplication sharedApplication] openURL:url];
+        }
+    };
+    self.pushItem = pushItem;
     
     HMCommonArrowItem * clearItem = [HMCommonArrowItem itemWithTitle:@"清除图片缓存"];
     CGFloat fileSize = [SDWebImageManager sharedManager].imageCache.getSize / 1024.0;
@@ -70,7 +88,7 @@
         
         [MBProgressHUD hideHUD];
     };
-    group.items = @[clearItem];
+    group.items = @[clearItem,pushItem];
 }
 
 -(void)setupGroup1
@@ -171,6 +189,15 @@
     //    NSArray *contents = [mgr contentsOfDirectoryAtPath:file error:nil];
 }
 
+- (BOOL)isAllowedNotification
+{
+    UIUserNotificationSettings *setting = [[UIApplication sharedApplication] currentUserNotificationSettings];
+    if(UIUserNotificationTypeNone != setting.types) {
+        return YES;
+    }
+    return NO;
+}
+
 //检查更新
 /*
  -(void)startCheckUpdate
@@ -226,4 +253,8 @@
  alertView = nil;
  }
  */
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 @end

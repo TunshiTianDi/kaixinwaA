@@ -30,6 +30,7 @@
 #import "QKLoginViewController.h"
 #import "QKTimeLimitDetailViewController.h"
 #import "QKHappyVideoController.h"
+#import "QKHomeRequestTool.h"
 
 @interface QKHomeViewController ()<ImagePlayerViewDelegate>
 @property(nonatomic,strong)NSMutableArray * imageUrls;
@@ -67,10 +68,8 @@
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"huoqudaan" highImageName:@"huoqudaan_sel" target:self action:@selector(toScanView)];
     
     [self creatUI];
-    
     //发送请求获取首页数据
-    [QKHttpTool post:@"http://101.200.173.111/kaixinwa2.0/index.php/Kxwapi/Index/getHome" params:nil success:^(id responseObj) {
-        DCLog(@"%@",responseObj);
+    [QKHomeRequestTool postHomeResultSuccess:^(id responseObj) {
         QKFirstHome * home = [QKFirstHome objectWithKeyValues:responseObj];
         for (QKLunbo * lunbo in home.data.lunbo) {
             [self.imageUrls addObject:lunbo.lunbo_faceurl];
@@ -81,12 +80,11 @@
         self.anView.items = home.data.video;
         self.gameView.items = home.data.game;
         [self.imagePlayerView reloadData];
-        
     } failure:^(NSError *error) {
         DCLog(@"%@",error);
         [MBProgressHUD showError:@"请求失败..."];
     }];
-    
+    //注册各种通知
     [self registNotifications];
 }
 -(void)registNotifications
@@ -302,7 +300,7 @@
     [self.imageUrls removeAllObjects];
     [self.lunboDesUrls removeAllObjects];
     //发送请求获取首页数据
-    [QKHttpTool post:@"http://101.200.173.111/kaixinwa2.0/index.php/Kxwapi/Index/getHome" params:nil success:^(id responseObj) {
+    [QKHomeRequestTool postHomeResultForRefreshSuccess:^(id responseObj) {
         QKFirstHome * home = [QKFirstHome objectWithKeyValues:responseObj];
         for (QKLunbo * lunbo in home.data.lunbo) {
             [self.imageUrls addObject:lunbo.lunbo_faceurl];
@@ -314,11 +312,12 @@
         self.gameView.items = home.data.game;
         [self.imagePlayerView reloadData];
         [refreshControl endRefreshing];
+
     } failure:^(NSError *error) {
         DCLog(@"%@",error);
         [refreshControl endRefreshing];
     }];
-    
+
 }
 
 //设置轮播视图代理
