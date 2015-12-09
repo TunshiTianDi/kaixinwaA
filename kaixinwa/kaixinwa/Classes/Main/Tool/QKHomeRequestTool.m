@@ -22,9 +22,8 @@
     }else{
         [QKHttpTool post:@"http://101.200.173.111/kaixinwa2.0/index.php/Kxwapi/Index/getHome" params:nil success:^(id responseObj) {
             if (success) {
-                if (![NSKeyedUnarchiver unarchiveObjectWithFile:QKHomeCacheFilepath]) {
-                    [NSKeyedArchiver archiveRootObject:responseObj toFile:QKHomeCacheFilepath];
-                }
+                //归档
+                [NSKeyedArchiver archiveRootObject:responseObj toFile:QKHomeCacheFilepath];
                 success(responseObj);
             }
         } failure:^(NSError *error) {
@@ -39,9 +38,7 @@
 {
     [QKHttpTool post:@"http://101.200.173.111/kaixinwa2.0/index.php/Kxwapi/Index/getHome" params:nil success:^(id responseObj) {
         if (success) {
-            if (![NSKeyedUnarchiver unarchiveObjectWithFile:QKHomeCacheFilepath]) {
-                [NSKeyedArchiver archiveRootObject:responseObj toFile:QKHomeCacheFilepath];
-            }
+            [NSKeyedArchiver archiveRootObject:responseObj toFile:QKHomeCacheFilepath];
             success(responseObj);
         }
     } failure:^(NSError *error) {

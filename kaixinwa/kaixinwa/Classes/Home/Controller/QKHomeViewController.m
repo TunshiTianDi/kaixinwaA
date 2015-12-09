@@ -238,8 +238,8 @@
     imagePlayerView.frame = CGRectMake(0, 0, self.view.width, 160);
     imagePlayerView.imagePlayerViewDelegate = self;
     imagePlayerView.scrollInterval = 5.0;
-    imagePlayerView.pageControlPosition = ICPageControlPosition_BottomCenter;
-    imagePlayerView.pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    imagePlayerView.pageControlPosition = ICPageControlPosition_BottomRight;
+    imagePlayerView.pageControl.pageIndicatorTintColor = [UIColor whiteColor];
     imagePlayerView.pageControl.currentPageIndicatorTintColor = [UIColor greenColor];
     self.imagePlayerView = imagePlayerView;
     [scrollView addSubview:imagePlayerView];
