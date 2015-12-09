@@ -90,12 +90,12 @@
 {
     [self.loadingView hideView];
     self.loadingView = nil;
-    for (SKProduct *product in response.products) {
-        DCLog(@"%@", product.localizedTitle);
-        DCLog(@"%@", product.localizedDescription);
-        DCLog(@"%@", product.price);
-        DCLog(@"%@", product.productIdentifier);
-    }
+//    for (SKProduct *product in response.products) {
+//        DCLog(@"%@", product.localizedTitle);
+//        DCLog(@"%@", product.localizedDescription);
+//        DCLog(@"%@", product.price);
+//        DCLog(@"%@", product.productIdentifier);
+//    }
     
     // 1.保留所有的可销售商品
     self.products = response.products;
