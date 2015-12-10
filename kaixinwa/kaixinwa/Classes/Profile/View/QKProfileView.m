@@ -58,9 +58,22 @@
         if (account) {
             NSString * header = [QKAccountTool readAccount].header;
             NSURL * header_url = [NSURL URLWithString:header];
-            [icon sd_setImageWithURL:header_url placeholderImage:[UIImage imageNamed:@"change_avatar-1"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                self.image = [QKBackgroudTool gaussianBlur:image];
-            }];
+            NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString* documentsDirectory = [paths objectAtIndex:0];
+            NSString* fullPathToFile = [documentsDirectory stringByAppendingPathComponent:@"upload_header.data"];
+            NSData * data = [NSData dataWithContentsOfFile:fullPathToFile];
+            if(data){
+                UIImage * placeholderImage = [UIImage imageWithData:data];
+                icon.image = placeholderImage;
+                self.image = [QKBackgroudTool gaussianBlur:placeholderImage];
+            }else{
+                [icon sd_setImageWithURL:header_url placeholderImage:[UIImage imageNamed:@"change_avatar-1"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                    self.image = [QKBackgroudTool gaussianBlur:image];
+                    
+                    [data writeToFile:fullPathToFile atomically:YES];
+                    
+                }];
+            }
         }else{
             icon.image = [UIImage imageNamed:@"change_avatar-1"];
         }

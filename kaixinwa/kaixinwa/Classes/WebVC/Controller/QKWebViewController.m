@@ -112,7 +112,6 @@
 {
     self.isFail = NO;
     
-    
     return YES;
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView

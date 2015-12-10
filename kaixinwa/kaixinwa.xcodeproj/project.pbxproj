@@ -183,6 +183,11 @@
 		D9BA956B1B5C9956009BF610 /* UIViewController+LJWKeyboardHandlerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BA95641B5C9956009BF610 /* UIViewController+LJWKeyboardHandlerHelper.m */; };
 		D9BA956C1B5C9956009BF610 /* UIWindow+LJWPresentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BA95661B5C9956009BF610 /* UIWindow+LJWPresentViewController.m */; };
 		D9BA95741B5CDA66009BF610 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9BA95731B5CDA66009BF610 /* SystemConfiguration.framework */; };
+		D9C034B01C1905D400E4A017 /* QKGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C034AF1C1905D400E4A017 /* QKGameObject.m */; };
+		D9C034B31C190C8900E4A017 /* QKGameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C034B21C190C8900E4A017 /* QKGameCell.m */; };
+		D9C034B61C190F4000E4A017 /* QKGameDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C034B51C190F4000E4A017 /* QKGameDetailView.m */; };
+		D9C034B91C19100300E4A017 /* QKGameDetailViewFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C034B81C19100300E4A017 /* QKGameDetailViewFrame.m */; };
+		D9C034BC1C1911A400E4A017 /* QKGameFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C034BB1C1911A400E4A017 /* QKGameFrame.m */; };
 		D9C7C6581B72E90300DC93BA /* QKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C7C6511B72E90300DC93BA /* QKWebViewController.m */; };
 		D9C7C6591B72E90300DC93BA /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C7C6551B72E90300DC93BA /* NJKWebViewProgress.m */; };
 		D9C7C65A1B72E90300DC93BA /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C7C6571B72E90300DC93BA /* NJKWebViewProgressView.m */; };
@@ -192,6 +197,7 @@
 		D9D90D721B44FFBA0071F068 /* QKProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D90D711B44FFBA0071F068 /* QKProfileView.m */; };
 		D9D90D751B4500E40071F068 /* QKBalanceView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D90D741B4500E40071F068 /* QKBalanceView.m */; };
 		D9D90D781B4502530071F068 /* QKUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D90D771B4502530071F068 /* QKUserInfo.m */; };
+		D9DC97DB1C190351000A0D51 /* QKGameListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DC97DA1C190351000A0D51 /* QKGameListViewController.m */; };
 		D9E048C61C0D77E300CA651A /* QKHappyVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E048C51C0D77E300CA651A /* QKHappyVideoController.m */; };
 		D9E0B1D01B54D79300C70063 /* QKLoginData.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E0B1CF1B54D79300C70063 /* QKLoginData.m */; };
 		D9E0B1D31B54EA3B00C70063 /* QKResetParam.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E0B1D21B54EA3B00C70063 /* QKResetParam.m */; };
@@ -559,6 +565,16 @@
 		D9BA95661B5C9956009BF610 /* UIWindow+LJWPresentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+LJWPresentViewController.m"; sourceTree = "<group>"; };
 		D9BA956D1B5CA678009BF610 /* QKCommonItemHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QKCommonItemHeader.h; sourceTree = "<group>"; };
 		D9BA95731B5CDA66009BF610 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D9C034AE1C1905D400E4A017 /* QKGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKGameObject.h; sourceTree = "<group>"; };
+		D9C034AF1C1905D400E4A017 /* QKGameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKGameObject.m; sourceTree = "<group>"; };
+		D9C034B11C190C8900E4A017 /* QKGameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKGameCell.h; sourceTree = "<group>"; };
+		D9C034B21C190C8900E4A017 /* QKGameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKGameCell.m; sourceTree = "<group>"; };
+		D9C034B41C190F4000E4A017 /* QKGameDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKGameDetailView.h; sourceTree = "<group>"; };
+		D9C034B51C190F4000E4A017 /* QKGameDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKGameDetailView.m; sourceTree = "<group>"; };
+		D9C034B71C19100300E4A017 /* QKGameDetailViewFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKGameDetailViewFrame.h; sourceTree = "<group>"; };
+		D9C034B81C19100300E4A017 /* QKGameDetailViewFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKGameDetailViewFrame.m; sourceTree = "<group>"; };
+		D9C034BA1C1911A400E4A017 /* QKGameFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKGameFrame.h; sourceTree = "<group>"; };
+		D9C034BB1C1911A400E4A017 /* QKGameFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKGameFrame.m; sourceTree = "<group>"; };
 		D9C7C6501B72E90300DC93BA /* QKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKWebViewController.h; sourceTree = "<group>"; };
 		D9C7C6511B72E90300DC93BA /* QKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKWebViewController.m; sourceTree = "<group>"; };
 		D9C7C6541B72E90300DC93BA /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
@@ -576,6 +592,8 @@
 		D9D90D741B4500E40071F068 /* QKBalanceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKBalanceView.m; sourceTree = "<group>"; };
 		D9D90D761B4502530071F068 /* QKUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKUserInfo.h; sourceTree = "<group>"; };
 		D9D90D771B4502530071F068 /* QKUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKUserInfo.m; sourceTree = "<group>"; };
+		D9DC97D91C190351000A0D51 /* QKGameListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKGameListViewController.h; sourceTree = "<group>"; };
+		D9DC97DA1C190351000A0D51 /* QKGameListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKGameListViewController.m; sourceTree = "<group>"; };
 		D9E048C41C0D77E300CA651A /* QKHappyVideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKHappyVideoController.h; sourceTree = "<group>"; };
 		D9E048C51C0D77E300CA651A /* QKHappyVideoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKHappyVideoController.m; sourceTree = "<group>"; };
 		D9E0B1CE1B54D79300C70063 /* QKLoginData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKLoginData.h; sourceTree = "<group>"; };
@@ -807,6 +825,7 @@
 		7B7D85B51B3FCED1007504B8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D9DC97D51C190326000A0D51 /* Game */,
 				D9C7C64E1B72E90300DC93BA /* WebVC */,
 				D9573A011B5498A7006ABB27 /* NewFeature */,
 				7B240B691B412C93000EF832 /* Login */,
@@ -1532,6 +1551,49 @@
 			path = NJKWebViewProgress;
 			sourceTree = "<group>";
 		};
+		D9DC97D51C190326000A0D51 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				D9DC97D61C190326000A0D51 /* Controller */,
+				D9DC97D71C190326000A0D51 /* Model */,
+				D9DC97D81C190326000A0D51 /* View */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		D9DC97D61C190326000A0D51 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D9DC97D91C190351000A0D51 /* QKGameListViewController.h */,
+				D9DC97DA1C190351000A0D51 /* QKGameListViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D9DC97D71C190326000A0D51 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D9C034AE1C1905D400E4A017 /* QKGameObject.h */,
+				D9C034AF1C1905D400E4A017 /* QKGameObject.m */,
+				D9C034B71C19100300E4A017 /* QKGameDetailViewFrame.h */,
+				D9C034B81C19100300E4A017 /* QKGameDetailViewFrame.m */,
+				D9C034BA1C1911A400E4A017 /* QKGameFrame.h */,
+				D9C034BB1C1911A400E4A017 /* QKGameFrame.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D9DC97D81C190326000A0D51 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D9C034B11C190C8900E4A017 /* QKGameCell.h */,
+				D9C034B21C190C8900E4A017 /* QKGameCell.m */,
+				D9C034B41C190F4000E4A017 /* QKGameDetailView.h */,
+				D9C034B51C190F4000E4A017 /* QKGameDetailView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D9E048C01C0D766100CA651A /* HappyVideo(开心动画) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1879,6 +1941,7 @@
 				D90BD4491BE88F180018B118 /* QKFirstHome.m in Sources */,
 				D98CA4521BE9CC4100732958 /* QKAnimationView.m in Sources */,
 				7B7D85E41B3FD51C007504B8 /* UIView+Extension.m in Sources */,
+				D9DC97DB1C190351000A0D51 /* QKGameListViewController.m in Sources */,
 				D93497A61B5360BB0089B67A /* HMCommonCheckItem.m in Sources */,
 				D98CA45B1BE9ED6300732958 /* QKMoreButton.m in Sources */,
 				D9C7C6581B72E90300DC93BA /* QKWebViewController.m in Sources */,
@@ -1925,6 +1988,7 @@
 				D9573A071B54994D006ABB27 /* NewfeatureViewController.m in Sources */,
 				7B240B8E1B41400F000EF832 /* AFHTTPRequestOperationManager.m in Sources */,
 				D981BA1E1B42888C000B0EFA /* MJIvar.m in Sources */,
+				D9C034BC1C1911A400E4A017 /* QKGameFrame.m in Sources */,
 				D981BA1F1B42888C000B0EFA /* MJMember.m in Sources */,
 				7B7D85CD1B3FCED1007504B8 /* main.m in Sources */,
 				D98ED4531B86C3AA00F090BA /* FMDatabasePool.m in Sources */,
@@ -1959,6 +2023,7 @@
 				D99B25221B85852700BFF143 /* QKNotFoundNetView.m in Sources */,
 				D981BA251B42888C000B0EFA /* NSObject+MJMember.m in Sources */,
 				D90BD4461BE888400018B118 /* QKLunbo.m in Sources */,
+				D9C034B91C19100300E4A017 /* QKGameDetailViewFrame.m in Sources */,
 				D981B9FD1B427CB0000B0EFA /* MBProgressHUD+MJ.m in Sources */,
 				D94B86E81C040F06008CB9BB /* QKProfileViewFrame.m in Sources */,
 				D9E0B1D31B54EA3B00C70063 /* QKResetParam.m in Sources */,
@@ -1979,9 +2044,11 @@
 				D968C66C1B82E1F70034C5E4 /* QKCommonTaskButtonItem.m in Sources */,
 				D98ED4541B86C3AA00F090BA /* FMDatabaseQueue.m in Sources */,
 				D9D90D721B44FFBA0071F068 /* QKProfileView.m in Sources */,
+				D9C034B31C190C8900E4A017 /* QKGameCell.m in Sources */,
 				D9A226391B9D8560001EE8D9 /* QKQRScanView.m in Sources */,
 				D981BA201B42888C000B0EFA /* MJMethod.m in Sources */,
 				D95D785F1B4E2551007F58E8 /* UIButton+WebCache.m in Sources */,
+				D9C034B61C190F4000E4A017 /* QKGameDetailView.m in Sources */,
 				D981BA1D1B42888C000B0EFA /* MJFoundation.m in Sources */,
 				7BFB849D1B40E7580001FA88 /* HMCommonGroup.m in Sources */,
 				D95D78601B4E2551007F58E8 /* UIImage+GIF.m in Sources */,
@@ -2022,6 +2089,7 @@
 				D92E338C1B43B29E00A4A34B /* QKControllerTool.m in Sources */,
 				D95205521B670FFC00E65F12 /* QKQRCodeViewController.m in Sources */,
 				7B7D85E21B3FD51C007504B8 /* Foundation+Log.m in Sources */,
+				D9C034B01C1905D400E4A017 /* QKGameObject.m in Sources */,
 				7B240B991B4141FB000EF832 /* QKHttpTool.m in Sources */,
 				7BFB84A01B40E7580001FA88 /* HMCommonSwitchItem.m in Sources */,
 				7BFB849F1B40E7580001FA88 /* HMCommonLabelItem.m in Sources */,
@@ -2156,8 +2224,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Xin Hong Yang (YWSDBFFEG8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xin Hong Yang (YWSDBFFEG8)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2178,7 +2246,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qkhl.kaixinwaAnswer1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5d83f84f-e94d-425a-9ad0-b7ecaa471425";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2187,8 +2255,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Xin Hong Yang (YWSDBFFEG8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xin Hong Yang (YWSDBFFEG8)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2209,7 +2277,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qkhl.kaixinwaAnswer1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5d83f84f-e94d-425a-9ad0-b7ecaa471425";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

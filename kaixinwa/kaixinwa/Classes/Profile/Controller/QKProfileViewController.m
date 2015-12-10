@@ -100,8 +100,24 @@
     NSURL * header_url =[NSURL URLWithString:account.header];
     [self.headerView.profileView.icon sd_setImageWithURL:header_url placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         self.headerView.profileView.image = [QKBackgroudTool gaussianBlur:image];
+        
+        [self saveImage:image];
         [self.refreshControl endRefreshing];
     }];
+}
+
+-(void)saveImage:(UIImage *)image
+{
+    NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* documentsDirectory = [paths objectAtIndex:0];
+    NSString* fullPathToFile = [documentsDirectory stringByAppendingPathComponent:@"upload_header.data"];
+    // and then we write it out
+    //    DCLog(@"路径：%@",fullPathToFile);
+    NSData * imageData = UIImageJPEGRepresentation(image, 0.5);
+    if(imageData==nil){
+        imageData = UIImagePNGRepresentation(image);
+    }
+    [imageData writeToFile:fullPathToFile atomically:YES];
 }
 
 #pragma mark - 设置UI

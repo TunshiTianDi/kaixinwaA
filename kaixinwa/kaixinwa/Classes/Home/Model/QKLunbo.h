@@ -13,5 +13,6 @@
 @property(nonatomic,copy)NSString * lid;
 @property(nonatomic,copy)NSString * lunbo_des_url;
 @property(nonatomic,copy)NSString * lunbo_faceurl;
+@property(nonatomic,copy)NSString * view_type;
 
 @end

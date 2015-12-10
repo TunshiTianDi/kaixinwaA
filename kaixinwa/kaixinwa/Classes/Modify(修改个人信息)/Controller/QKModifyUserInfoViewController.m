@@ -402,7 +402,7 @@
     NSString* documentsDirectory = [paths objectAtIndex:0];
     NSString* fullPathToFile = [documentsDirectory stringByAppendingPathComponent:@"upload_header.data"];
     // and then we write it out
-    DCLog(@"路径：%@",fullPathToFile);
+//    DCLog(@"路径：%@",fullPathToFile);
     [imageData writeToFile:fullPathToFile atomically:YES];
     self.imageDataPath = fullPathToFile;
     

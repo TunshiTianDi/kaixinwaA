@@ -123,5 +123,6 @@
 
 //通知充值成功
 #define NotifacationSuccessForRecharge @"rechargeFinished"
-
+//通知点击开始游戏
+#define BeginGameNotifacation @"beginGameNotifacation"
 #endif

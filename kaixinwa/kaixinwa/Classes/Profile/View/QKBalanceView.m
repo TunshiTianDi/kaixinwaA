@@ -139,15 +139,17 @@
     self.swLabel.y = self.showBalanceLabel.y;
     self.swLabel.size = [self.swLabel.text sizeWithAttributes:@{NSFontAttributeName:self.swLabel.font}];
     
-    self.rechargeBtn.width = (QKScreenWidth - CGRectGetMaxX(self.swLabel.frame)- 5 * QKCellMargin)/2;
-    self.rechargeBtn.height = self.rechargeBtn.width/2.5;
-    self.rechargeBtn.x = CGRectGetMaxX(self.swLabel.frame) + 3 * QKCellMargin;
-    self.rechargeBtn.y = (self.height - self.rechargeBtn.height)/2;
     
-    self.shoppingBtn.width = self.rechargeBtn.width;
-    self.shoppingBtn.height = self.rechargeBtn.height;
-    self.shoppingBtn.x = CGRectGetMaxX(self.rechargeBtn.frame) + QKCellMargin;
-    self.shoppingBtn.y = self.rechargeBtn.y;
+    
+    self.shoppingBtn.width = 70;
+    self.shoppingBtn.height = self.rechargeBtn.width/2.5;
+    self.shoppingBtn.x = QKScreenWidth - QKCellMargin - self.shoppingBtn.width;
+    self.shoppingBtn.y = (self.height - self.shoppingBtn.height)/2;
+    
+    self.rechargeBtn.width = self.shoppingBtn.width;
+    self.rechargeBtn.height = self.shoppingBtn.height;
+    self.rechargeBtn.x = self.shoppingBtn.x -QKCellMargin - self.rechargeBtn.width;
+    self.rechargeBtn.y = (self.height - self.rechargeBtn.height)/2;
     
 }
 -(void)dealloc

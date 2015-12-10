@@ -31,10 +31,10 @@
 #import "QKTimeLimitDetailViewController.h"
 #import "QKHappyVideoController.h"
 #import "QKHomeRequestTool.h"
+#import "QKGameListViewController.h"
 
 @interface QKHomeViewController ()<ImagePlayerViewDelegate>
-@property(nonatomic,strong)NSMutableArray * imageUrls;
-@property(nonatomic,strong)NSMutableArray * lunboDesUrls;
+@property(nonatomic,strong)NSMutableArray * lunbos;
 @property(nonatomic,weak)UIScrollView * scrollView;
 @property(nonatomic,weak)ImagePlayerView * imagePlayerView;
 @property(nonatomic,weak)QKGridView * exchangeView;
@@ -45,19 +45,13 @@
 @end
 
 @implementation QKHomeViewController
--(NSMutableArray *)imageUrls
+
+-(NSMutableArray *)lunbos
 {
-    if (!_imageUrls) {
-        _imageUrls = [NSMutableArray array];
+    if (!_lunbos) {
+        _lunbos = [NSMutableArray array];
     }
-    return _imageUrls;
-}
--(NSMutableArray *)lunboDesUrls
-{
-    if (!_lunboDesUrls) {
-        _lunboDesUrls = [NSMutableArray array];
-    }
-    return _lunboDesUrls;
+    return _lunbos;
 }
 
 - (void)viewDidLoad {
@@ -70,10 +64,10 @@
     [self creatUI];
     //发送请求获取首页数据
     [QKHomeRequestTool postHomeResultSuccess:^(id responseObj) {
+//        DCLog(@"%@",responseObj);
         QKFirstHome * home = [QKFirstHome objectWithKeyValues:responseObj];
         for (QKLunbo * lunbo in home.data.lunbo) {
-            [self.imageUrls addObject:lunbo.lunbo_faceurl];
-            [self.lunboDesUrls addObject:lunbo.lunbo_des_url];
+            [self.lunbos addObject:lunbo];
         }
         self.exchangeView.items = home.data.goods;
         self.radioView.radio = home.data.radio;
@@ -162,9 +156,8 @@
 
 -(void)gameMore:(NSNotification *)noti
 {
-    QKWebViewController * wvc = [[QKWebViewController alloc]init];
-    NSString * url = noti.userInfo[@"url"];
-    wvc.urlStr = url;
+    //点击更多
+    QKGameListViewController * wvc = [[QKGameListViewController alloc]init];
     [self.navigationController pushViewController:wvc animated:YES];
 }
 -(void)tapGood:(NSNotification *)noti
@@ -203,6 +196,7 @@
     QKAccount * account = [QKAccountTool readAccount];
     QKHappyVideoController * web = [[QKHappyVideoController alloc]init];
      NSString * strAll = [NSString stringWithFormat:@"%@/Index/index/uid/%@/token/%@",noti.userInfo[@"url"],account.uid,account.token];
+    DCLog(@"%@",strAll);
     web.urlStr = strAll;
     [self.navigationController pushViewController:web animated:YES];
 }
@@ -297,14 +291,12 @@
 -(void)refreshHomeData:(UIRefreshControl *)refreshControl
 {
     [refreshControl beginRefreshing];
-    [self.imageUrls removeAllObjects];
-    [self.lunboDesUrls removeAllObjects];
+    [self.lunbos removeAllObjects];
     //发送请求获取首页数据
     [QKHomeRequestTool postHomeResultForRefreshSuccess:^(id responseObj) {
         QKFirstHome * home = [QKFirstHome objectWithKeyValues:responseObj];
         for (QKLunbo * lunbo in home.data.lunbo) {
-            [self.imageUrls addObject:lunbo.lunbo_faceurl];
-            [self.lunboDesUrls addObject:lunbo.lunbo_des_url];
+            [self.lunbos addObject:lunbo];
         }
         self.exchangeView.items = home.data.goods;
         self.radioView.radio = home.data.radio;
@@ -324,17 +316,34 @@
 #pragma mark - ImagePlayerViewDelegate
 - (NSInteger)numberOfItems
 {
-    return self.imageUrls.count;
+    return self.lunbos.count;
 }
 
 - (void)imagePlayerView:(ImagePlayerView *)imagePlayerView loadImageForImageView:(UIImageView *)imageView index:(NSInteger)index
 {
-    [imageView sd_setImageWithURL:[NSURL URLWithString:[self.imageUrls objectAtIndex:index]] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    QKLunbo* lunbo = self.lunbos[index];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:lunbo.lunbo_faceurl] placeholderImage:[UIImage imageNamed:@"placeholder"]];
 }
 
 - (void)imagePlayerView:(ImagePlayerView *)imagePlayerView didTapAtIndex:(NSInteger)index
 {
-    DCLog(@"did tap index = %@", self.lunboDesUrls[index]);
+    QKLunbo * lunbo = self.lunbos[index];
+    QKAccount * account = [QKAccountTool readAccount];
+//    DCLog(@"did tap index = %@", lunbo.view_type);
+    if ([lunbo.view_type isEqualToString:@"2"]) {
+        QKGameListViewController * glVc = [[QKGameListViewController alloc]init];
+        [self.navigationController pushViewController:glVc animated:YES];
+    }else if([lunbo.view_type isEqualToString:@"1"]){
+        QKTimeLimitDetailViewController * timeLimit = [[QKTimeLimitDetailViewController alloc]init];
+        NSString * urlStr = [NSString stringWithFormat:@"%@/uid/%@/token/%@",lunbo.lunbo_des_url,account.uid,account.token];
+        timeLimit.urlStr = urlStr;
+        [self.navigationController pushViewController:timeLimit animated:YES];
+    }else{
+        NSString *urlStr = [NSString stringWithFormat:@"%@/uid/%@/token/%@",lunbo.lunbo_des_url,account.uid,account.token];
+        QKHappyVideoController * hv = [[QKHappyVideoController alloc]init];
+        hv.urlStr = urlStr;
+        [self.navigationController pushViewController:hv animated:YES];
+    }
 }
 
 -(void)dealloc

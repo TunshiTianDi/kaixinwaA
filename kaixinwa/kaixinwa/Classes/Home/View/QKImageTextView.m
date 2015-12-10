@@ -78,7 +78,7 @@
         case 1:
         case 2:
         case 3:
-            DCLog(@"11111->%@->%@",self.game.gameurl,self.game.id_str);
+//            DCLog(@"11111->%@->%@",self.game.gameurl,self.game.id_str);
             [[NSNotificationCenter defaultCenter] postNotificationName:NotifacationToSkipGameWeb object:nil userInfo:@{GameKey : self.game.gameurl,@"id": self.game.id_str}];
             break;
         case 4:

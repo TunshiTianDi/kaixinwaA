@@ -14,6 +14,7 @@
 #import "QKHttpTool.h"
 #import "QKUploadIconTool.h"
 #import "QKHappyVideoController.h"
+#import "QKGameListViewController.h"
 
 @interface QKDiscoverController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,weak)UITableView * tableView;
@@ -97,7 +98,8 @@
         }
     }else if(1 == indexPath.section){
         if (0==indexPath.row) {
-            [self pushWebControllerWithUrl:happyGameUrl];
+            QKGameListViewController * gameVC = [[QKGameListViewController alloc]init];
+            [self.navigationController pushViewController:gameVC animated:YES];
             
         }else if (1 == indexPath.row){
             [self pushWebControllerWithUrl:timeLimitUrl];
