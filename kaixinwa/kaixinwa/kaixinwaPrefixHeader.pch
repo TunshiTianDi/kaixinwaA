@@ -49,8 +49,11 @@
 
 //注册接口
 #define RegisteInterface @"http://101.200.173.163/qkhl_api/index.php/kxwapi/User/regist"
+#define RegisteInterfaceNew @"http://101.200.173.111/kaixinwa2.0/kxwaapi.php/User/regist"
 //短信验证码
 #define SendSMSInterface @"http://101.200.173.163/qkhl_api/index.php/kxwapi/Sms/sendSMS"
+#define SendSMSInterfaceNew @"http://101.200.173.111/kaixinwa2.0/kxwaapi.php/User/modpwd"
+
 //开心蛙修改密码验证接口
 #define codeVerityInterface @"http://101.200.173.111/kaixinwa2.0/kxwaapi.php/User/checkUser"
 //每日签到接口

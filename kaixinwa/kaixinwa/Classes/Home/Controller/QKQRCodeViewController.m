@@ -175,13 +175,13 @@
             QKAnswerViewController * answerVC = [[QKAnswerViewController alloc]init];
             
             webVC.urlStr = metadataObject.stringValue;
-            DCLog(@"%@",metadataObject.stringValue);
+//            DCLog(@"扫描结果---%@",metadataObject.stringValue);
             if([metadataObject.stringValue hasPrefix:@"http://qkhl-api.com/math/"]||[metadataObject.stringValue hasPrefix:@"http://qkhl-api.com/english/"]||[metadataObject.stringValue hasPrefix:@"http://qkhl-api.com/chinese/"]){
                 NSString * str = metadataObject.stringValue;
                 NSString * str2 = [str componentsSeparatedByString:@"com/"].lastObject;
                 NSString * str3 =[str2 componentsSeparatedByString:@".p"].firstObject;
                 NSString *strUrl = [str3 stringByReplacingOccurrencesOfString:@"/" withString:@""];
-                DCLog(@"%@",strUrl);
+//                DCLog(@"拆分字符串-%@",strUrl);
                 answerVC.unique_code = strUrl;
                 [self.navigationController pushViewController:answerVC animated:YES];
                 

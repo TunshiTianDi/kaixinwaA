@@ -74,7 +74,7 @@
     //发送请求获取短信验证码
     
     NSDictionary * params = @{@"post_code":MiYao, @"telephone":self.phoneNumTF.text};
-    [QKHttpTool post:SendSMSInterface params:params success:^(id responseObj) {
+    [QKHttpTool post:SendSMSInterfaceNew params:params success:^(id responseObj) {
         DCLog(@"成功---%@",responseObj);
     } failure:^(NSError *error) {
         DCLog(@"失败----%@",error);

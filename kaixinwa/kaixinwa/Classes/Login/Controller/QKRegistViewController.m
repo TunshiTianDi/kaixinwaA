@@ -78,7 +78,7 @@
     [MBProgressHUD showMessage:@"提交中..."];
     NSDictionary * params = [self getRegistParams];
 //    @"http://192.168.1.115/qkhl_api/index.php/kxwapi/User/regist"
-    [QKHttpTool post:RegisteInterface params:params success:^(id responseObj) {
+    [QKHttpTool post:RegisteInterfaceNew params:params success:^(id responseObj) {
         DCLog(@"%@",responseObj);
         [MBProgressHUD hideHUD];
         QKReturnResult * results = [QKReturnResult objectWithKeyValues:responseObj];
@@ -142,7 +142,7 @@
     NSDictionary * params = @{@"post_code":MiYao, @"telephone":self.phoneNum.text};
 
     
-    [QKHttpTool post:SendSMSInterface params:params success:^(id responseObj) {
+    [QKHttpTool post:SendSMSInterfaceNew params:params success:^(id responseObj) {
         DCLog(@"成功---%@",responseObj);
     } failure:^(NSError *error) {
         DCLog(@"失败----%@",error);
